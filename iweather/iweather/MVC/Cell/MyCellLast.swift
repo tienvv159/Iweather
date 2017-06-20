@@ -21,6 +21,7 @@ class MyCellLast: UITableViewCell {
     @IBOutlet weak var lblF: UILabel!
     @IBOutlet weak var lblOF: UILabel!
     
+    var temperature = "F"
     
     
     @IBAction func AddLocation(_ sender: Any) {
@@ -32,6 +33,19 @@ class MyCellLast: UITableViewCell {
     @IBAction func changerValueCF(_ sender: Any) {
         if delegate != nil {
             delegate.checkTapToChangerTemperature(check: true)
+            if temperature == "F" {
+                lblF.textColor = UIColor.gray
+                lblOF.textColor = UIColor.gray
+                lblC.textColor = UIColor.white
+                lblOC.textColor = UIColor.white
+                temperature = "C"
+            }else if temperature == "C" {
+                lblF.textColor = UIColor.white
+                lblOF.textColor = UIColor.white
+                lblC.textColor = UIColor.gray
+                lblOC.textColor = UIColor.gray
+                temperature = "F"
+            }
         }
     }
     

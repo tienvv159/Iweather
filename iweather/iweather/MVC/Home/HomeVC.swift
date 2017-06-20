@@ -23,6 +23,16 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         super.viewDidLoad()
         registerCell()
     }
+    
+    func getDataFromRealm() {
+        do{
+            //let realm = try Realm()
+            //let listModel =
+            // chả về 1 mảng các model đã lưu trong reaml
+            //print(listModelSaverRealm)
+        }catch{}
+
+    }
 
     func registerCell()  {
         let nib1 = UINib(nibName: "MyCellLast", bundle: nil)
@@ -92,6 +102,20 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
                     self.arrTemperatureF.append(model.tempF)
                     self.arrTemperatureC.append(model.tempC)
                     self.myTableView.reloadData()
+                    
+                    
+                    do
+                    {
+                        
+                        let realm = try Realm()
+                        model.keySearch = loation
+                        try realm.write {
+                            realm.add(model)
+                        }
+                    }
+                    catch{}
+
+                    
                 }else{
                     // show alert
             }
@@ -103,14 +127,19 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "HomeDetailVC")
-        navigationController?.present(vc, animated: true, completion: nil)
+        if indexPath.row != arrCity?.count {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeDetailVC")
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
+        
     }
     
     
     func textSearch(text: String) {
         getAPI(loation: text)
+        
+        
     }
     
     func checkTapToChangerTemperature(check: Bool) {

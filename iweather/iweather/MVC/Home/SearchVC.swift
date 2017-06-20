@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 protocol SearchVCDelegate: NSObjectProtocol{
     func textSearch(text:String)
 }
@@ -36,7 +36,8 @@ class SearchVC: UIViewController , UISearchBarDelegate {
         if delegate != nil{ // phải set delegate cho SearchVC
             if let textSearch = mySearchBar.text{
                 delegate.textSearch(text: textSearch)
-            }else{
+                
+                }else{
                 // no location
             }
         }

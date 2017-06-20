@@ -22,6 +22,7 @@
 		843248D71EF7C7D7001A2C86 /* MyCellWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843248D51EF7C7D7001A2C86 /* MyCellWeather.xib */; };
 		843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248D81EF7E191001A2C86 /* HomeDetailVC.swift */; };
 		843248DB1EF7E6AD001A2C86 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 843248DA1EF7E6AD001A2C86 /* menu.png */; };
+		8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475A2DC1EF9327A00412025 /* ForecastModel.swift */; };
 		C08D8C2B03492DA9DF0642E4 /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E202ADDA2A4B9ECD06F93CF6 /* Pods_iweather.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		843248D51EF7C7D7001A2C86 /* MyCellWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellWeather.xib; sourceTree = "<group>"; };
 		843248D81EF7E191001A2C86 /* HomeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		843248DA1EF7E6AD001A2C86 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		8475A2DC1EF9327A00412025 /* ForecastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 		E202ADDA2A4B9ECD06F93CF6 /* Pods_iweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				843248D21EF7704E001A2C86 /* IweatheModel.swift */,
+				8475A2DC1EF9327A00412025 /* ForecastModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				843248D31EF7704E001A2C86 /* IweatheModel.swift in Sources */,
 				843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */,
 				843248D01EF76CFD001A2C86 /* SearchVC.swift in Sources */,
+				8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */,
 				843248D61EF7C7D7001A2C86 /* MyCellWeather.swift in Sources */,
 				843248CB1EF76292001A2C86 /* MyCellLast.swift in Sources */,
 				843248AD1EF759E3001A2C86 /* AppDelegate.swift in Sources */,
