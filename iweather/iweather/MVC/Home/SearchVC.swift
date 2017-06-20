@@ -20,6 +20,7 @@ class SearchVC: UIViewController , UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mySearchBar.becomeFirstResponder()
     }
     
     

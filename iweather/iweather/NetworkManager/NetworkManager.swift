@@ -17,6 +17,7 @@ class NetworkManager {
         Alamofire.request(api).responseJSON { (respon) in
             var JSON = respon.result.value as? [String : Any]
 
+       //     print(JSON)
             if let JSONModel = JSON {
                 let model = IweatheModel.init(dic: JSONModel)
                 myClosures(model)

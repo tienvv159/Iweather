@@ -7,4 +7,5 @@ target 'iweather' do
 
   # Pods for iweather
     pod ‘Alamofire’
+    pod ‘RealmSwift’
 end

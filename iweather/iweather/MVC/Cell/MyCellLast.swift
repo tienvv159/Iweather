@@ -10,11 +10,16 @@ import UIKit
 
 protocol MyCellLastDelegate {
     func checkTapToAddLocation(check:Bool)
+    func checkTapToChangerTemperature(check:Bool)
 }
 
 class MyCellLast: UITableViewCell {
     var delegate:MyCellLastDelegate! = nil
     
+    @IBOutlet weak var lblC: UILabel!
+    @IBOutlet weak var lblOC: UILabel!
+    @IBOutlet weak var lblF: UILabel!
+    @IBOutlet weak var lblOF: UILabel!
     
     
     
@@ -25,14 +30,9 @@ class MyCellLast: UITableViewCell {
     }
       
     @IBAction func changerValueCF(_ sender: Any) {
-        
-        
+        if delegate != nil {
+            delegate.checkTapToChangerTemperature(check: true)
+        }
     }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     
 }

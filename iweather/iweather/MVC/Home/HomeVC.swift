@@ -8,13 +8,17 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyCellLastDelegate, SearchVCDelegate{
     
     @IBOutlet weak var myTableView: UITableView!
     var arrCity:[[String : Any]]? = []
-    var arrTemperature:[[String:Any]]? = []
+    var arrTemperatureF:[Int] = []
+    var arrTemperatureC:[Int] = []
     let model:IweatheModel? = nil
+    var temperature:String = "F"
+    var arrConvertTemp:[Int]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
@@ -44,11 +48,28 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
             
             let dic:[String : Any] = (arrCity?[indexPath.row]) ?? [:]
             cell.lblCity.text = dic["city"] as? String
-            let dic1:[String : Any] = arrTemperature?[indexPath.row] ?? [:]
-            cell.lblTemperature.text = dic1["temp"] as? String
+            
+            if temperature == "F"{
+                cell.lblTemperature.text = String(arrTemperatureF[indexPath.row])
+            }else if temperature == "C"{
+                cell.lblTemperature.text = String(arrTemperatureC[indexPath.row])
+            }
             
             return cell
 
+        }
+    }
+    
+    // delete row
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            arrCity?.remove(at: indexPath.row)
+            arrTemperatureF.remove(at: indexPath.row)
+            arrTemperatureC.remove(at: indexPath.row)
+            myTableView.reloadData()
         }
     }
     
@@ -64,11 +85,12 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
     func getAPI(loation:String) {
         let apiString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(loation.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
 
-            print(apiString)
             NetworkManager.share.callApi(api: apiString) { model in
                 if let model = model{
+                    //print(model.tempF)
                     self.arrCity?.append(model.location)
-                    self.arrTemperature?.append(model.condition)
+                    self.arrTemperatureF.append(model.tempF)
+                    self.arrTemperatureC.append(model.tempC)
                     self.myTableView.reloadData()
                 }else{
                     // show alert
@@ -91,7 +113,14 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         getAPI(loation: text)
     }
     
-    
-    
+    func checkTapToChangerTemperature(check: Bool) {
+        if check == true {
+            if temperature == "F"{
+                temperature = "C"
+            }else if temperature == "C"{
+                temperature = "F"
+            }
+            myTableView.reloadData()
+        }
+    }
 }
-
