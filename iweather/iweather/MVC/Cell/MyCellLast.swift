@@ -9,8 +9,8 @@
 import UIKit
 
 protocol MyCellLastDelegate {
-    func checkTapToAddLocation(check:Bool)
-    func checkTapToChangerTemperature(check:Bool)
+    func checkTapToAddLocation(_ check:Bool)
+    func checkTapToChangerTemperature(_ check:Bool)
 }
 
 class MyCellLast: UITableViewCell {
@@ -26,13 +26,13 @@ class MyCellLast: UITableViewCell {
     
     @IBAction func AddLocation(_ sender: Any) {
         if delegate != nil {
-            delegate.checkTapToAddLocation(check: true)
+            delegate.checkTapToAddLocation(true)
         }
     }
       
     @IBAction func changerValueCF(_ sender: Any) {
         if delegate != nil {
-            delegate.checkTapToChangerTemperature(check: true)
+            delegate.checkTapToChangerTemperature(true)
             if temperature == "F" {
                 lblF.textColor = UIColor.gray
                 lblOF.textColor = UIColor.gray

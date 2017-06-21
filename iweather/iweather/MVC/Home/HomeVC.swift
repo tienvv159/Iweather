@@ -83,7 +83,7 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         }
     }
     
-    func checkTapToAddLocation(check: Bool) {
+    func checkTapToAddLocation(_ check: Bool) {
         if check == true {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
@@ -92,10 +92,10 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         }
     }
     
-    func getAPI(loation:String) {
+    func getAPI(_ loation:String) {
         let apiString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(loation.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
 
-            NetworkManager.share.callApi(api: apiString) { model in
+            NetworkManager.share.callApi(apiString) { model in
                 if let model = model{
                     //print(model.tempF)
                     self.arrCity?.append(model.location)
@@ -136,13 +136,13 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
     }
     
     
-    func textSearch(text: String) {
-        getAPI(loation: text)
+    func textSearch(_ text: String) {
+        getAPI(text)
         
         
     }
     
-    func checkTapToChangerTemperature(check: Bool) {
+    func checkTapToChangerTemperature(_ check: Bool) {
         if check == true {
             if temperature == "F"{
                 temperature = "C"

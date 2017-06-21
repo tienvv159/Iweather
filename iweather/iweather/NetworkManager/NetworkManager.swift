@@ -12,7 +12,7 @@ class NetworkManager {
     static let share = NetworkManager()
     
     
-    func callApi(api:String, myClosures:@escaping (IweatheModel?) -> Void) {
+    func callApi(_ api:String, myClosures:@escaping (IweatheModel?) -> Void) {
         
         Alamofire.request(api).responseJSON { (respon) in
             var JSON = respon.result.value as? [String : Any]
