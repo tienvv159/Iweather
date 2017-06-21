@@ -337,7 +337,7 @@
 				843248B11EF759E3001A2C86 /* Base */,
 			);
 			name = Main.storyboard;
-			path = ../..;
+			path = iweather;
 			sourceTree = "<group>";
 		};
 		843248B51EF759E3001A2C86 /* LaunchScreen.storyboard */ = {

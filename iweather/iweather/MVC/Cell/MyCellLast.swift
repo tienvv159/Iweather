@@ -9,8 +9,8 @@
 import UIKit
 
 protocol MyCellLastDelegate {
-    func checkTapToAddLocation(_ check:Bool)
-    func checkTapToChangerTemperature(_ check:Bool)
+     func checkTapToAddLocation(_ check:Bool)
+     func checkTapToChangerTemperature(_ check:Bool)
 }
 
 class MyCellLast: UITableViewCell {

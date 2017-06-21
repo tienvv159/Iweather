@@ -9,10 +9,14 @@
 import Realm
 import RealmSwift
 
+
 class IweatheModel: Object {
-    dynamic var keySearch = ""
-    dynamic var idModel = ""
+   // dynamic var keySearch = ""
+    dynamic var Key = ""
     dynamic var city = ""
+    dynamic var lat = ""
+    dynamic var long = ""
+    dynamic var idModel = ""
     dynamic var humidity = ""
     dynamic var sunrise = ""
     dynamic var sunset = ""
@@ -43,7 +47,9 @@ class IweatheModel: Object {
         
         
         
-        
+        self.lat = item["lat"] as? String ?? ""
+        self.long = item["long"] as? String ?? ""
+        self.Key = "\(lat)\(long)"
         self.humidity = atmosphere["humidity"] as? String ?? ""
         self.sunrise = astronomy["sunrise"] as? String ?? ""
         self.sunset = astronomy["sunset"] as? String ?? ""
@@ -52,11 +58,6 @@ class IweatheModel: Object {
         self.direction = wind["direction"] as? String ?? ""
         self.speed = wind["speed"] as? String ?? ""
         self.lastBuildDate = channel["lastBuildDate"] as? String ?? ""
-        for item in forecast {
-            let forecastModel = ForecastModel(dic: item)
-            self.forecast.append(forecastModel)
-        }
-        
         self.city = location["city"] as? String ?? ""
         if let tempFs = condition["temp"] as? String, let temf = Int(tempFs)  {
             self.tempF = temf
@@ -66,7 +67,11 @@ class IweatheModel: Object {
         let dateF = DateFormatter()
         dateF.dateFormat = "yyyyMMddhhmmssSSS"
         self.idModel = dateF.string(from: Date())
-
+        
+        for item in forecast {
+            let forecastModel = ForecastModel(dic: item)
+            self.forecast.append(forecastModel)
+        }
 
         
     }
@@ -78,12 +83,12 @@ class IweatheModel: Object {
 //    }
     
     // không cho những thuộc tính trong return lưu vào realm
-    override static func ignoredProperties() -> [String]{
-        return ["query","results","channel","units","lastBuildDate","location","wind","atmosphere","astronomy","item","condition","tempF","tempC","forecast","descriptions"]
-    }
+//    override static func ignoredProperties() -> [String]{
+//        return ["query","results","channel","units","lastBuildDate","location","wind","atmosphere","astronomy","item","condition","tempF","tempC","forecast","descriptions"]
+//    }
     
     override static func primaryKey() -> String?{
-        return "idModel"
+        return "Key"
     }
     
     

@@ -8,6 +8,7 @@
 
 import RealmSwift
 class ForecastModel: Object  {
+    //dynamic var key = ""
     dynamic var code = ""
     dynamic var date = ""
     dynamic var day = ""
@@ -24,7 +25,7 @@ class ForecastModel: Object  {
         let high = dic["high"] as? String ?? ""
         let low = dic["low"] as? String ?? ""
         let textStatus = dic["text"] as? String ?? ""
-    
+        
         
         self.code = code
         self.date = date
@@ -33,4 +34,9 @@ class ForecastModel: Object  {
         self.low = low
         self.textStatus = textStatus
     }
+    
+//    override static func primaryKey() -> String?{
+//        return "Key"
+//    }
+
 }

@@ -19,6 +19,7 @@ class NetworkManager {
 
        //     print(JSON)
             if let JSONModel = JSON {
+              //  print(JSONModel)
                 let model = IweatheModel.init(dic: JSONModel)
                 myClosures(model)
             }else{
