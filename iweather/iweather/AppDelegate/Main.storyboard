@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,21 +76,72 @@
                                     <action selector="didMenu:" destination="gMe-hD-g2i" eventType="touchUpInside" id="uaZ-NT-tas"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-XO-4Sz">
+                                <rect key="frame" x="0.0" y="30" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hà Nội" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49u-4N-V3D">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3sB-MM-c4O"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="43"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWz-MT-aht">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="MWz-MT-aht" firstAttribute="top" secondItem="49u-4N-V3D" secondAttribute="bottom" id="0K0-Me-tXR"/>
+                                    <constraint firstItem="MWz-MT-aht" firstAttribute="leading" secondItem="YBk-XO-4Sz" secondAttribute="leading" id="3en-IH-Afl"/>
+                                    <constraint firstAttribute="bottom" secondItem="MWz-MT-aht" secondAttribute="bottom" id="FgA-0z-620"/>
+                                    <constraint firstItem="49u-4N-V3D" firstAttribute="leading" secondItem="YBk-XO-4Sz" secondAttribute="leading" id="J5N-Qs-eOJ"/>
+                                    <constraint firstItem="49u-4N-V3D" firstAttribute="top" secondItem="YBk-XO-4Sz" secondAttribute="top" id="KhA-bp-fdg"/>
+                                    <constraint firstAttribute="trailing" secondItem="MWz-MT-aht" secondAttribute="trailing" id="QZr-mm-ui4"/>
+                                    <constraint firstAttribute="height" constant="80" id="WWU-sV-pKK"/>
+                                    <constraint firstAttribute="trailing" secondItem="49u-4N-V3D" secondAttribute="trailing" id="e8U-yk-HBR"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-GU-E0h">
+                                <rect key="frame" x="0.0" y="110" width="375" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gMe-hD-g2i" id="Nvn-Tf-nBX"/>
+                                    <outlet property="delegate" destination="gMe-hD-g2i" id="a0q-VI-Wxm"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="UJl-GU-E0h" firstAttribute="top" secondItem="YBk-XO-4Sz" secondAttribute="bottom" id="91D-FX-Gyi"/>
                             <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="naa-ma-hVs" secondAttribute="bottom" id="9Il-Ze-BiQ"/>
                             <constraint firstItem="qc7-mA-mAQ" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="9Ph-wg-7Ps"/>
+                            <constraint firstItem="qc7-mA-mAQ" firstAttribute="top" secondItem="UJl-GU-E0h" secondAttribute="bottom" id="G2B-gK-hPj"/>
                             <constraint firstAttribute="trailing" secondItem="naa-ma-hVs" secondAttribute="trailing" constant="20" id="IBm-Do-b0Z"/>
+                            <constraint firstItem="UJl-GU-E0h" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="SjQ-6t-EPd"/>
+                            <constraint firstItem="YBk-XO-4Sz" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="aDP-kv-7Pm"/>
+                            <constraint firstItem="YBk-XO-4Sz" firstAttribute="top" secondItem="Qjw-fP-isK" secondAttribute="bottom" constant="10" id="fia-RC-FJ2"/>
+                            <constraint firstAttribute="trailing" secondItem="YBk-XO-4Sz" secondAttribute="trailing" id="hhM-d2-pGw"/>
                             <constraint firstItem="naa-ma-hVs" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="iKq-uk-Uvg"/>
+                            <constraint firstAttribute="trailing" secondItem="UJl-GU-E0h" secondAttribute="trailing" id="lgh-pt-MyP"/>
                             <constraint firstAttribute="trailing" secondItem="qc7-mA-mAQ" secondAttribute="trailing" id="qbZ-5h-JrM"/>
                             <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" constant="30" id="rrh-2H-BK3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblCity" destination="49u-4N-V3D" id="EGp-4s-FEn"/>
+                        <outlet property="lblStatusToday" destination="MWz-MT-aht" id="6FG-se-eHR"/>
+                        <outlet property="myTableView" destination="UJl-GU-E0h" id="Ao8-9S-feX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3b-tM-UbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="-630"/>
+            <point key="canvasLocation" x="964" y="-630.13493253373315"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="z7D-KF-ZoA">

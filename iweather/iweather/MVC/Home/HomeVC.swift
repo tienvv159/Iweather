@@ -13,22 +13,19 @@ import RealmSwift
 class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyCellLastDelegate, SearchVCDelegate{
     
     @IBOutlet weak var myTableView: UITableView!
-//    var arrCity:[String]? = []
-//    var arrTemperatureF:[Int] = []
-//    var arrTemperatureC:[Int] = []
     let model:IweatheModel? = nil
     var temperature:String = "F"
     var arrConvertTemp:[Int]? = []
     var listModel:[IweatheModel] = []
-    
+    var listKeySearch:[String] = []
+   // var keySearch:String = ""
     override func viewDidAppear(_ animated: Bool) {
-        
         getDataFromRealm()
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         getDataFromRealm()
         registerCell()
     }
     
@@ -38,10 +35,24 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
             // chả về 1 mảng các model đã lưu trong reaml
            let list = realm.objects(IweatheModel.self)
             listModel.removeAll()
+            listKeySearch.removeAll()
             for model in list {
                 listModel.append(model)
+                listKeySearch.append(model.keySearch)
             }
-            myTableView.reloadData()
+            
+            
+            
+            let downloadGroup = DispatchGroup()
+            for item in listKeySearch{
+                downloadGroup.enter()
+                self.getAPI(item, complete: { 
+                    downloadGroup.leave()
+                })
+            }
+            downloadGroup.notify(queue: DispatchQueue.main) {
+                self.myTableView.reloadData()
+            }
             
         }catch let err{
             print(err)
@@ -71,20 +82,15 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellWeather", for: indexPath) as! MyCellWeather
             
-//                cell.lblCity.text = arrCity?[indexPath.row]	 ?? ""
-//                if temperature == "F"{
-//                    cell.lblTemperature.text = String(arrTemperatureF[indexPath.row])
-//                }else if temperature == "C"{
-//                    cell.lblTemperature.text = String(arrTemperatureC[indexPath.row])
-//                }
-
                 cell.lblCity.text = listModel[indexPath.row].city
                 if temperature == "F"{
                     cell.lblTemperature.text = String(listModel[indexPath.row ].tempF)
                 }else if temperature == "C" {
                     cell.lblTemperature.text = String(listModel[indexPath.row].tempC)
                 }
-            
+                let text = listModel[indexPath.row].lastBuildDate.description
+                let arr = text.components(separatedBy: " ")
+                cell.lblTime.text = "\(arr[4]) \(arr[5])"
                 return cell
                 
             }
@@ -96,11 +102,18 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         }
         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
-//                arrCity?.remove(at: indexPath.row)
-//                arrTemperatureF.remove(at: indexPath.row)
-//                arrTemperatureC.remove(at: indexPath.row)
-                //listModel.remove(at: indexPath.row)
-                myTableView.reloadData()
+                do
+                {
+                    let realm = try Realm()
+                    
+                    try! realm.write {
+                        realm.delete(listModel[indexPath.row])
+                        listModel.remove(at: indexPath.row)
+                        myTableView.reloadData()
+                    }
+                    
+                }catch{}
+                
             }
         }
         
@@ -113,37 +126,37 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
             }
         }
         
-        func getAPI(_ loation:String) {
-            let apiString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(loation.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
-            
-            NetworkManager.share.callApi(apiString) { model in
-                if let model = model{
-                    //print(model.tempF)
-//                    self.arrCity?.append(model.city)
-//                    self.arrTemperatureF.append(model.tempF)
-//                    self.arrTemperatureC.append(model.tempC)
-                    self.myTableView.reloadData()
-                    
-                    
-                    do
-                    {
-                        let realm = try Realm()
-                        try realm.write {
-                            realm.add(model, update: true)
-                        }
-                    }
-                    catch{
-                        // show alert
-                        debugPrint(error.localizedDescription)
-                    }
-                    
-                    
-                }else{
-                    // show alert
-                }
-            }
-        }
+    func getAPI(_ location:String,complete:@escaping ()->()) {
         
+        let apiString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(location.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+        EZLoadingActivity.show("Loading", disableUI: true)
+        NetworkManager.share.callApi(apiString) { model in
+            EZLoadingActivity.hide(true, animated: true)
+            if let model = model{
+                self.myTableView.reloadData()
+                
+                do
+                {
+                    let realm = try Realm()
+                    model.keySearch = location
+                    try realm.write {
+                        realm.add(model, update: true)
+                    }
+                }
+                catch{
+                    // show alert
+                    debugPrint(error.localizedDescription)
+                }
+                
+                
+            }else{
+                // show alert
+            }
+            
+            complete()
+        }
+    }
+    
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 80
         }
@@ -156,12 +169,11 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
             }
             
         }
-        
-        
+    
         func textSearch(_ text: String) {
-            getAPI(text)
-            
-            
+            getAPI(text, complete: {
+                self.myTableView.reloadData()
+            })
         }
         
         func checkTapToChangerTemperature(_ check: Bool) {

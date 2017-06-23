@@ -10,8 +10,9 @@ import Realm
 import RealmSwift
 
 
-class IweatheModel: Object {
-   // dynamic var keySearch = ""
+
+class IweatheModel: Object{
+    dynamic var keySearch = ""
     dynamic var Key = ""
     dynamic var city = ""
     dynamic var lat = ""
@@ -76,6 +77,7 @@ class IweatheModel: Object {
         
     }
     
+  
 //    convenience required init() {
 //        let formatF = DateFormatter()
 //        formatF.dateFormat = "yyyyMMddhhmmssSSS"
