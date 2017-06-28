@@ -16,8 +16,9 @@
 		841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B5F8C1EFB993500632357 /* MyCellWeather.xib */; };
 		841B5F971EFBA12500632357 /* MyHeaderInSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F961EFBA12500632357 /* MyHeaderInSection.swift */; };
 		842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842919BA1EFBAF28001FB6F5 /* MyHeader.xib */; };
-		84309D7F1F036517002B5CD0 /* hurricane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84309D7D1F036517002B5CD0 /* hurricane.jpg */; };
-		84309D801F036517002B5CD0 /* thunderstorms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84309D7E1F036517002B5CD0 /* thunderstorms.jpg */; };
+		84309D821F0390AA002B5CD0 /* 1234.png in Resources */ = {isa = PBXBuildFile; fileRef = 84309D811F0390AA002B5CD0 /* 1234.png */; };
+		84309D851F03AE63002B5CD0 /* myCellTempHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84309D831F03AE63002B5CD0 /* myCellTempHour.swift */; };
+		84309D861F03AE63002B5CD0 /* myCellTempHour.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84309D841F03AE63002B5CD0 /* myCellTempHour.xib */; };
 		843248AD1EF759E3001A2C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248AC1EF759E3001A2C86 /* AppDelegate.swift */; };
 		843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843248B51EF759E3001A2C86 /* LaunchScreen.storyboard */; };
 		843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248C41EF75AEE001A2C86 /* HomeVC.swift */; };
@@ -57,8 +58,9 @@
 		841B5F8C1EFB993500632357 /* MyCellWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellWeather.xib; sourceTree = "<group>"; };
 		841B5F961EFBA12500632357 /* MyHeaderInSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHeaderInSection.swift; sourceTree = "<group>"; };
 		842919BA1EFBAF28001FB6F5 /* MyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeader.xib; sourceTree = "<group>"; };
-		84309D7D1F036517002B5CD0 /* hurricane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hurricane.jpg; sourceTree = "<group>"; };
-		84309D7E1F036517002B5CD0 /* thunderstorms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thunderstorms.jpg; sourceTree = "<group>"; };
+		84309D811F0390AA002B5CD0 /* 1234.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1234.png; sourceTree = "<group>"; };
+		84309D831F03AE63002B5CD0 /* myCellTempHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCellTempHour.swift; sourceTree = "<group>"; };
+		84309D841F03AE63002B5CD0 /* myCellTempHour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCellTempHour.xib; sourceTree = "<group>"; };
 		843248A91EF759E3001A2C86 /* iweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843248AC1EF759E3001A2C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = iweather/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		843248B61EF759E3001A2C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 			children = (
 				841B5F961EFBA12500632357 /* MyHeaderInSection.swift */,
 				842919BA1EFBAF28001FB6F5 /* MyHeader.xib */,
+				84309D831F03AE63002B5CD0 /* myCellTempHour.swift */,
+				84309D841F03AE63002B5CD0 /* myCellTempHour.xib */,
 				84F36D541EFCFFBE0057B481 /* MyCellTemp10Day.swift */,
 				84F36D551EFCFFBE0057B481 /* MyCellTemp10Day.xib */,
 				84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */,
@@ -212,9 +216,8 @@
 		843248C31EF75AB3001A2C86 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				84309D811F0390AA002B5CD0 /* 1234.png */,
 				843248DA1EF7E6AD001A2C86 /* menu.png */,
-				84309D7D1F036517002B5CD0 /* hurricane.jpg */,
-				84309D7E1F036517002B5CD0 /* thunderstorms.jpg */,
 				843248CD1EF764B2001A2C86 /* plus.png */,
 			);
 			path = Image;
@@ -332,8 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8309BA6D1EFA011A0055A13A /* Info.plist in Resources */,
-				84309D7F1F036517002B5CD0 /* hurricane.jpg in Resources */,
-				84309D801F036517002B5CD0 /* thunderstorms.jpg in Resources */,
+				84309D861F03AE63002B5CD0 /* myCellTempHour.xib in Resources */,
+				84309D821F0390AA002B5CD0 /* 1234.png in Resources */,
 				84DD4BFC1F020254005120F2 /* MyCollectionViewCell.xib in Resources */,
 				84F36D571EFCFFBE0057B481 /* MyCellTemp10Day.xib in Resources */,
 				84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */,
@@ -424,6 +427,7 @@
 				84DD4BFE1F021319005120F2 /* StringExtension.swift in Sources */,
 				841B5F8D1EFB993500632357 /* MyCellLast.swift in Sources */,
 				843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */,
+				84309D851F03AE63002B5CD0 /* myCellTempHour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

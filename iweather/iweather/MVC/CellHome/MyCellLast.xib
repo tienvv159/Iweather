@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,6 +73,17 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJg-Zv-wNx">
+                        <rect key="frame" x="140" y="41.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="BbA-1K-igl"/>
+                            <constraint firstAttribute="height" constant="40" id="qMm-dA-2m5"/>
+                        </constraints>
+                        <state key="normal" image="1234.png"/>
+                        <connections>
+                            <action selector="didSelectToWeb:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wfO-EX-8aX"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                 <constraints>
@@ -83,11 +93,13 @@
                     <constraint firstItem="B7p-ml-gYE" firstAttribute="top" secondItem="IF5-ui-fOr" secondAttribute="top" id="LbE-ME-Ifk"/>
                     <constraint firstItem="aPr-np-8u6" firstAttribute="leading" secondItem="Jwh-zv-9ah" secondAttribute="trailing" id="N5g-vD-JEm"/>
                     <constraint firstItem="Jwh-zv-9ah" firstAttribute="leading" secondItem="B7p-ml-gYE" secondAttribute="trailing" id="RA1-1w-feq"/>
+                    <constraint firstAttribute="bottom" secondItem="NJg-Zv-wNx" secondAttribute="bottom" constant="5" id="Txw-gk-2We"/>
                     <constraint firstItem="aPr-np-8u6" firstAttribute="height" secondItem="B7p-ml-gYE" secondAttribute="height" id="ZDs-5t-geS"/>
                     <constraint firstItem="cBf-m9-D59" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZPv-Zp-zz6"/>
                     <constraint firstItem="B7p-ml-gYE" firstAttribute="leading" secondItem="IF5-ui-fOr" secondAttribute="trailing" constant="-2" id="bhq-kK-Uvf"/>
                     <constraint firstItem="Jwh-zv-9ah" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cCR-N6-XRU"/>
                     <constraint firstAttribute="trailing" secondItem="EAb-Sa-opI" secondAttribute="trailing" constant="10" id="dvJ-VN-5Zv"/>
+                    <constraint firstItem="NJg-Zv-wNx" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="hgj-d9-sNZ"/>
                     <constraint firstItem="aPr-np-8u6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="lny-gs-cIX"/>
                     <constraint firstItem="Jwh-zv-9ah" firstAttribute="height" secondItem="B7p-ml-gYE" secondAttribute="height" id="m54-Z2-CCO"/>
                     <constraint firstItem="B7p-ml-gYE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="pvl-2v-vlu"/>
@@ -102,10 +114,11 @@
                 <outlet property="lblOC" destination="IF5-ui-fOr" id="1Jt-mn-heg"/>
                 <outlet property="lblOF" destination="86f-Wk-7jL" id="4FJ-VH-qpP"/>
             </connections>
-            <point key="canvasLocation" x="24" y="41"/>
+            <point key="canvasLocation" x="24" y="40.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="1234.png" width="54" height="53"/>
         <image name="plus.png" width="32" height="32"/>
     </resources>
 </document>

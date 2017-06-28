@@ -48,5 +48,9 @@ class MyCellLast: UITableViewCell {
             }
         }
     }
+   
+    @IBAction func didSelectToWeb(_ sender: Any) {
+        UIApplication.shared.openURL(NSURL(string: "https://www.yahoo.com/news/weather")! as URL)
+    }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
+class MyCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource{
 
     var modelIndexpath:IweatheModel! = nil
     @IBOutlet weak var myImgDetail: UIImageView!
@@ -151,24 +151,27 @@ class MyCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableVi
             return cell
         }else if indexPath.row == 11{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellInforWeather", for: indexPath) as! MyCellInfomationWeather
-            cell.lblChill.text = modelIndexpath.chill
-            cell.lblSpeed.text = modelIndexpath.speed
+            cell.lblChill.text = "\(modelIndexpath.chill) HP"
+            cell.lblSpeed.text = "\(modelIndexpath.speed) km/h"
             cell.lblSunrise.text = modelIndexpath.sunrise
             cell.lblSunset.text = modelIndexpath.sunset
-            cell.lblPressure.text = modelIndexpath.pressure
-            cell.lblDirection.text = modelIndexpath.direction
-            cell.lblVisibility.text = modelIndexpath.visibility
-            cell.lblHumidity.text = modelIndexpath.humidity
+            cell.lblPressure.text = "\(modelIndexpath.pressure) mb"
+            cell.lblDirection.text = "\(modelIndexpath.direction) Kd"
+            cell.lblVisibility.text = "\(modelIndexpath.visibility) km"
+            cell.lblHumidity.text = "\(modelIndexpath.humidity) %"
             return cell
         }
         return UITableViewCell.init()
         
     }
     
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = Bundle.main.loadNibNamed("MyHeader", owner: self, options: nil)?.first as! MyHeaderInSection
         header.frame = CGRect(x: 0, y: 200, width: self.contentView.frame.width, height: 100)
+        header.modelIndexpath = modelIndexpath
+        header.checkTemp = checkTemp
         return header
     }
     
@@ -178,7 +181,7 @@ class MyCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row < 10 {
-            return 30
+            return 40
         }else if indexPath.row == 10{
             return 165
         }else {
@@ -188,25 +191,25 @@ class MyCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UITableVi
     
     
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            //print(scrollView.contentOffset.y)
-            if scrollView.contentOffset.y < 0{
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.myViewDetail.frame.origin.y = 20
-                    self.myViewDetail.bounds.size.height = 200
-                    self.myTableView.frame.origin.y = 220
-                    self.myTableView.frame.size.height = self.contentView.frame.size.height - 220
-                })
-                
-                myTableView.contentOffset = CGPoint(x: 0, y: 0)
-            }else if  scrollView.contentOffset.y > 0{
-    
+            print(scrollView.contentOffset.y)
+            if scrollView.contentOffset.y > 0{
+                //scroll up
+
                 UIView.animate(withDuration: 0.3, animations: {
                     self.myViewDetail.frame.origin.y = 5
                     self.myViewDetail.bounds.size.height = 70
                     self.myTableView.frame.origin.y = 75
                     self.myTableView.frame.size.height = self.contentView.frame.size.height - 75
                 })
+            }else if scrollView.contentOffset.y < 0 {
+                // scroll down
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.myViewDetail.frame.origin.y = 20
+                    self.myViewDetail.bounds.size.height = 200
+                    self.myTableView.frame.origin.y = 220
+                    self.myTableView.frame.size.height = self.contentView.frame.size.height - 220
+                })
+                myTableView.contentOffset = CGPoint(x: 0, y: 0)
             }
         }
-    
     }

@@ -34,7 +34,6 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         myPage.currentPage = row
     }
     
-    
     @IBAction func didMenu(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -66,6 +65,12 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         myPage.currentPage = indexPath.item
     }
+    
+    
+    @IBAction func didSelectToWeb(_ sender: Any) {
+        UIApplication.shared.openURL(NSURL(string:"https://www.yahoo.com/news/weather")! as URL)
+    }
+    
 }
 
 
