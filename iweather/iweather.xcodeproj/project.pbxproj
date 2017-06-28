@@ -15,9 +15,9 @@
 		841B5F8F1EFB993500632357 /* MyCellWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F8B1EFB993500632357 /* MyCellWeather.swift */; };
 		841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B5F8C1EFB993500632357 /* MyCellWeather.xib */; };
 		841B5F971EFBA12500632357 /* MyHeaderInSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F961EFBA12500632357 /* MyHeaderInSection.swift */; };
-		841B5F9A1EFBAAA900632357 /* MyCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F981EFBAAA900632357 /* MyCellTableViewCell.swift */; };
-		841B5F9B1EFBAAA900632357 /* MyCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B5F991EFBAAA900632357 /* MyCellTableViewCell.xib */; };
 		842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842919BA1EFBAF28001FB6F5 /* MyHeader.xib */; };
+		84309D7F1F036517002B5CD0 /* hurricane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84309D7D1F036517002B5CD0 /* hurricane.jpg */; };
+		84309D801F036517002B5CD0 /* thunderstorms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84309D7E1F036517002B5CD0 /* thunderstorms.jpg */; };
 		843248AD1EF759E3001A2C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248AC1EF759E3001A2C86 /* AppDelegate.swift */; };
 		843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843248B51EF759E3001A2C86 /* LaunchScreen.storyboard */; };
 		843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248C41EF75AEE001A2C86 /* HomeVC.swift */; };
@@ -30,6 +30,19 @@
 		8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475A2DC1EF9327A00412025 /* ForecastModel.swift */; };
 		8490980B1EFACE6900DA288F /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8490980A1EFACE6900DA288F /* Pods_iweather.framework */; };
 		8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8490980C1EFAD0BD00DA288F /* Main.storyboard */; };
+		84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665711F00DFE3004604D8 /* MyCellSearch.swift */; };
+		84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C665721F00DFE3004604D8 /* MyCellSearch.xib */; };
+		84C665761F00E287004604D8 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665751F00E287004604D8 /* SearchModel.swift */; };
+		84C665781F00EF6E004604D8 /* ResulfSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665771F00EF6E004604D8 /* ResulfSearchModel.swift */; };
+		84DD4BFB1F020254005120F2 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD4BF91F020254005120F2 /* MyCollectionViewCell.swift */; };
+		84DD4BFC1F020254005120F2 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DD4BFA1F020254005120F2 /* MyCollectionViewCell.xib */; };
+		84DD4BFE1F021319005120F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD4BFD1F021319005120F2 /* StringExtension.swift */; };
+		84F36D561EFCFFBE0057B481 /* MyCellTemp10Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D541EFCFFBE0057B481 /* MyCellTemp10Day.swift */; };
+		84F36D571EFCFFBE0057B481 /* MyCellTemp10Day.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D551EFCFFBE0057B481 /* MyCellTemp10Day.xib */; };
+		84F36D5A1EFD054F0057B481 /* MyCellInfomationLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */; };
+		84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */; };
+		84F36D5E1EFD05920057B481 /* MyCellInfomationWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */; };
+		84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +56,9 @@
 		841B5F8B1EFB993500632357 /* MyCellWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellWeather.swift; sourceTree = "<group>"; };
 		841B5F8C1EFB993500632357 /* MyCellWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellWeather.xib; sourceTree = "<group>"; };
 		841B5F961EFBA12500632357 /* MyHeaderInSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHeaderInSection.swift; sourceTree = "<group>"; };
-		841B5F981EFBAAA900632357 /* MyCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellTableViewCell.swift; sourceTree = "<group>"; };
-		841B5F991EFBAAA900632357 /* MyCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellTableViewCell.xib; sourceTree = "<group>"; };
 		842919BA1EFBAF28001FB6F5 /* MyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeader.xib; sourceTree = "<group>"; };
+		84309D7D1F036517002B5CD0 /* hurricane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hurricane.jpg; sourceTree = "<group>"; };
+		84309D7E1F036517002B5CD0 /* thunderstorms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thunderstorms.jpg; sourceTree = "<group>"; };
 		843248A91EF759E3001A2C86 /* iweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843248AC1EF759E3001A2C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = iweather/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		843248B61EF759E3001A2C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +72,19 @@
 		8475A2DC1EF9327A00412025 /* ForecastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 		8490980A1EFACE6900DA288F /* Pods_iweather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_iweather.framework; path = "../../../Library/Developer/Xcode/DerivedData/iweather-fewvqkhnshrxwmhiccxtrbvguiio/Build/Products/Debug-iphonesimulator/Pods_iweather.framework"; sourceTree = "<group>"; };
 		8490980C1EFAD0BD00DA288F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../AppDelegate/Main.storyboard; sourceTree = "<group>"; };
+		84C665711F00DFE3004604D8 /* MyCellSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellSearch.swift; sourceTree = "<group>"; };
+		84C665721F00DFE3004604D8 /* MyCellSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellSearch.xib; sourceTree = "<group>"; };
+		84C665751F00E287004604D8 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		84C665771F00EF6E004604D8 /* ResulfSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResulfSearchModel.swift; sourceTree = "<group>"; };
+		84DD4BF91F020254005120F2 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		84DD4BFA1F020254005120F2 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		84DD4BFD1F021319005120F2 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		84F36D541EFCFFBE0057B481 /* MyCellTemp10Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellTemp10Day.swift; sourceTree = "<group>"; };
+		84F36D551EFCFFBE0057B481 /* MyCellTemp10Day.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellTemp10Day.xib; sourceTree = "<group>"; };
+		84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellInfomationLocation.swift; sourceTree = "<group>"; };
+		84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationLocation.xib; sourceTree = "<group>"; };
+		84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellInfomationWeather.swift; sourceTree = "<group>"; };
+		84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationWeather.xib; sourceTree = "<group>"; };
 		E202ADDA2A4B9ECD06F93CF6 /* Pods_iweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +107,7 @@
 				843248B51EF759E3001A2C86 /* LaunchScreen.storyboard */,
 				8309BA6C1EFA011A0055A13A /* Info.plist */,
 				841B5F861EFB79D800632357 /* EZLoadingActivity.swift */,
+				84DD4BFD1F021319005120F2 /* StringExtension.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -101,8 +128,14 @@
 			children = (
 				841B5F961EFBA12500632357 /* MyHeaderInSection.swift */,
 				842919BA1EFBAF28001FB6F5 /* MyHeader.xib */,
-				841B5F981EFBAAA900632357 /* MyCellTableViewCell.swift */,
-				841B5F991EFBAAA900632357 /* MyCellTableViewCell.xib */,
+				84F36D541EFCFFBE0057B481 /* MyCellTemp10Day.swift */,
+				84F36D551EFCFFBE0057B481 /* MyCellTemp10Day.xib */,
+				84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */,
+				84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */,
+				84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */,
+				84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */,
+				84DD4BF91F020254005120F2 /* MyCollectionViewCell.swift */,
+				84DD4BFA1F020254005120F2 /* MyCollectionViewCell.xib */,
 			);
 			path = CellDetail;
 			sourceTree = "<group>";
@@ -143,6 +176,7 @@
 				843248D11EF7700E001A2C86 /* Model */,
 				841B5F881EFB993500632357 /* CellHome */,
 				841B5F911EFB997500632357 /* CellDetail */,
+				84C665701F00DFAC004604D8 /* CellSearch */,
 				843248C01EF75A91001A2C86 /* Home */,
 				843248C11EF75A91001A2C86 /* View */,
 			);
@@ -179,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				843248DA1EF7E6AD001A2C86 /* menu.png */,
+				84309D7D1F036517002B5CD0 /* hurricane.jpg */,
+				84309D7E1F036517002B5CD0 /* thunderstorms.jpg */,
 				843248CD1EF764B2001A2C86 /* plus.png */,
 			);
 			path = Image;
@@ -197,8 +233,20 @@
 			children = (
 				843248D21EF7704E001A2C86 /* IweatheModel.swift */,
 				8475A2DC1EF9327A00412025 /* ForecastModel.swift */,
+				84C665751F00E287004604D8 /* SearchModel.swift */,
+				84C665771F00EF6E004604D8 /* ResulfSearchModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84C665701F00DFAC004604D8 /* CellSearch */ = {
+			isa = PBXGroup;
+			children = (
+				84C665711F00DFE3004604D8 /* MyCellSearch.swift */,
+				84C665721F00DFE3004604D8 /* MyCellSearch.xib */,
+			);
+			name = CellSearch;
+			path = CellDetail/CellSearch;
 			sourceTree = "<group>";
 		};
 		90B32AB43286207F17791301 /* Frameworks */ = {
@@ -284,14 +332,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8309BA6D1EFA011A0055A13A /* Info.plist in Resources */,
+				84309D7F1F036517002B5CD0 /* hurricane.jpg in Resources */,
+				84309D801F036517002B5CD0 /* thunderstorms.jpg in Resources */,
+				84DD4BFC1F020254005120F2 /* MyCollectionViewCell.xib in Resources */,
+				84F36D571EFCFFBE0057B481 /* MyCellTemp10Day.xib in Resources */,
+				84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */,
+				84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */,
 				841B5F8E1EFB993500632357 /* MyCellLast.xib in Resources */,
 				843248DB1EF7E6AD001A2C86 /* menu.png in Resources */,
 				8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */,
 				843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */,
 				841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */,
-				841B5F9B1EFBAAA900632357 /* MyCellTableViewCell.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,
+				84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */,
 				8309BA6F1EFA01370055A13A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5918AB016C69B4B8B99BF836 /* [CP] Copy Pods Resources */ = {
@@ -351,16 +405,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F36D5E1EFD05920057B481 /* MyCellInfomationWeather.swift in Sources */,
 				841B5F8F1EFB993500632357 /* MyCellWeather.swift in Sources */,
+				84DD4BFB1F020254005120F2 /* MyCollectionViewCell.swift in Sources */,
 				843248C81EF7614E001A2C86 /* NetworkManager.swift in Sources */,
+				84C665761F00E287004604D8 /* SearchModel.swift in Sources */,
 				843248D31EF7704E001A2C86 /* IweatheModel.swift in Sources */,
 				841B5F871EFB79D800632357 /* EZLoadingActivity.swift in Sources */,
 				841B5F971EFBA12500632357 /* MyHeaderInSection.swift in Sources */,
+				84F36D5A1EFD054F0057B481 /* MyCellInfomationLocation.swift in Sources */,
+				84C665781F00EF6E004604D8 /* ResulfSearchModel.swift in Sources */,
+				84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */,
 				843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */,
 				843248D01EF76CFD001A2C86 /* SearchVC.swift in Sources */,
+				84F36D561EFCFFBE0057B481 /* MyCellTemp10Day.swift in Sources */,
 				8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */,
 				843248AD1EF759E3001A2C86 /* AppDelegate.swift in Sources */,
-				841B5F9A1EFBAAA900632357 /* MyCellTableViewCell.swift in Sources */,
+				84DD4BFE1F021319005120F2 /* StringExtension.swift in Sources */,
 				841B5F8D1EFB993500632357 /* MyCellLast.swift in Sources */,
 				843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */,
 			);

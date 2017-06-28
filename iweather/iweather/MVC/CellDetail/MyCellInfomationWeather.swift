@@ -10,6 +10,19 @@ import UIKit
 
 class MyCellInfomationWeather: UITableViewCell {
 
+    @IBOutlet weak var lblSunrise: UILabel!
+    @IBOutlet weak var lblSunset: UILabel!
+    @IBOutlet weak var lblChill: UILabel!
+    @IBOutlet weak var lblDirection: UILabel!
+    @IBOutlet weak var lblSpeed: UILabel!
+    @IBOutlet weak var lblHumidity: UILabel!
+    @IBOutlet weak var lblPressure: UILabel!
+   
+    @IBOutlet weak var lblVisibility: UILabel!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

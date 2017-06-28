@@ -9,7 +9,16 @@
 import UIKit
 
 class MyCellInfomationLocation: UITableViewCell {
+    @IBOutlet weak var lblCity: UILabel!
+    @IBOutlet weak var lblCountry: UILabel!
+    @IBOutlet weak var lblRegion: UILabel!
+    @IBOutlet weak var lblLat: UILabel!
+    @IBOutlet weak var lblLong: UILabel!
 
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -28,15 +28,25 @@ class IweatheModel: Object{
     dynamic var tempF = 0
     dynamic var tempC = 0
     dynamic var lastBuildDate = ""
+    dynamic var country = ""
+    dynamic var region = ""
+    dynamic var pressure = ""
+    dynamic var visibility = ""
+    dynamic var descriptions = ""
+    dynamic var code = ""
      var forecast = List<ForecastModel>()
     
-    convenience init(dic:[String : Any]) {
-        self.init()
+    convenience init?(dic:[String : Any]) {
         
         guard let query = dic["query"] as? [String : Any] else{
-            return
+            return nil
         }
-            let results = query["results"] as? [String : Any] ?? [:]
+        guard let results = query["results"] as? [String : Any] else{
+            return nil
+        }
+        
+        self.init()
+
             let channel = results["channel"] as? [String : Any] ?? [:]
             let location = channel["location"] as? [String : Any] ?? [:]
             let wind = channel["wind"] as? [String : Any] ?? [:]
@@ -46,8 +56,11 @@ class IweatheModel: Object{
             let condition = item["condition"] as? [String : Any] ?? [:]
             let forecast = item["forecast"] as? [[String : Any]]  ?? [[:]]
         
-        
-        
+        self.code = condition["code"] as? String ?? ""
+        self.pressure = atmosphere["visibility"] as? String ?? ""
+        self.visibility = atmosphere["visibility"] as? String ?? ""
+        self.country = location["country"] as? String ?? ""
+        self.region = location["region"] as? String ?? ""
         self.lat = item["lat"] as? String ?? ""
         self.long = item["long"] as? String ?? ""
         self.Key = "\(lat)\(long)"
@@ -60,6 +73,7 @@ class IweatheModel: Object{
         self.speed = wind["speed"] as? String ?? ""
         self.lastBuildDate = channel["lastBuildDate"] as? String ?? ""
         self.city = location["city"] as? String ?? ""
+        self.descriptions = item["description"] as? String ?? ""
         if let tempFs = condition["temp"] as? String, let temf = Int(tempFs)  {
             self.tempF = temf
         }

@@ -10,6 +10,12 @@ import UIKit
 
 class MyCellTemp10Day: UITableViewCell {
 
+
+    @IBOutlet weak var lblDay: UILabel!
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var lblLow: UILabel!
+    @IBOutlet weak var lblHight: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,9 +12,11 @@ class ForecastModel: Object  {
     dynamic var code = ""
     dynamic var date = ""
     dynamic var day = ""
-    dynamic var high = ""
-    dynamic var low = ""
+    dynamic var highF = 0
+    dynamic var lowF = 0
     dynamic var textStatus = ""
+    dynamic var highC = 0
+    dynamic var lowC = 0
     
     convenience init(dic:[String : Any]){
         self.init()
@@ -30,9 +32,12 @@ class ForecastModel: Object  {
         self.code = code
         self.date = date
         self.day = day
-        self.high = high
-        self.low = low
+        self.highF = Int(high) ?? 0
+        self.lowF = Int(low) ?? 0
         self.textStatus = textStatus
+        self.highC = Int(Double(highF - 32) / 1.8)
+        self.lowC = Int(Double(lowF - 32) / 1.8)
+
     }
     
 //    override static func primaryKey() -> String?{

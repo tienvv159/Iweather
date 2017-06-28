@@ -8,34 +8,30 @@
 
 import UIKit
 
-class HomeDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
-    @IBOutlet weak var myTableView: UITableView!
+class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPageViewControllerDelegate{
     
-    @IBOutlet weak var lblStatusToday: UILabel!
-    @IBOutlet weak var lblCity: UILabel!
+    @IBOutlet weak var myPage: UIPageControl!
+    @IBOutlet weak var myCollectionView: UICollectionView!
+    var checkTemp:String = ""
+    let color:[UIColor] = [UIColor.red, UIColor.blue, UIColor.yellow, UIColor.brown]
+    var  frames = CGRect(x: 0, y: 0, width: 0, height: 0)
+    var listModelIndexpath:[IweatheModel]! = nil
+    var row:Int = 0
+    var checkDirection:Float = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.createHeader()
-        self.registerCell()
-    }
-    
-    func registerCell() {
-        let nib = UINib(nibName: "MyCellTableViewCell", bundle: nil)
-        myTableView.register(nib, forCellReuseIdentifier: "MyCell")
-    }
-    
-    func createHeader() {
-        let myheader = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 170))
+        let nib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+        myCollectionView.register(nib, forCellWithReuseIdentifier: "myCollectionCell")
+        myCollectionView.reloadData()
         
-        let myLableTemp = UILabel(frame: CGRect(x: 0, y: 0, width: myheader.frame.width, height: myheader.frame.height - 20))
-        myheader.backgroundColor = UIColor.red
-        myLableTemp.textAlignment = .center
-        myLableTemp.font = UIFont.systemFont(ofSize: 100)
-        myLableTemp.text = "70"
-        myheader.addSubview(myLableTemp)
-        myTableView.addSubview(myheader)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(1)) {
+            DispatchQueue.main.async {
+                self.myCollectionView.selectItem(at: IndexPath(row: self.row, section: 0), animated: false, scrollPosition: .centeredHorizontally)
+            }
+        }
+        myPage.numberOfPages = listModelIndexpath.count
+        myPage.currentPage = row
     }
     
     
@@ -43,27 +39,57 @@ class HomeDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.dismiss(animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+    @IBAction func changePage(_ sender: Any) {
+        let pageControl:UIPageControl = sender as! UIPageControl
+        let page:Int = pageControl.currentPage
+        myCollectionView.selectItem(at: IndexPath(row: page, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
-        
+  
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listModelIndexpath.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionCell", for: indexPath) as! MyCollectionViewCell
+        cell.modelIndexpath = listModelIndexpath[indexPath.row]
+        cell.checkTemp = checkTemp
+        cell.writeDataInView()
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let loadView = Bundle.main.loadNibNamed("MyHeader", owner: self, options: nil)?.first as! MyHeaderInSection
-        loadView.frame = CGRect(x: 0, y: 200, width: self.view.frame.width, height: 100)
-        return loadView
-        
-        
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGSize(width: screenSize.size.width, height: screenSize.size.height)
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        myPage.currentPage = indexPath.item
+    }
+}
+
+
+
+extension HomeDetailVC : UICollectionViewDelegateFlowLayout {
+    //1
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGSize(width: screenSize.size.width, height: screenSize.size.height - 37)
     }
     
+    //3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 0,0)
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

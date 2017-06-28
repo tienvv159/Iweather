@@ -11,25 +11,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyHeaderInSection" customModule="iweather" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="391" height="164"/>
+            <rect key="frame" x="0.0" y="0.0" width="391" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ho-iU-Hih">
-                    <rect key="frame" x="0.0" y="0.0" width="391" height="100"/>
-                    <color key="backgroundColor" red="0.12076002700000001" green="1" blue="0.11501029309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-dl-J3e">
+                    <rect key="frame" x="0.0" y="0.0" width="391" height="1"/>
+                    <color key="backgroundColor" red="0.78937876224517822" green="0.5897403359413147" blue="0.54531586170196533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="Crc-Lq-m02"/>
+                        <constraint firstAttribute="height" constant="1" id="2YZ-UK-jcI"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ho-iU-Hih">
+                    <rect key="frame" x="0.0" y="1" width="391" height="98"/>
+                    <color key="backgroundColor" red="0.12076002700000001" green="1" blue="0.11501029309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0u-6M-vOy">
+                    <rect key="frame" x="0.0" y="99" width="391" height="1"/>
+                    <color key="backgroundColor" red="0.78937876220000003" green="0.58974033589999997" blue="0.54531586170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="RJZ-mi-roi"/>
+                        <constraint firstAttribute="height" constant="1" id="vix-xR-STm"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="0ho-iU-Hih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0OS-wD-HPh"/>
+                <constraint firstAttribute="bottom" secondItem="p0u-6M-vOy" secondAttribute="bottom" id="0Vt-IN-gek"/>
+                <constraint firstAttribute="trailing" secondItem="ocy-dl-J3e" secondAttribute="trailing" id="3Ix-Vh-N4R"/>
+                <constraint firstItem="ocy-dl-J3e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wcp-cj-mPc"/>
+                <constraint firstItem="p0u-6M-vOy" firstAttribute="top" secondItem="0ho-iU-Hih" secondAttribute="bottom" id="cOv-z7-Brn"/>
+                <constraint firstItem="ocy-dl-J3e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nHa-Mo-j08"/>
                 <constraint firstAttribute="trailing" secondItem="0ho-iU-Hih" secondAttribute="trailing" id="qxi-MB-T7t"/>
-                <constraint firstItem="0ho-iU-Hih" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zUs-Oy-Ooj"/>
+                <constraint firstAttribute="trailing" secondItem="p0u-6M-vOy" secondAttribute="trailing" id="wBy-lf-Qur"/>
+                <constraint firstItem="p0u-6M-vOy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xMQ-MT-N0u"/>
+                <constraint firstItem="0ho-iU-Hih" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="zUs-Oy-Ooj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="32.5" y="-163"/>
+            <point key="canvasLocation" x="32.5" y="-195"/>
         </view>
     </objects>
 </document>

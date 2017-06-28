@@ -49,12 +49,12 @@ public struct EZLoadingActivity {
     @discardableResult
     public static func show(_ text: String, disableUI: Bool) -> Bool {
         guard instance == nil else {
-            print("EZLoadingActivity: You still have an active activity, please stop that before creating a new one")
+            //print("EZLoadingActivity: You still have an active activity, please stop that before creating a new one")
             return false
         }
         
         guard topMostController != nil else {
-            print("EZLoadingActivity Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+            //print("EZLoadingActivity Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
             return false
         }
         // Separate creation from showing
@@ -83,7 +83,7 @@ public struct EZLoadingActivity {
     
     public static func showOnController(_ text: String, disableUI: Bool, controller:UIViewController) -> Bool{
         guard instance == nil else {
-            print("EZLoadingActivity: You still have an active activity, please stop that before creating a new one")
+            //print("EZLoadingActivity: You still have an active activity, please stop that before creating a new one")
             return false
         }
         instance = LoadingActivity(text: text, disableUI: disableUI)
@@ -98,12 +98,12 @@ public struct EZLoadingActivity {
     @discardableResult
     public static func hide(_ success: Bool? = nil, animated: Bool = false) -> Bool {
         guard instance != nil else {
-            print("EZLoadingActivity: You don't have an activity instance")
+            //print("EZLoadingActivity: You don't have an activity instance")
             return false
         }
         
         guard hidingInProgress == false else {
-            print("EZLoadingActivity: Hiding already in progress")
+            //print("EZLoadingActivity: Hiding already in progress")
             return false
         }
         
