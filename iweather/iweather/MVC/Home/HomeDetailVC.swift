@@ -51,9 +51,17 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionCell", for: indexPath) as! MyCollectionViewCell
-        cell.modelIndexpath = listModelIndexpath[indexPath.row]
+        cell.modelIndexpath = listModelIndexpath[indexPath.item]
         cell.checkTemp = checkTemp
         cell.writeDataInView()
+        
+//        let sunset = listModelIndexpath[indexPath.item].sunset
+//        let arrSunset = sunset.components(separatedBy: ":")
+//        let sunrise = listModelIndexpath[indexPath.item].sunrise
+//        let arrSunrise = sunrise.components(separatedBy: ":")
+//        
+//        cell.hoursSunet = "\(arrSunset[0])AM"
+//        cell.hoursSunrise = "\(arrSunrise[0])PM"
         return cell
     }
     

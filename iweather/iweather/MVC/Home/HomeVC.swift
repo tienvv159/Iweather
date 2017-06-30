@@ -29,7 +29,6 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
         getDataFromRealm()
         registerCell()
         
-        
 //        let string = "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/26.gif\"/> <BR /> <b>Current Conditions:</b> <BR />Cloudy <BR /> <BR /> <b>Forecast:</b> <BR /> Mon - Cloudy. High: 55Low: 51 <BR /> Tue - Cloudy. High: 55Low: 50 <BR /> Wed - Rain. High: 54Low: 50 <BR /> Thu - Cloudy. High: 54Low: 50 <BR /> Fri - Scattered Showers. High: 54Low: 48 <BR /> <BR /> <a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/\">Full Forecast at Yahoo! Weather</a> <BR /> <BR /> (provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>) <BR /> ]]>".html2String
 //        
 //        lblDes.text = string
@@ -103,64 +102,7 @@ class HomeVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MyC
             let arr = text.components(separatedBy: " ")
             cell.lblTime.text = "\(arr[4]) \(arr[5])"
             
-            if listModel[indexPath.row].code == "0" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_storm")
-            }
-            if listModel[indexPath.row].code == "1" || listModel[indexPath.row].code == "2" || listModel[indexPath.row].code == "3" || listModel[indexPath.row].code == "4" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_cloudThunder")
-            }
-            if listModel[indexPath.row].code == "5" || listModel[indexPath.row].code == "6" || listModel[indexPath.row].code == "7" || listModel[indexPath.row].code == "18" || listModel[indexPath.row].code == "46"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_rainSnow")
-            }
-            if listModel[indexPath.row].code == "8" || listModel[indexPath.row].code == "9" || listModel[indexPath.row].code == "10" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_rainCloud")
-            }
-            if listModel[indexPath.row].code == "11" || listModel[indexPath.row].code == "12" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_shower")
-            }
-            if listModel[indexPath.row].code == "13" || listModel[indexPath.row].code == "14" || listModel[indexPath.row].code == "15" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_snowWind")
-            }
-            if listModel[indexPath.row].code == "16"  {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_snow")
-            }
-            if listModel[indexPath.row].code == "17" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_hail")
-            }
-            if listModel[indexPath.row].code == "19" || listModel[indexPath.row].code == "20" || listModel[indexPath.row].code == "21" || listModel[indexPath.row].code == "22" || listModel[indexPath.row].code == "23"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_windDustWaring")
-            }
-            if listModel[indexPath.row].code == "24" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_wind")
-            }
-            if listModel[indexPath.row].code == "25" || listModel[indexPath.row].code == "26" || listModel[indexPath.row].code == "44"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_cloud")
-            }
-            if listModel[indexPath.row].code == "27"  || listModel[indexPath.row].code == "29" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_moonBigCloud")
-            }
-            if  listModel[indexPath.row].code == "28" || listModel[indexPath.row].code == "30" {
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_sunBigCloud")
-            }
-            if  listModel[indexPath.row].code == "31" || listModel[indexPath.row].code == "32" || listModel[indexPath.row].code == "36"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_sun")
-            }
-            if  listModel[indexPath.row].code == "33" || listModel[indexPath.row].code == "34"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_roller")
-            }
-            if  listModel[indexPath.row].code == "35"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_shootingStar")
-            }
-            if  listModel[indexPath.row].code == "37" || listModel[indexPath.row].code == "38" || listModel[indexPath.row].code == "39" || listModel[indexPath.row].code == "45" || listModel[indexPath.row].code == "47"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_thunder")
-            }
-            if  listModel[indexPath.row].code == "40"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_sunRainCloud")
-            }
-            if  listModel[indexPath.row].code == "41" || listModel[indexPath.row].code == "42" || listModel[indexPath.row].code == "43"{
-                cell.imgCell.image = #imageLiteral(resourceName: "ic_thunderSnow")
-            }
-
+            cell.imgCell.image = listModel[indexPath.row].handlingItem(code: listModel[indexPath.row].code)
             
             return cell
         }
