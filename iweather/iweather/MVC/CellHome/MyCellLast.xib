@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAb-Sa-opI">
@@ -74,10 +74,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJg-Zv-wNx">
-                        <rect key="frame" x="140" y="41.5" width="40" height="40"/>
+                        <rect key="frame" x="147.5" y="56.5" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="BbA-1K-igl"/>
-                            <constraint firstAttribute="height" constant="40" id="qMm-dA-2m5"/>
+                            <constraint firstAttribute="width" constant="25" id="BbA-1K-igl"/>
+                            <constraint firstAttribute="height" constant="25" id="qMm-dA-2m5"/>
                         </constraints>
                         <state key="normal" image="1234.png"/>
                         <connections>

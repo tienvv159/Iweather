@@ -55,13 +55,6 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         cell.checkTemp = checkTemp
         cell.writeDataInView()
         
-//        let sunset = listModelIndexpath[indexPath.item].sunset
-//        let arrSunset = sunset.components(separatedBy: ":")
-//        let sunrise = listModelIndexpath[indexPath.item].sunrise
-//        let arrSunrise = sunrise.components(separatedBy: ":")
-//        
-//        cell.hoursSunet = "\(arrSunset[0])AM"
-//        cell.hoursSunrise = "\(arrSunrise[0])PM"
         return cell
     }
     

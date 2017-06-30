@@ -11,7 +11,7 @@ import RealmSwift
 
 class TempHoursModel: Object {
     var hours = ""
-    var temp = 0
+    var temp = ""
     var code = 0
     
     
@@ -24,14 +24,14 @@ class TempHoursModel: Object {
         let codes = dic["code"] as? Int ?? 0
         
         hours = hourss
-        temp = Int(temps)
+        temp = String(temps)
         code = codes
     }
     
-    convenience init(temp: Int, code: Int, hours: String){
+    convenience init(temp: String, code: Int, hours: String){
         self.init()
         self.hours = hours
-        self.temp = temp
+        self.temp = temp 
         self.code = code
     }
     

@@ -89,7 +89,7 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
                 let arrHoursS = hours?.components(separatedBy: " ")
                 let hoursS = "\(arrHoursS![0])PM"
                 
-                let model:TempHoursModel? = TempHoursModel(temp: 0, code: 48, hours: hoursS)
+                let model:TempHoursModel? = TempHoursModel(temp: "sunset", code: 48, hours: hoursS)
                 listData.insert(model! , at: (1 + index))
             }
         }
@@ -100,7 +100,7 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
                 let arrHoursR = hourr?.components(separatedBy: " ")
                 let hoursR = "\(arrHoursR![0])AM"
                 
-                let model:TempHoursModel? = TempHoursModel(temp: 0, code: 49, hours: hoursR)
+                let model:TempHoursModel? = TempHoursModel(temp: "sunrise", code: 49, hours: hoursR)
 
                 listData.insert(model!, at: (1 + index))
             }

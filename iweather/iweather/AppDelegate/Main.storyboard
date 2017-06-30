@@ -77,7 +77,7 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-bP-3Cc">
-                                <rect key="frame" x="50" y="630" width="268" height="37"/>
+                                <rect key="frame" x="45" y="630" width="273" height="37"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.88873751300000003" green="0.074391752429999999" blue="0.094870127959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -100,10 +100,10 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5W-GA-QmO">
-                                <rect key="frame" x="10" y="633.5" width="30" height="30"/>
+                                <rect key="frame" x="10" y="636" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bAv-yU-0Xd"/>
-                                    <constraint firstAttribute="width" constant="30" id="wQr-u3-zRq"/>
+                                    <constraint firstAttribute="height" constant="25" id="KbC-ka-BQT"/>
+                                    <constraint firstAttribute="width" constant="25" id="gJS-7F-uDD"/>
                                 </constraints>
                                 <state key="normal" image="1234.png"/>
                                 <connections>
@@ -115,21 +115,20 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qc7-mA-mAQ" secondAttribute="trailing" id="5qu-eS-kpB"/>
                             <constraint firstItem="qc7-mA-mAQ" firstAttribute="top" secondItem="zNs-rf-j7h" secondAttribute="bottom" id="K89-tF-2Tp"/>
-                            <constraint firstItem="y5W-GA-QmO" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" constant="3.5" id="Nam-O2-nky"/>
-                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="leading" secondItem="y5W-GA-QmO" secondAttribute="trailing" constant="10" id="TQS-WW-A0g"/>
                             <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="naa-ma-hVs" secondAttribute="bottom" id="Yuh-Cz-kvN"/>
+                            <constraint firstItem="y5W-GA-QmO" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" constant="10" id="ZHb-Oa-r46"/>
+                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="centerY" secondItem="y5W-GA-QmO" secondAttribute="centerY" id="cIp-cl-0kn"/>
                             <constraint firstItem="zNs-rf-j7h" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="cNw-xt-dpe"/>
                             <constraint firstItem="Bsx-bP-3Cc" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="cim-ct-k6w"/>
                             <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="Bsx-bP-3Cc" secondAttribute="bottom" id="dRd-QU-Rkz"/>
                             <constraint firstItem="naa-ma-hVs" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="hhX-wq-gL1"/>
                             <constraint firstAttribute="bottom" secondItem="qc7-mA-mAQ" secondAttribute="bottom" constant="37" id="jb9-So-IUN"/>
-                            <constraint firstItem="y5W-GA-QmO" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" constant="10" id="m19-5C-uYS"/>
                             <constraint firstAttribute="trailing" secondItem="zNs-rf-j7h" secondAttribute="trailing" id="qCV-C3-tAd"/>
                             <constraint firstItem="qc7-mA-mAQ" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="qbj-xE-TTF"/>
                             <constraint firstAttribute="trailing" secondItem="naa-ma-hVs" secondAttribute="trailing" constant="10" id="sFv-e5-21w"/>
-                            <constraint firstItem="naa-ma-hVs" firstAttribute="centerY" secondItem="y5W-GA-QmO" secondAttribute="centerY" id="uE1-vO-GEB"/>
                             <constraint firstItem="zNs-rf-j7h" firstAttribute="top" secondItem="Qjw-fP-isK" secondAttribute="bottom" id="v9D-wj-qbR"/>
                             <constraint firstItem="naa-ma-hVs" firstAttribute="leading" secondItem="Bsx-bP-3Cc" secondAttribute="trailing" constant="10" id="zPD-Cv-8gO"/>
+                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="leading" secondItem="y5W-GA-QmO" secondAttribute="trailing" constant="10" id="zr3-MF-4Go"/>
                         </constraints>
                     </view>
                     <connections>
