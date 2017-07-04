@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol MyCellLastDelegate {
+protocol MyCellLastDelegate: class {
      func checkTapToAddLocation(_ check:Bool)
      func checkTapToChangerTemperature(_ check:Bool)
 }
 
 class MyCellLast: UITableViewCell {
-    var delegate:MyCellLastDelegate! = nil
+    weak var delegate:MyCellLastDelegate?
     
     @IBOutlet weak var lblC: UILabel!
     @IBOutlet weak var lblOC: UILabel!
@@ -23,16 +23,17 @@ class MyCellLast: UITableViewCell {
     
     var temperature = "F"
     
-    
     @IBAction func AddLocation(_ sender: Any) {
-        if delegate != nil {
-            delegate.checkTapToAddLocation(true)
-        }
+        delegate?.checkTapToAddLocation(true)
     }
       
     @IBAction func changerValueCF(_ sender: Any) {
-        if delegate != nil {
-            delegate.checkTapToChangerTemperature(true)
+        
+        if let homeVC = delegate as? HomeVC {
+            print(homeVC.temperature)
+        }
+        
+            delegate?.checkTapToChangerTemperature(true)
             if temperature == "F" {
                 lblF.textColor = UIColor.gray
                 lblOF.textColor = UIColor.gray
@@ -46,11 +47,10 @@ class MyCellLast: UITableViewCell {
                 lblOC.textColor = UIColor.gray
                 temperature = "F"
             }
-        }
     }
    
     @IBAction func didSelectToWeb(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string: "https://www.yahoo.com/news/weather")! as URL)
+        UIApplication.shared.openURL(NSURL(string: "https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM")! as URL)
     }
     
 }

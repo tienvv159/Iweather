@@ -24,7 +24,11 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
     var indexSunset = 0
     var indexSunrise = 0
     var listData:[TempHoursModel] = []
-    private var tempModel: IweatheModel? = nil
+    private var tempModel: IweatheModel? = nil {
+        didSet {
+            
+        }
+    }
     
     var checkTemp: String? {
         get{
@@ -130,5 +134,11 @@ extension MyHeaderInSection : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension UIImageView {
+    func imageWithCode(code: String) {
+        
     }
 }

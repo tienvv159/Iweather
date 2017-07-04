@@ -69,7 +69,7 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     
     @IBAction func didSelectToWeb(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string:"https://www.yahoo.com/news/weather")! as URL)
+        UIApplication.shared.openURL(NSURL(string:"https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM")! as URL)
     }
     
 }

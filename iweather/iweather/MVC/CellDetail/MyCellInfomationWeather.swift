@@ -34,4 +34,16 @@ class MyCellInfomationWeather: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCell(modelIndexpath: IweatheModel) {
+        self.lblChill.text = "\(modelIndexpath.chill) HP"
+        self.lblSpeed.text = "\(modelIndexpath.speed) km/h"
+        self.lblSunrise.text = modelIndexpath.sunrise
+        self.lblSunset.text = modelIndexpath.sunset
+        self.lblPressure.text = "\(modelIndexpath.pressure) mb"
+        self.lblDirection.text = "\(modelIndexpath.direction) Kd"
+        self.lblVisibility.text = "\(modelIndexpath.visibility) km"
+        self.lblHumidity.text = "\(modelIndexpath.humidity) %"
+
+    }
+    
 }

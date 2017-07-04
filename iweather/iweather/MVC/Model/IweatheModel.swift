@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class IweatheModel: Object{
+class IweatheModel: Object, InitDictionaryable{
     dynamic var keySearch = ""
     dynamic var Key = ""
     dynamic var city = ""
@@ -32,9 +32,11 @@ class IweatheModel: Object{
     dynamic var visibility = ""
     dynamic var descriptions = ""
     dynamic var code = ""
-     var forecast = List<ForecastModel>()
+    dynamic var title = ""
+    dynamic var isCurrentLocation:Bool = false
+    var forecast = List<ForecastModel>()
     
-    convenience init?(dic:[String : Any]) {
+    convenience required init?(dic:[String : Any]) {
         
         guard let query = dic["query"] as? [String : Any] else{
             return nil
@@ -42,11 +44,23 @@ class IweatheModel: Object{
         guard let results = query["results"] as? [String : Any] else{
             return nil
         }
-        
-        self.init()
 
-            let channel = results["channel"] as? [String : Any] ?? [:]
-            let location = channel["location"] as? [String : Any] ?? [:]
+        let channel = results["channel"] as? [String : Any] ?? [:]
+        let location = channel["location"] as? [String : Any] ?? [:]
+        let newCity = location["city"] as? String ?? ""
+        
+        let realm = try! Realm()
+        let iweathers = realm.objects(IweatheModel.self).filter { (i) -> Bool in
+            return i.city == newCity
+        }
+        try! realm.write {
+            for iweather  in iweathers {
+                realm.delete(iweather.forecast)
+                iweather.forecast.removeAll()
+            }
+        }
+        
+
             let wind = channel["wind"] as? [String : Any] ?? [:]
             let atmosphere = channel["atmosphere"] as? [String : Any] ?? [:]
             let astronomy = channel["astronomy"] as? [String : Any] ?? [:]
@@ -54,6 +68,7 @@ class IweatheModel: Object{
             let condition = item["condition"] as? [String : Any] ?? [:]
             let forecast = item["forecast"] as? [[String : Any]]  ?? [[:]]
         
+        self.init()
         self.code = condition["code"] as? String ?? ""
         self.pressure = atmosphere["visibility"] as? String ?? ""
         self.visibility = atmosphere["visibility"] as? String ?? ""
@@ -70,8 +85,10 @@ class IweatheModel: Object{
         self.direction = wind["direction"] as? String ?? ""
         self.speed = wind["speed"] as? String ?? ""
         self.lastBuildDate = channel["lastBuildDate"] as? String ?? ""
-        self.city = location["city"] as? String ?? ""
+        self.city = newCity
         self.descriptions = item["description"] as? String ?? ""
+        let titles = channel["title"] as? String ?? ""
+        self.title = titles.replacingOccurrences(of: "Yahoo! Weather - ", with: "")
         if let tempFs = condition["temp"] as? String, let temf = Int(tempFs)  {
             self.tempF = temf
         }
@@ -89,9 +106,9 @@ class IweatheModel: Object{
         
     }
     
-    func handlingItem(code:String) -> UIImage {
+    func handlingItem(code:String? = nil) -> UIImage {
         
-        switch code {
+        switch code ?? self.code {
         case "0":
             return #imageLiteral(resourceName: "ic_storm")
         case "1", "2", "3", "4":
@@ -151,7 +168,7 @@ class IweatheModel: Object{
 //    }
     
     override static func primaryKey() -> String?{
-        return "Key"
+        return "city"
     }
     
     

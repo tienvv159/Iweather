@@ -86,7 +86,7 @@
                             </pageControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNs-rf-j7h">
                                 <rect key="frame" x="0.0" y="20" width="375" height="609"/>
-                                <color key="backgroundColor" red="0.53889065979999995" green="0.37561985850000001" blue="0.44788157940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VoT-As-hi9">
                                     <size key="itemSize" width="327" height="485"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>

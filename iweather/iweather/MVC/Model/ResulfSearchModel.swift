@@ -9,14 +9,15 @@
 import Realm
 import RealmSwift
 
-class ResulfSearchModel: Object {
-
+class ResulfSearchModel {
+    dynamic var woeid = 0
     dynamic var city = ""
     dynamic var country = ""
     dynamic var qualifiedName = ""
     
     convenience init(dic:[String : Any]){
         self.init()
+        self.woeid = dic["woeid"] as? Int ?? 0
         let citys = dic["city"] as? String ?? ""
         let countrys = dic["country"] as? String ?? ""
         let qualifiedNames = dic["qualifiedName"] as? String ?? ""

@@ -9,12 +9,10 @@
 import Realm
 import RealmSwift
 
-class TempHoursModel: Object {
+class TempHoursModel {
     var hours = ""
     var temp = ""
     var code = 0
-    
-    
     
     convenience init(dic:[String : Any]) {
         self.init()
@@ -34,8 +32,5 @@ class TempHoursModel: Object {
         self.temp = temp 
         self.code = code
     }
-    
-    
-    
 }
 

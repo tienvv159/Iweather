@@ -28,4 +28,12 @@ class MyCellInfomationLocation: UITableViewCell {
 
     }
     
+    func setupCell(modelIndexpath: IweatheModel) {
+        self.lblCity.text = modelIndexpath.city
+        self.lblLat.text = modelIndexpath.lat
+        self.lblLong.text = modelIndexpath.long
+        self.lblCountry.text = modelIndexpath.country
+        self.lblRegion.text = modelIndexpath.region
+    }
+    
 }

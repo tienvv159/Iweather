@@ -9,23 +9,23 @@
 import Realm
 import RealmSwift
 
-class SearchModel: Object {
+class SearchModel: InitDictionaryable {
     
-    var datas = List<ResulfSearchModel>()
+    var datas = [ResulfSearchModel]()
 
     
-   convenience init?(dic:[String : Any]) {
-    
-     guard let data = dic["data"] as? [[String : Any]] else {
-        return nil
-     }
+    convenience required init?(dic:[String : Any]) {
+        
+        guard let data = dic["data"] as? [[String : Any]] else {
+            return nil
+        }
         self.init()
-    
-    for item in data {
-        let dataModel = ResulfSearchModel(dic: item)
-        datas.append(dataModel)
-    }
-    
+        
+        for item in data {
+            let dataModel = ResulfSearchModel(dic: item)
+            datas.append(dataModel)
+        }
+        
     }
     
 }

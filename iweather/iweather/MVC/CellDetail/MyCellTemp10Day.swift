@@ -27,4 +27,19 @@ class MyCellTemp10Day: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCell(modelForcast:ForecastModel, temp:String, modelWeather:IweatheModel) {
+        if temp == "F"{
+            self.lblDay.text = modelForcast.day
+            self.lblLow.text = String(modelForcast.lowF)
+            self.lblHight.text = String(modelForcast.highF)
+        }else if temp == "C"{
+            self.lblDay.text = modelForcast.day
+            self.lblLow.text = String(modelForcast.lowC)
+            self.lblHight.text = String(modelForcast.highC)
+        }
+        let code = modelForcast.code
+        self.img.image = modelWeather.handlingItem(code: code)
+
+    }
+    
 }

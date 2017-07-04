@@ -33,6 +33,7 @@
 		846619291F04A08E00C2954D /* sunset.png in Resources */ = {isa = PBXBuildFile; fileRef = 846619271F04A08E00C2954D /* sunset.png */; };
 		8466192B1F04F97800C2954D /* TempHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466192A1F04F97800C2954D /* TempHoursModel.swift */; };
 		8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475A2DC1EF9327A00412025 /* ForecastModel.swift */; };
+		848E5C0A1F0B9F220098F4EF /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 848E5C091F0B9F220098F4EF /* location.png */; };
 		8490980B1EFACE6900DA288F /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8490980A1EFACE6900DA288F /* Pods_iweather.framework */; };
 		8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8490980C1EFAD0BD00DA288F /* Main.storyboard */; };
 		84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665711F00DFE3004604D8 /* MyCellSearch.swift */; };
@@ -80,6 +81,7 @@
 		846619271F04A08E00C2954D /* sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunset.png; sourceTree = "<group>"; };
 		8466192A1F04F97800C2954D /* TempHoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempHoursModel.swift; sourceTree = "<group>"; };
 		8475A2DC1EF9327A00412025 /* ForecastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		848E5C091F0B9F220098F4EF /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		8490980A1EFACE6900DA288F /* Pods_iweather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_iweather.framework; path = "../../../Library/Developer/Xcode/DerivedData/iweather-fewvqkhnshrxwmhiccxtrbvguiio/Build/Products/Debug-iphonesimulator/Pods_iweather.framework"; sourceTree = "<group>"; };
 		8490980C1EFAD0BD00DA288F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../AppDelegate/Main.storyboard; sourceTree = "<group>"; };
 		84C665711F00DFE3004604D8 /* MyCellSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellSearch.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		843248C31EF75AB3001A2C86 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				848E5C091F0B9F220098F4EF /* location.png */,
 				846619271F04A08E00C2954D /* sunset.png */,
 				846619261F04A08E00C2954D /* sunrise.png */,
 				84309D811F0390AA002B5CD0 /* 1234.png */,
@@ -357,6 +360,7 @@
 				843248DB1EF7E6AD001A2C86 /* menu.png in Resources */,
 				846619281F04A08E00C2954D /* sunrise.png in Resources */,
 				8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */,
+				848E5C0A1F0B9F220098F4EF /* location.png in Resources */,
 				843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */,
 				841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */,
@@ -561,6 +565,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DBD13929700202BC24F1459 /* Pods-iweather.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 84RK425W2T;
 				INFOPLIST_FILE = iweather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -574,6 +580,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15CC17203C2D237A192A3F7A /* Pods-iweather.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 84RK425W2T;
 				INFOPLIST_FILE = iweather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
