@@ -77,7 +77,6 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 
 
 extension HomeDetailVC : UICollectionViewDelegateFlowLayout {
-    //1
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -85,14 +84,12 @@ extension HomeDetailVC : UICollectionViewDelegateFlowLayout {
         return CGSize(width: screenSize.size.width, height: screenSize.size.height - 37)
     }
     
-    //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 0, 0,0)
     }
-    
-    // 4
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {

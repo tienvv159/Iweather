@@ -38,7 +38,6 @@ class MyCollectionViewCell: UICollectionViewCell{
         
         let nibInfoWeather = UINib(nibName: "MyCellInfomationWeather", bundle: nil)
         myTableView.register(nibInfoWeather, forCellReuseIdentifier: "MyCellInforWeather")
-        
     }
     
     func writeDataInView() {
