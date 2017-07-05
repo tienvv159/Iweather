@@ -59,11 +59,11 @@
                             <constraint firstAttribute="height" constant="25" id="lmM-up-UTv"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zuF-AB-mF1">
-                        <rect key="frame" x="112" y="7" width="15" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V5C-aJ-09Z">
+                        <rect key="frame" x="112" y="8" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="b10-Ky-u34"/>
-                            <constraint firstAttribute="height" constant="15" id="did-7g-fs9"/>
+                            <constraint firstAttribute="width" constant="15" id="1l1-Az-vIh"/>
+                            <constraint firstAttribute="height" constant="15" id="mSj-wp-ybZ"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -74,12 +74,12 @@
                     <constraint firstAttribute="trailing" secondItem="3Qv-yc-I2o" secondAttribute="trailing" constant="5" id="MBI-YC-Cl4"/>
                     <constraint firstAttribute="bottom" secondItem="v7E-g0-A0I" secondAttribute="bottom" id="RLS-ck-UiR"/>
                     <constraint firstAttribute="bottom" secondItem="12c-a1-BDI" secondAttribute="bottom" constant="10" id="SuQ-vl-fHG"/>
-                    <constraint firstItem="zuF-AB-mF1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="VOD-IQ-MFG"/>
-                    <constraint firstItem="zuF-AB-mF1" firstAttribute="leading" secondItem="kfw-vj-8Dm" secondAttribute="trailing" constant="10" id="VXu-jQ-ImI"/>
                     <constraint firstItem="a0d-OS-OFM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="XeC-dH-YLC"/>
                     <constraint firstItem="3Qv-yc-I2o" firstAttribute="leading" secondItem="v7E-g0-A0I" secondAttribute="trailing" id="XtI-ix-5KF"/>
+                    <constraint firstItem="V5C-aJ-09Z" firstAttribute="leading" secondItem="kfw-vj-8Dm" secondAttribute="trailing" constant="10" id="cKf-Vq-HxW"/>
                     <constraint firstItem="kfw-vj-8Dm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cpq-JQ-1h1"/>
                     <constraint firstItem="12c-a1-BDI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="f1K-oP-cVc"/>
+                    <constraint firstItem="V5C-aJ-09Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gV1-hK-4mf"/>
                     <constraint firstItem="v7E-g0-A0I" firstAttribute="leading" secondItem="a0d-OS-OFM" secondAttribute="trailing" id="ipr-mt-PME"/>
                     <constraint firstItem="v7E-g0-A0I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="orZ-WC-ukY"/>
                     <constraint firstItem="3Qv-yc-I2o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="p8h-cq-UnK"/>
@@ -88,13 +88,13 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgCell" destination="a0d-OS-OFM" id="jmh-ff-0Jw"/>
-                <outlet property="imgCurrentLocation" destination="zuF-AB-mF1" id="7cP-Dh-ueT"/>
+                <outlet property="imgCurrentLocation" destination="V5C-aJ-09Z" id="Noy-9S-1A3"/>
                 <outlet property="lblCity" destination="12c-a1-BDI" id="gzq-wH-Z1v"/>
                 <outlet property="lblCountry" destination="aMU-XC-JVB" id="9bU-uB-Vx1"/>
                 <outlet property="lblTemperature" destination="v7E-g0-A0I" id="kla-hT-PJz"/>
                 <outlet property="lblTime" destination="kfw-vj-8Dm" id="2oj-Zx-L88"/>
             </connections>
-            <point key="canvasLocation" x="-372" y="-22"/>
+            <point key="canvasLocation" x="-391.5" y="-60"/>
         </tableViewCell>
     </objects>
 </document>

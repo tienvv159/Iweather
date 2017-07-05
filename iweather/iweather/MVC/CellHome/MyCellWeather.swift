@@ -16,16 +16,16 @@ class MyCellWeather: UITableViewCell {
     
     @IBOutlet weak var lblTemperature: UILabel!
     
+    @IBOutlet weak var imgCurrentLocation: UIImageView!
     @IBOutlet weak var lblCountry: UILabel!
     
     @IBOutlet weak var imgCell: UIImageView!
 
-    @IBOutlet weak var imgCurrentLocation: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupCell(model:IweatheModel, row:Int, temp:String) {
+    func setupCell(model:IweatheModel, temp:String, row:Int) {
         self.lblCity.text = model.city
         self.lblCountry.text = model.country
         temp == "F" ? (self.lblTemperature.text = String(model.tempF)) : (self.lblTemperature.text = String(model.tempC))
@@ -35,7 +35,7 @@ class MyCellWeather: UITableViewCell {
         self.imgCell.image = model.handlingItem()
         if row == 0{
             self.imgCurrentLocation.image = UIImage(named: "location.png")
-        }else {
+        }else{
             self.imgCurrentLocation.image = UIImage()
         }
     }

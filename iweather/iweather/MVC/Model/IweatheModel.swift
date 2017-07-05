@@ -11,11 +11,9 @@ import RealmSwift
 
 class IweatheModel: Object, InitDictionaryable{
     dynamic var keySearch = ""
-    dynamic var Key = ""
     dynamic var city = ""
     dynamic var lat = ""
     dynamic var long = ""
-    dynamic var idModel = ""
     dynamic var humidity = ""
     dynamic var sunrise = ""
     dynamic var sunset = ""
@@ -33,7 +31,6 @@ class IweatheModel: Object, InitDictionaryable{
     dynamic var descriptions = ""
     dynamic var code = ""
     dynamic var title = ""
-    dynamic var isCurrentLocation:Bool = false
     var forecast = List<ForecastModel>()
     
     convenience required init?(dic:[String : Any]) {
@@ -76,7 +73,6 @@ class IweatheModel: Object, InitDictionaryable{
         self.region = location["region"] as? String ?? ""
         self.lat = item["lat"] as? String ?? ""
         self.long = item["long"] as? String ?? ""
-        self.Key = "\(lat)\(long)"
         self.humidity = atmosphere["humidity"] as? String ?? ""
         self.sunrise = astronomy["sunrise"] as? String ?? ""
         self.sunset = astronomy["sunset"] as? String ?? ""
@@ -93,10 +89,6 @@ class IweatheModel: Object, InitDictionaryable{
             self.tempF = temf
         }
         self.tempC = Int(Double(tempF - 32) / 1.8)
-        
-        let dateF = DateFormatter()
-        dateF.dateFormat = "yyyyMMddhhmmssSSS"
-        self.idModel = dateF.string(from: Date())
         
         for item in forecast {
             let forecastModel = ForecastModel(dic: item)

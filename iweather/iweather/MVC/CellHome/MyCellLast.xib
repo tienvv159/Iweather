@@ -15,16 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="484" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="484" height="86.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="484" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAb-Sa-opI">
-                        <rect key="frame" x="444" y="10" width="30" height="30"/>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAb-Sa-opI">
+                        <rect key="frame" x="449" y="10" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="1CB-MG-2zl"/>
-                            <constraint firstAttribute="width" constant="30" id="bre-ie-cuV"/>
+                            <constraint firstAttribute="height" constant="25" id="1CB-MG-2zl"/>
+                            <constraint firstAttribute="width" constant="25" id="bre-ie-cuV"/>
                         </constraints>
-                        <state key="normal" image="plus.png"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" image="add"/>
                         <connections>
                             <action selector="AddLocation:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qS7-f7-tIQ"/>
                         </connections>
@@ -79,6 +80,7 @@
                             <constraint firstAttribute="width" constant="25" id="BbA-1K-igl"/>
                             <constraint firstAttribute="height" constant="25" id="qMm-dA-2m5"/>
                         </constraints>
+                        <color key="tintColor" red="1" green="0.91003293734027535" blue="0.0016353240705125893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" image="1234.png"/>
                         <connections>
                             <action selector="didSelectToWeb:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wfO-EX-8aX"/>
@@ -119,6 +121,6 @@
     </objects>
     <resources>
         <image name="1234.png" width="54" height="53"/>
-        <image name="plus.png" width="32" height="32"/>
+        <image name="add" width="512" height="512"/>
     </resources>
 </document>
