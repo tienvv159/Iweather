@@ -10,31 +10,29 @@ import UIKit
 
 class MyCellWeather: UITableViewCell {
 
+    @IBOutlet weak var imgBackgroudCell: UIImageView!
     @IBOutlet weak var lblTime: UILabel!
-    
     @IBOutlet weak var lblCity: UILabel!
-    
     @IBOutlet weak var lblTemperature: UILabel!
-    
     @IBOutlet weak var imgCurrentLocation: UIImageView!
     @IBOutlet weak var lblCountry: UILabel!
-    
     @IBOutlet weak var imgCell: UIImageView!
+    let statusWeather:StatusWeather = StatusWeather()
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupCell(model:IweatheModel, temp:String, row:Int) {
+    func setupCell(model:IweatheModel, temp:String, strings1:String, Strings2:String) {
         self.lblCity.text = model.city
         self.lblCountry.text = model.country
         temp == "F" ? (self.lblTemperature.text = String(model.tempF)) : (self.lblTemperature.text = String(model.tempC))
         let text = model.lastBuildDate.description
         let arr = text.components(separatedBy: " ")
         self.lblTime.text = "\(arr[4]) \(arr[5])"
-        self.imgCell.image = model.handlingItem()
-        if row == 0{
-            self.imgCurrentLocation.image = UIImage(named: "location.png")
+        self.imgCell.image = statusWeather.handlingItem(code: model.code)
+        if strings1 == Strings2{
+            self.imgCurrentLocation.image = UIImage(named: "location")
         }else{
             self.imgCurrentLocation.image = UIImage()
         }

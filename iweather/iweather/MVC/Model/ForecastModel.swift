@@ -7,7 +7,7 @@
 //
 
 import RealmSwift
-class ForecastModel: Object  {
+public class ForecastModel: Object  {
     //dynamic var key = ""
     dynamic var code = ""
     dynamic var date = ""
@@ -18,7 +18,7 @@ class ForecastModel: Object  {
     dynamic var highC = 0
     dynamic var lowC = 0
     
-    convenience init(dic:[String : Any]){
+    public convenience init(dic:[String : Any]){
         self.init()
         
         let code = 	dic["code"] as? String ?? ""

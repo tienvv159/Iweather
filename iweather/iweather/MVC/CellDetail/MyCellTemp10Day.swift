@@ -15,6 +15,7 @@ class MyCellTemp10Day: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lblLow: UILabel!
     @IBOutlet weak var lblHight: UILabel!
+    let statusWeather:StatusWeather = StatusWeather()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +39,7 @@ class MyCellTemp10Day: UITableViewCell {
             self.lblHight.text = String(modelForcast.highC)
         }
         let code = modelForcast.code
-        self.img.image = modelWeather.handlingItem(code: code)
+        self.img.image = statusWeather.handlingItem(code: code)
 
     }
     

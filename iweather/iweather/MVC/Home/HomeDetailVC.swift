@@ -10,14 +10,15 @@ import UIKit
 
 class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPageViewControllerDelegate{
     
-    @IBOutlet weak var myPage: UIPageControl!
+    @IBOutlet weak var pageControl: SMPageControl!
     @IBOutlet weak var myCollectionView: UICollectionView!
     var checkTemp:String = ""
     let color:[UIColor] = [UIColor.red, UIColor.blue, UIColor.yellow, UIColor.brown]
     var  frames = CGRect(x: 0, y: 0, width: 0, height: 0)
-    var listModelIndexpath:[IweatheModel]! = nil
+    var listModel:[IweatheModel]! = nil
     var row:Int = 0
     var checkDirection:Float = 0
+    var index:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,15 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                 self.myCollectionView.selectItem(at: IndexPath(row: self.row, section: 0), animated: false, scrollPosition: .centeredHorizontally)
             }
         }
-        myPage.numberOfPages = listModelIndexpath.count
-        myPage.currentPage = row
+        myCollectionView.isPagingEnabled = true
+        pageControl.numberOfPages = listModel.count
+        pageControl.currentPage = row
+        pageControl.setImage(UIImage(named:"location10x10"), forPage: 0)
+        pageControl.setCurrentImage(UIImage(named:"location10x10"), forPage: 0)
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.currentPageIndicatorTintColor = UIColor.white
     }
+    
     
     @IBAction func didMenu(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -44,17 +51,15 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         myCollectionView.selectItem(at: IndexPath(row: page, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
-  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listModelIndexpath.count
+        return listModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionCell", for: indexPath) as! MyCollectionViewCell
-        cell.modelIndexpath = listModelIndexpath[indexPath.item]
+        cell.modelIndexpath = listModel[indexPath.item]
         cell.checkTemp = checkTemp
         cell.writeDataInView()
-        
         return cell
     }
     
@@ -64,16 +69,21 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        myPage.currentPage = indexPath.item
+        index = indexPath.item
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.size.width
+        if offSet == width * CGFloat(index){
+            pageControl.currentPage = index
+        }
+    }
     
     @IBAction func didSelectToWeb(_ sender: Any) {
         UIApplication.shared.openURL(NSURL(string:"https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM")! as URL)
     }
-    
 }
-
 
 
 extension HomeDetailVC : UICollectionViewDelegateFlowLayout {

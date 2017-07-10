@@ -19,6 +19,9 @@ class HomeVC: UIViewController {
     var listModelAffterSort:[IweatheModel] = []
     let locationManager = CLLocationManager()
     var checkLocation:String = ""
+    var define:Define = Define()
+    var statusWeather:StatusWeather = StatusWeather()
+    
     override func viewDidAppear(_ animated: Bool) {
         getDataFromRealm()
         getCurrentLocation()
@@ -31,9 +34,9 @@ class HomeVC: UIViewController {
         self.locationManager.requestWhenInUseAuthorization()
     }
 
-    func getDataCurrentLocation(api:String, complete: () -> ()) {
-        let stringApi = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places where text=\"\(api)\")&format=json".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
-        NetworkManager.share.callApiWithLatLong(api: stringApi) { (modelIweather) in
+    func getDataCurrentLocation(latLong:String, complete: () -> ()) {
+        let stringAPI = define.APIWithLatLong(latLong: latLong)
+        NetworkManager.share.callApi(stringAPI) { (modelIweather) in
             if let model = modelIweather{
                 self.checkLocation = "\(model.city).\(model.country)"
                 do
@@ -47,7 +50,7 @@ class HomeVC: UIViewController {
                     self.showAlert(titleAlert: "Notification", message: "error save realm", titleAction: "OK")
                 }
             }else{
-                self.showAlert(titleAlert: "Notification", message: "error loading info. please try again", titleAction: "OK")
+                self.showAlert(titleAlert: "Notification", message: "Network error. please try again", titleAction: "OK")
             }
             self.getDataFromRealm()
         }
@@ -62,11 +65,9 @@ class HomeVC: UIViewController {
             for model in list {
                 listModel.append(model)
             }
-            
             listModel = listModel.sorted(by: { o1,o2 in
                 return checkLocation == (o1.city + "." + o1.country)
             })
-            
             reloadDataWhenRunApp()
         }catch {
             self.showAlert(titleAlert: "Notification", message: "error get data from realm", titleAction: "OK")
@@ -104,10 +105,11 @@ class HomeVC: UIViewController {
     }
     
     func getAPI(_ location:String,complete:@escaping ()->()) {
-        let apiString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(location.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
-        EZLoadingActivity.show("Loading", disableUI: true)
+        
+        let apiString = define.APIWithName(location: location)
+        //EZLoadingActivity.show("Loading", disableUI: true)
         NetworkManager.share.callApi(apiString) { model in
-            EZLoadingActivity.hide(true, animated: true)
+            //EZLoadingActivity.hide(true, animated: true)
             if let model = model{
                 self.myTableView.reloadData()
                 do
@@ -118,10 +120,10 @@ class HomeVC: UIViewController {
                     }
                 }
                 catch{
-                    self.showAlert(titleAlert: "Notification", message: "error save realm", titleAction: "OK")
+                    self.showAlert(titleAlert: "Notification", message: "error save data", titleAction: "OK")
                 }
             }else{
-                self.showAlert(titleAlert: "Notification", message: "error loading info. please try again", titleAction: "OK")
+                self.showAlert(titleAlert: "Notification", message: "Network error. please try again", titleAction: "OK")
             }
             
             complete()
@@ -152,8 +154,9 @@ extension HomeVC: UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellWeather", for: indexPath) as! MyCellWeather
-            cell.setupCell(model: listModel[indexPath.row], temp: temperature, row: indexPath.row)
-            return cell
+            cell.setupCell(model: listModel[indexPath.row], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.row].city).\(listModel[indexPath.row].country)")
+            cell.contentView.backgroundColor = statusWeather.handlingColorCell(code: listModel[indexPath.row].code)
+        return cell
         }
     }
 }
@@ -168,7 +171,7 @@ extension HomeVC : UITableViewDelegate{
         if indexPath.row != listModel.count {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailVC
-            vc.listModelIndexpath = listModel
+            vc.listModel = listModel
             vc.row = indexPath.row
             vc.checkTemp = temperature
             navigationController?.present(vc, animated: true, completion: nil)
@@ -196,12 +199,13 @@ extension HomeVC : UITableViewDelegate{
                         myTableView.reloadData()
                     }
                 }catch{
-                    self.showAlert(titleAlert: "Notification", message: "Error delete element realm", titleAction: "OK")
+                    self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
                 }
             }
         }
     }
 }
+
 
 
 extension HomeVC: CLLocationManagerDelegate{
@@ -223,8 +227,7 @@ extension HomeVC: CLLocationManagerDelegate{
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         locationManager.stopUpdatingLocation()
         let latLong = "\((locValue.latitude,locValue.longitude))"
-        
-        getDataCurrentLocation(api: latLong) {
+        getDataCurrentLocation(latLong: latLong) {
             myTableView.reloadData()
         }
     }
@@ -247,3 +250,4 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
         }
     }
 }
+

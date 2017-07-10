@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-myWeather.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0D24AAD3133946EB67007A3CA358D3BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0EEB033BCE01E2457769ACDE627E87DD</key>
 		<dict>
 			<key>primary</key>

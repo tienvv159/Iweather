@@ -9,12 +9,12 @@
 import Realm
 import RealmSwift
 
-class SearchModel: InitDictionaryable {
+public class SearchModel: InitDictionaryable {
     
-    var datas = [ResulfSearchModel]()
+    public var datas = [ResulfSearchModel]()
 
     
-    convenience required init?(dic:[String : Any]) {
+    public convenience required init?(dic:[String : Any]) {
         
         guard let data = dic["data"] as? [[String : Any]] else {
             return nil

@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7FM-E2-rQt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7FM-E2-rQt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <connections>
@@ -76,14 +76,6 @@
                                     <action selector="didMenu:" destination="gMe-hD-g2i" eventType="touchUpInside" id="uaZ-NT-tas"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-bP-3Cc">
-                                <rect key="frame" x="45" y="630" width="273" height="37"/>
-                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" red="0.88873751300000003" green="0.074391752429999999" blue="0.094870127959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="changePage:" destination="gMe-hD-g2i" eventType="valueChanged" id="TKk-FG-4PC"/>
-                                </connections>
-                            </pageControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNs-rf-j7h">
                                 <rect key="frame" x="0.0" y="20" width="375" height="609"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -100,45 +92,49 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5W-GA-QmO">
-                                <rect key="frame" x="10" y="636" width="25" height="25"/>
+                                <rect key="frame" x="15" y="636" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="KbC-ka-BQT"/>
-                                    <constraint firstAttribute="width" constant="25" id="gJS-7F-uDD"/>
+                                    <constraint firstAttribute="width" constant="25" id="zkM-a7-2Sa"/>
                                 </constraints>
                                 <state key="normal" image="1234.png"/>
                                 <connections>
                                     <action selector="didSelectToWeb:" destination="gMe-hD-g2i" eventType="touchUpInside" id="ZvD-Pr-QIV"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loS-TN-G6A" customClass="SMPageControl">
+                                <rect key="frame" x="40" y="630" width="288" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.53889065979999995" green="0.37561985850000001" blue="0.44788157940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="loS-TN-G6A" secondAttribute="bottom" id="24a-Ok-t97"/>
                             <constraint firstAttribute="trailing" secondItem="qc7-mA-mAQ" secondAttribute="trailing" id="5qu-eS-kpB"/>
+                            <constraint firstItem="y5W-GA-QmO" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" constant="15" id="BfL-eU-muy"/>
                             <constraint firstItem="qc7-mA-mAQ" firstAttribute="top" secondItem="zNs-rf-j7h" secondAttribute="bottom" id="K89-tF-2Tp"/>
+                            <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="y5W-GA-QmO" secondAttribute="bottom" constant="6" id="Qbt-2V-3qh"/>
                             <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="naa-ma-hVs" secondAttribute="bottom" id="Yuh-Cz-kvN"/>
-                            <constraint firstItem="y5W-GA-QmO" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" constant="10" id="ZHb-Oa-r46"/>
-                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="centerY" secondItem="y5W-GA-QmO" secondAttribute="centerY" id="cIp-cl-0kn"/>
                             <constraint firstItem="zNs-rf-j7h" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="cNw-xt-dpe"/>
-                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="cim-ct-k6w"/>
-                            <constraint firstItem="1lA-0T-NRR" firstAttribute="top" secondItem="Bsx-bP-3Cc" secondAttribute="bottom" id="dRd-QU-Rkz"/>
+                            <constraint firstItem="y5W-GA-QmO" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" constant="6" id="dPc-sq-ZbJ"/>
+                            <constraint firstItem="loS-TN-G6A" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="eMU-oa-ipx"/>
+                            <constraint firstItem="loS-TN-G6A" firstAttribute="leading" secondItem="y5W-GA-QmO" secondAttribute="trailing" id="fS7-Nj-NBu"/>
                             <constraint firstItem="naa-ma-hVs" firstAttribute="top" secondItem="qc7-mA-mAQ" secondAttribute="bottom" id="hhX-wq-gL1"/>
                             <constraint firstAttribute="bottom" secondItem="qc7-mA-mAQ" secondAttribute="bottom" constant="37" id="jb9-So-IUN"/>
+                            <constraint firstItem="naa-ma-hVs" firstAttribute="leading" secondItem="loS-TN-G6A" secondAttribute="trailing" id="mSj-ts-Jai"/>
                             <constraint firstAttribute="trailing" secondItem="zNs-rf-j7h" secondAttribute="trailing" id="qCV-C3-tAd"/>
                             <constraint firstItem="qc7-mA-mAQ" firstAttribute="leading" secondItem="SV2-bl-9bT" secondAttribute="leading" id="qbj-xE-TTF"/>
                             <constraint firstAttribute="trailing" secondItem="naa-ma-hVs" secondAttribute="trailing" constant="10" id="sFv-e5-21w"/>
                             <constraint firstItem="zNs-rf-j7h" firstAttribute="top" secondItem="Qjw-fP-isK" secondAttribute="bottom" id="v9D-wj-qbR"/>
-                            <constraint firstItem="naa-ma-hVs" firstAttribute="leading" secondItem="Bsx-bP-3Cc" secondAttribute="trailing" constant="10" id="zPD-Cv-8gO"/>
-                            <constraint firstItem="Bsx-bP-3Cc" firstAttribute="leading" secondItem="y5W-GA-QmO" secondAttribute="trailing" constant="10" id="zr3-MF-4Go"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myCollectionView" destination="zNs-rf-j7h" id="9Db-fk-kMl"/>
-                        <outlet property="myPage" destination="Bsx-bP-3Cc" id="YcW-o4-Hp1"/>
+                        <outlet property="pageControl" destination="loS-TN-G6A" id="Pwy-Az-X1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3b-tM-UbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068.75" y="-474.29577464788736"/>
+            <point key="canvasLocation" x="1068" y="-474.51274362818594"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="z7D-KF-ZoA">
@@ -162,8 +158,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FHG-KB-p1Q">
-                                        <rect key="frame" x="10" y="60" width="307" height="44"/>
+                                        <rect key="frame" x="10" y="60.5" width="307" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                         <connections>
                                             <outlet property="delegate" destination="WpB-ol-3tb" id="R41-bN-uwo"/>
                                         </connections>

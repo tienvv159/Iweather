@@ -18,7 +18,7 @@ class SearchVC: UIViewController {
     
     weak var delegate:SearchVCDelegate! = nil
     var modelSearch:SearchModel? = nil
-    
+    let define:Define = Define()
     override func viewDidAppear(_ animated: Bool) {
         getAPI(location: mySearchBar.text ?? "")
     }
@@ -26,15 +26,14 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mySearchBar.becomeFirstResponder()
-        
+        mySearchBar.backgroundImage = UIImage()
         let nib = UINib(nibName: "MyCellSearch", bundle: nil)
         myTableVIew.register(nib, forCellReuseIdentifier: "CellSearch")
         
     }
     
     func getAPI(location:String) {
-        let stringAPI = "https://www.yahoo.com/news/_td/api/resource/WeatherSearch;text=\(location.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")?bkt=newsdmcntr&device=desktop&feature=cacheContentCanvas%2CvideoDocking%2CnewContentAttribution%2Clivecoverage%2Cfeaturebar%2CdeferModalCluster%2CspecRetry%2CnewLayout%2Csidepic%2CcanvassOffnet%2CntkFilmstrip%2CautoNotif&intl=us&lang=en-US&partner=none&prid=97v352hckf2mk&region=US&site=fp&tz=Asia%2F&ver=2.0.7450001&returnMeta=true"
-        
+        let stringAPI = define.APISearch(location: location)        
         NetworkManager.share.callApiSearch(stringAPI) { (model) in
             self.modelSearch = model
             self.myTableVIew.reloadData()
@@ -43,6 +42,7 @@ class SearchVC: UIViewController {
     
     
     @IBAction func didCancel(_ sender: Any) {
+        
         self.dismiss(animated: true, completion: nil)
     }
     
