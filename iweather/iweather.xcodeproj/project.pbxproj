@@ -47,6 +47,7 @@
 		848E5C0A1F0B9F220098F4EF /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 848E5C091F0B9F220098F4EF /* location.png */; };
 		8490980B1EFACE6900DA288F /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8490980A1EFACE6900DA288F /* Pods_iweather.framework */; };
 		8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8490980C1EFAD0BD00DA288F /* Main.storyboard */; };
+		84B72AEE1F14B34100367B0D /* location1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72AED1F14B34100367B0D /* location1.png */; };
 		84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665711F00DFE3004604D8 /* MyCellSearch.swift */; };
 		84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C665721F00DFE3004604D8 /* MyCellSearch.xib */; };
 		84C665761F00E287004604D8 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665751F00E287004604D8 /* SearchModel.swift */; };
@@ -142,6 +143,7 @@
 		848E5C091F0B9F220098F4EF /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		8490980A1EFACE6900DA288F /* Pods_iweather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_iweather.framework; path = "../../../Library/Developer/Xcode/DerivedData/iweather-fewvqkhnshrxwmhiccxtrbvguiio/Build/Products/Debug-iphonesimulator/Pods_iweather.framework"; sourceTree = "<group>"; };
 		8490980C1EFAD0BD00DA288F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../AppDelegate/Main.storyboard; sourceTree = "<group>"; };
+		84B72AED1F14B34100367B0D /* location1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location1.png; sourceTree = "<group>"; };
 		84C665711F00DFE3004604D8 /* MyCellSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellSearch.swift; sourceTree = "<group>"; };
 		84C665721F00DFE3004604D8 /* MyCellSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellSearch.xib; sourceTree = "<group>"; };
 		84C665751F00E287004604D8 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		843248C31EF75AB3001A2C86 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				84B72AED1F14B34100367B0D /* location1.png */,
 				84E9AAC71F136ACE00FFBCFE /* location10x10.png */,
 				84363BE51F0E103700BF20F4 /* rian.jpg */,
 				848E5C091F0B9F220098F4EF /* location.png */,
@@ -552,6 +555,7 @@
 				842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,
 				84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */,
+				84B72AEE1F14B34100367B0D /* location1.png in Resources */,
 				846619291F04A08E00C2954D /* sunset.png in Resources */,
 				84E9AAB01F13650C00FFBCFE /* appleMask@2x.png in Resources */,
 				8309BA6F1EFA01370055A13A /* Assets.xcassets in Resources */,
