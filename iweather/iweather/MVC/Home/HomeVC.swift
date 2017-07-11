@@ -125,7 +125,6 @@ class HomeVC: UIViewController {
             }else{
                 self.showAlert(titleAlert: "Notification", message: "Network error. please try again", titleAction: "OK")
             }
-            
             complete()
         }
     }
