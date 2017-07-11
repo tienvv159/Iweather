@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     var checkLocation:String = ""
     var define:Define = Define()
     var statusWeather:StatusWeather = StatusWeather()
-    
+    var isOnLocation:Bool = false
     override func viewDidAppear(_ animated: Bool) {
         getDataFromRealm()
         getCurrentLocation()
@@ -224,6 +224,9 @@ extension HomeVC: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        isOnLocation = true
+        let defaults = UserDefaults.standard
+        defaults.set(isOnLocation, forKey: "isOnLocation")
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         locationManager.stopUpdatingLocation()
         let latLong = "\((locValue.latitude,locValue.longitude))"

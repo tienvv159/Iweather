@@ -31,13 +31,29 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                 self.myCollectionView.selectItem(at: IndexPath(row: self.row, section: 0), animated: false, scrollPosition: .centeredHorizontally)
             }
         }
-        myCollectionView.isPagingEnabled = true
-        pageControl.numberOfPages = listModel.count
-        pageControl.currentPage = row
-        pageControl.setImage(UIImage(named:"location10x10"), forPage: 0)
-        pageControl.setCurrentImage(UIImage(named:"location10x10"), forPage: 0)
-        pageControl.pageIndicatorTintColor = UIColor.gray
-        pageControl.currentPageIndicatorTintColor = UIColor.white
+        
+        isOnLocation()
+    }
+    
+    func isOnLocation() {
+        let defaults = UserDefaults.standard
+        let check = defaults.string(forKey: "isOnLocation")
+        
+        if check != nil{
+            myCollectionView.isPagingEnabled = true
+            pageControl.numberOfPages = listModel.count
+            pageControl.currentPage = row
+            pageControl.setImage(UIImage(named:"location10x10"), forPage: 0)
+            pageControl.setCurrentImage(UIImage(named:"location10x10"), forPage: 0)
+            pageControl.pageIndicatorTintColor = UIColor.gray
+            pageControl.currentPageIndicatorTintColor = UIColor.white
+        }else{
+            myCollectionView.isPagingEnabled = true
+            pageControl.numberOfPages = listModel.count
+            pageControl.currentPage = row
+            pageControl.pageIndicatorTintColor = UIColor.gray
+            pageControl.currentPageIndicatorTintColor = UIColor.white
+        }
     }
     
     
@@ -45,11 +61,11 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func changePage(_ sender: Any) {
-        let pageControl:UIPageControl = sender as! UIPageControl
-        let page:Int = pageControl.currentPage
+    @IBAction func changerPage(_ sender: Any) {
+        let page = pageControl.currentPage
         myCollectionView.selectItem(at: IndexPath(row: page, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listModel.count

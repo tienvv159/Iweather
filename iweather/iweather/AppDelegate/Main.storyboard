@@ -104,6 +104,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loS-TN-G6A" customClass="SMPageControl">
                                 <rect key="frame" x="40" y="630" width="288" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="changerPage:" destination="gMe-hD-g2i" eventType="valueChanged" id="OHZ-J6-LVS"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.53889065979999995" green="0.37561985850000001" blue="0.44788157940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
