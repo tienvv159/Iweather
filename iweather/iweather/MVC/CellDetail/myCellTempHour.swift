@@ -16,5 +16,4 @@ class myCellTempHour: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }
