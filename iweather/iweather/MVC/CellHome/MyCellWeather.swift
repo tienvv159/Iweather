@@ -36,5 +36,7 @@ class MyCellWeather: UITableViewCell {
         }else{
             self.imgCurrentLocation.image = UIImage()
         }
+        self.imgCell.image = self.imgCell.image!.withRenderingMode(.alwaysTemplate)
+        self.imgCell.tintColor = UIColor.black
     }
 }

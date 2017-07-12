@@ -149,12 +149,14 @@ extension HomeVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       if indexPath.row == listModel.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellLast", for: indexPath) as! MyCellLast
+            
             cell.delegate = self
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellWeather", for: indexPath) as! MyCellWeather
             cell.setupCell(model: listModel[indexPath.row], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.row].city).\(listModel[indexPath.row].country)")
-            cell.contentView.backgroundColor = statusWeather.handlingColorCell(code: listModel[indexPath.row].code)
+//            cell.contentView.backgroundColor = statusWeather.handlingColorCell(code: listModel[indexPath.row].code)
+       
         return cell
         }
     }
@@ -252,4 +254,6 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
         }
     }
 }
+
+
 

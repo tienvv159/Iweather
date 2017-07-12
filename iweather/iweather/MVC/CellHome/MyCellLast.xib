@@ -87,7 +87,7 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="EAb-Sa-opI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4Yj-Lk-E1g"/>
                     <constraint firstItem="B7p-ml-gYE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="4zX-Vk-1QL"/>
@@ -110,6 +110,7 @@
                     <constraint firstItem="cBf-m9-D59" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wsW-ne-L4o"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="lblC" destination="B7p-ml-gYE" id="Yp9-1b-bUi"/>
                 <outlet property="lblF" destination="aPr-np-8u6" id="3lN-ru-Fih"/>

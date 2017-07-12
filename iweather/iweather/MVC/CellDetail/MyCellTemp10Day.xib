@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="41.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZx-kI-qSb">
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.53889065980911255" green="0.37561985850334167" blue="0.44788157939910889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="1qw-EP-Mxe" firstAttribute="leading" secondItem="6VE-nD-VBr" secondAttribute="trailing" constant="20" id="3Af-FT-2iZ"/>
                     <constraint firstItem="SZx-kI-qSb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="7nL-QW-hj9"/>
@@ -65,6 +65,7 @@
                     <constraint firstItem="SZx-kI-qSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="xn0-IY-j9m"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="img" destination="Dgx-jp-wWl" id="Ik6-Xx-Bmt"/>
                 <outlet property="lblDay" destination="SZx-kI-qSb" id="AZv-EF-MBP"/>

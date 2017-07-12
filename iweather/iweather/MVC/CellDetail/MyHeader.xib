@@ -16,7 +16,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-dl-J3e">
                     <rect key="frame" x="0.0" y="0.0" width="574" height="1"/>
-                    <color key="backgroundColor" red="0.78937876224517822" green="0.5897403359413147" blue="0.54531586170196533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="2YZ-UK-jcI"/>
                     </constraints>
@@ -24,9 +24,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ho-iU-Hih">
                     <rect key="frame" x="0.0" y="1" width="574" height="139"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgoundetail2.png" translatesAutoresizingMaskIntoConstraints="NO" id="pA9-6S-zlC">
+                            <rect key="frame" x="0.0" y="0.0" width="574" height="139"/>
+                        </imageView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="067-2B-tmU">
                             <rect key="frame" x="0.0" y="0.0" width="574" height="139"/>
-                            <color key="backgroundColor" red="0.53501206636428833" green="0.37560093402862549" blue="0.44794154167175293" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gv2-4I-Dh4">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,6 +40,10 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="067-2B-tmU" secondAttribute="bottom" id="6YB-2c-13q"/>
+                        <constraint firstAttribute="bottom" secondItem="pA9-6S-zlC" secondAttribute="bottom" id="Qqb-Or-VwO"/>
+                        <constraint firstItem="pA9-6S-zlC" firstAttribute="height" secondItem="067-2B-tmU" secondAttribute="height" id="Wv7-wY-Ban"/>
+                        <constraint firstAttribute="trailing" secondItem="pA9-6S-zlC" secondAttribute="trailing" id="eEo-B3-exW"/>
+                        <constraint firstItem="pA9-6S-zlC" firstAttribute="width" secondItem="067-2B-tmU" secondAttribute="width" id="p7B-mw-oUK"/>
                         <constraint firstAttribute="trailing" secondItem="067-2B-tmU" secondAttribute="trailing" id="plL-hG-gRu"/>
                         <constraint firstItem="067-2B-tmU" firstAttribute="top" secondItem="0ho-iU-Hih" secondAttribute="top" id="yE5-O0-gPr"/>
                         <constraint firstItem="067-2B-tmU" firstAttribute="leading" secondItem="0ho-iU-Hih" secondAttribute="leading" id="z1q-f4-FTQ"/>
@@ -44,14 +51,14 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0u-6M-vOy">
                     <rect key="frame" x="0.0" y="140" width="574" height="1"/>
-                    <color key="backgroundColor" red="0.78937876220000003" green="0.58974033589999997" blue="0.54531586170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="RJZ-mi-roi"/>
                         <constraint firstAttribute="height" constant="1" id="vix-xR-STm"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0ho-iU-Hih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0OS-wD-HPh"/>
                 <constraint firstAttribute="bottom" secondItem="p0u-6M-vOy" secondAttribute="bottom" id="0Vt-IN-gek"/>
@@ -68,7 +75,10 @@
             <connections>
                 <outlet property="myCollectionTempHour" destination="067-2B-tmU" id="sZ9-vU-7Ff"/>
             </connections>
-            <point key="canvasLocation" x="-59" y="-543.5"/>
+            <point key="canvasLocation" x="-83" y="-581.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="backgoundetail2.png" width="222" height="95"/>
+    </resources>
 </document>

@@ -11,6 +11,7 @@ import UIKit
 class MyCollectionViewCell: UICollectionViewCell{
 
     var modelIndexpath:IweatheModel! = nil
+    @IBOutlet weak var imgBackgroundTableVIew: UIImageView!
     @IBOutlet weak var myImgDetail: UIImageView!
     @IBOutlet weak var myViewDetail: UIView!
     @IBOutlet weak var myTableView: UITableView!
@@ -66,17 +67,21 @@ class MyCollectionViewCell: UICollectionViewCell{
             //scroll up
             UIView.animate(withDuration: 0.3, animations: {
                 self.myViewDetail.frame.origin.y = 5
-                self.myViewDetail.bounds.size.height = 70
+                self.myViewDetail.frame.size.height = 70
                 self.myTableView.frame.origin.y = 75
                 self.myTableView.frame.size.height = self.contentView.frame.size.height - 75
+                self.imgBackgroundTableVIew.frame.origin.y = 75
+                self.imgBackgroundTableVIew.frame.size.height = self.contentView.frame.size.height - 75
             })
         }else if scrollView.contentOffset.y < 0 {
             // scroll down
             UIView.animate(withDuration: 0.3, animations: {
                 self.myViewDetail.frame.origin.y = 20
-                self.myViewDetail.bounds.size.height = 200
+                self.myViewDetail.frame.size.height = 200
                 self.myTableView.frame.origin.y = 220
                 self.myTableView.frame.size.height = self.contentView.frame.size.height - 220
+                self.imgBackgroundTableVIew.frame.origin.y = 220
+                self.imgBackgroundTableVIew.frame.size.height = self.contentView.frame.size.height - 220
             })
             myTableView.contentOffset = CGPoint(x: 0, y: 0)
         }
@@ -85,6 +90,7 @@ class MyCollectionViewCell: UICollectionViewCell{
 
 
 extension MyCollectionViewCell: UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = Bundle.main.loadNibNamed("MyHeader", owner: self, options: nil)?.first as! MyHeaderInSection
         header.frame = CGRect(x: 0, y: 200, width: self.contentView.frame.width, height: 100)
