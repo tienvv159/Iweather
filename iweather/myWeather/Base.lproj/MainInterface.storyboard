@@ -111,6 +111,9 @@
                             <constraint firstItem="l95-pQ-zrh" firstAttribute="leading" secondItem="6CG-OC-iTD" secondAttribute="trailing" constant="2" id="sAX-df-Bmn"/>
                             <constraint firstItem="Dvk-fu-8Vd" firstAttribute="leading" secondItem="geR-rW-FEU" secondAttribute="trailing" constant="5" id="xty-zZ-Ylz"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wTB-wf-NLm" appends="YES" id="Yhm-vS-nLO"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -128,6 +131,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wTB-wf-NLm">
+                    <connections>
+                        <action selector="gotoApp:" destination="M4Y-Lb-cyx" id="8OM-St-d8z"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-230.40000000000001" y="25.187406296851577"/>
         </scene>

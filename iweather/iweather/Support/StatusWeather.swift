@@ -63,7 +63,7 @@ class StatusWeather:UIViewController {
     func handlingColorCell(code: String) -> UIColor
     {
         var listColor = ["FAEBD7","00FFFF","0000FF","8A2BE2","A52A2A","DEB887","5F9EA0","7FFF00","D2691E","FF7F50","6495ED","DC143C","00FFFF","00008B","008B8B","B8860B","A9A9A9","006400","BDB76B","8B008B","556B2F","FF8C00","E9967A","8FBC8F","2F4F4F","00CED1","FF1493","696969","1E90FF","228B22","FFD700","DAA520","808080","ADFF2F","CD5C5C","4B0082","ADD8E6","F08080","E0FFFF","20B2AA","778899","800000","9370DB","191970","808000","FF4500","800080","0000FF"]
-        let color = listColor[Int(code)!];
+        let color = listColor[Int(code)!]
         return hexStringToUIColor(hex: color)
     }
 }

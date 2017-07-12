@@ -34,6 +34,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         getCurrentLocation()
     }
     
+    
+    @IBAction func gotoApp(_ sender: Any) {
+        let myAppUrl = NSURL(string: "gotoApp://")!
+        extensionContext?.open(myAppUrl as URL, completionHandler: { (success) in
+            if (!success) {
+                // let the user know it failed
+            }
+        })
+        
+    }
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
     }

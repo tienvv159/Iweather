@@ -40,13 +40,13 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
         }
     }
     private var checkValue = ""
+    
     override func awakeFromNib() {
         let nib = UINib(nibName: "myCellTempHour", bundle: nil)
         myCollectionTempHour.register(nib, forCellWithReuseIdentifier: "myCellTempHour")
         myCollectionTempHour.delegate = self
         myCollectionTempHour.dataSource = self
         myCollectionTempHour.reloadData()
-        
     }
     
     func handlingData(model:IweatheModel?) {
@@ -75,9 +75,9 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    
     func handlingSunsetSunrice(model: IweatheModel?) {
         // sunset sunrise
-        
         let sunset = model?.sunset
         let arrSunset = sunset?.components(separatedBy: ":")
         let hoursSunset = "\(arrSunset![0])PM"
@@ -140,6 +140,5 @@ extension MyHeaderInSection : UICollectionViewDelegateFlowLayout {
 
 extension UIImageView {
     func imageWithCode(code: String) {
-        
     }
 }

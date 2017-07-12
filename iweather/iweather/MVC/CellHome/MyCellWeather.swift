@@ -33,6 +33,8 @@ class MyCellWeather: UITableViewCell {
         self.imgCell.image = statusWeather.handlingItem(code: model.code)
         if strings1 == Strings2{
             self.imgCurrentLocation.image = UIImage(named: "location")
+            self.imgCurrentLocation.image = self.imgCurrentLocation.image?.withRenderingMode(.alwaysTemplate)
+            self.imgCurrentLocation.tintColor = UIColor.black
         }else{
             self.imgCurrentLocation.image = UIImage()
         }

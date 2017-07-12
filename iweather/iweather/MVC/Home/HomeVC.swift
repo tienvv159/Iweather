@@ -107,9 +107,9 @@ class HomeVC: UIViewController {
     func getAPI(_ location:String,complete:@escaping ()->()) {
         
         let apiString = define.APIWithName(location: location)
-        //EZLoadingActivity.show("Loading", disableUI: true)
+        EZLoadingActivity.show("Loading", disableUI: true)
         NetworkManager.share.callApi(apiString) { model in
-            //EZLoadingActivity.hide(true, animated: true)
+            EZLoadingActivity.hide()
             if let model = model{
                 self.myTableView.reloadData()
                 do
@@ -149,7 +149,6 @@ extension HomeVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       if indexPath.row == listModel.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellLast", for: indexPath) as! MyCellLast
-            
             cell.delegate = self
             return cell
         }else{

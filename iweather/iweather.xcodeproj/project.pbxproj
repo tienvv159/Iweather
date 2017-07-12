@@ -11,6 +11,7 @@
 		654B4D4D9557E0361788B942 /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E202ADDA2A4B9ECD06F93CF6 /* Pods_iweather.framework */; };
 		8309BA6F1EFA01370055A13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8309BA6E1EFA01370055A13A /* Assets.xcassets */; };
 		841039121F15B397002A77D8 /* backgoundetail2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841039111F15B397002A77D8 /* backgoundetail2.png */; };
+		841039141F15C4AE002A77D8 /* location2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841039131F15C4AE002A77D8 /* location2.png */; };
 		841A2AB31F05E7210052FC4E /* DataTempHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A2AB21F05E7210052FC4E /* DataTempHours.swift */; };
 		841B5F871EFB79D800632357 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F861EFB79D800632357 /* EZLoadingActivity.swift */; };
 		841B5F8D1EFB993500632357 /* MyCellLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F891EFB993500632357 /* MyCellLast.swift */; };
@@ -117,6 +118,7 @@
 		8309BA6C1EFA011A0055A13A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iweather/Info.plist; sourceTree = SOURCE_ROOT; };
 		8309BA6E1EFA01370055A13A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = iweather/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		841039111F15B397002A77D8 /* backgoundetail2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgoundetail2.png; sourceTree = "<group>"; };
+		841039131F15C4AE002A77D8 /* location2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location2.png; sourceTree = "<group>"; };
 		841A2AB21F05E7210052FC4E /* DataTempHours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTempHours.swift; sourceTree = "<group>"; };
 		841B5F861EFB79D800632357 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		841B5F891EFB993500632357 /* MyCellLast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellLast.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				84B72AEF1F14BC3500367B0D /* backGround.jpg */,
 				848E5C091F0B9F220098F4EF /* location.png */,
 				846619271F04A08E00C2954D /* sunset.png */,
+				841039131F15C4AE002A77D8 /* location2.png */,
 				846619261F04A08E00C2954D /* sunrise.png */,
 				84309D811F0390AA002B5CD0 /* 1234.png */,
 				843248DA1EF7E6AD001A2C86 /* menu.png */,
@@ -565,6 +568,7 @@
 				848E5C0A1F0B9F220098F4EF /* location.png in Resources */,
 				843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */,
 				84E9AAB11F13650C00FFBCFE /* currentAppleDot@2x.png in Resources */,
+				841039141F15C4AE002A77D8 /* location2.png in Resources */,
 				841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,
