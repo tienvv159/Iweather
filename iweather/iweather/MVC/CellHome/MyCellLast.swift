@@ -50,7 +50,8 @@ class MyCellLast: UITableViewCell {
     }
    
     @IBAction func didSelectToWeb(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string: "https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM")! as URL)
+        if let url = NSURL(string: "https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM"){
+            UIApplication.shared.openURL(url as URL)
+        }
     }
-    
 }

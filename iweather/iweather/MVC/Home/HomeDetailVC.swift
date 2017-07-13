@@ -43,9 +43,9 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             myCollectionView.isPagingEnabled = true
             pageControl.numberOfPages = listModel.count
             pageControl.currentPage = row
-            pageControl.setImage(UIImage(named:"location10x10"), forPage: 0)
-            pageControl.setCurrentImage(UIImage(named:"location10x10"), forPage: 0)
-            pageControl.pageIndicatorTintColor = UIColor.gray
+            pageControl.setImage(UIImage(named:"locationBlack"), forPage: 0)
+            pageControl.setCurrentImage(UIImage(named:"currentimgPage0"), forPage: 0)
+            pageControl.pageIndicatorTintColor = UIColor.black
             pageControl.currentPageIndicatorTintColor = UIColor.white
         }else{
             myCollectionView.isPagingEnabled = true
@@ -97,7 +97,9 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     @IBAction func didSelectToWeb(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string:"https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM")! as URL)
+        if let url = NSURL(string: "https://weather.com/en-GB/weather/today/l/VMXX0006:1:VM"){
+            UIApplication.shared.openURL(url as URL)
+        }
     }
 }
 

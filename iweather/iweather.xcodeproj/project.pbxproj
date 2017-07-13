@@ -11,7 +11,6 @@
 		654B4D4D9557E0361788B942 /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E202ADDA2A4B9ECD06F93CF6 /* Pods_iweather.framework */; };
 		8309BA6F1EFA01370055A13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8309BA6E1EFA01370055A13A /* Assets.xcassets */; };
 		841039121F15B397002A77D8 /* backgoundetail2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841039111F15B397002A77D8 /* backgoundetail2.png */; };
-		841039141F15C4AE002A77D8 /* location2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841039131F15C4AE002A77D8 /* location2.png */; };
 		841A2AB31F05E7210052FC4E /* DataTempHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A2AB21F05E7210052FC4E /* DataTempHours.swift */; };
 		841B5F871EFB79D800632357 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F861EFB79D800632357 /* EZLoadingActivity.swift */; };
 		841B5F8D1EFB993500632357 /* MyCellLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5F891EFB993500632357 /* MyCellLast.swift */; };
@@ -34,7 +33,6 @@
 		843248DB1EF7E6AD001A2C86 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 843248DA1EF7E6AD001A2C86 /* menu.png */; };
 		84363BE21F0DD02200BF20F4 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84363BE11F0DD02200BF20F4 /* Define.swift */; };
 		84363BE41F0DD9AA00BF20F4 /* StatusWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84363BE31F0DD9AA00BF20F4 /* StatusWeather.swift */; };
-		84363BE61F0E103700BF20F4 /* rian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84363BE51F0E103700BF20F4 /* rian.jpg */; };
 		84363BE91F0E3DB400BF20F4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248C71EF7614E001A2C86 /* NetworkManager.swift */; };
 		84363BEA1F0E3DB600BF20F4 /* DataTempHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A2AB21F05E7210052FC4E /* DataTempHours.swift */; };
 		84363BEB1F0E3DBC00BF20F4 /* IweatheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843248D21EF7704E001A2C86 /* IweatheModel.swift */; };
@@ -75,7 +73,6 @@
 		84E9AABE1F13650C00FFBCFE /* searchMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9AAA61F13650C00FFBCFE /* searchMask.png */; };
 		84E9AABF1F13650C00FFBCFE /* searchMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9AAA71F13650C00FFBCFE /* searchMask@2x.png */; };
 		84E9AAC61F13653600FFBCFE /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9AAC51F13653600FFBCFE /* SMPageControl.m */; };
-		84E9AAC81F136ACE00FFBCFE /* location10x10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9AAC71F136ACE00FFBCFE /* location10x10.png */; };
 		84F302621F0CDFB0005D58C8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F302611F0CDFB0005D58C8 /* NotificationCenter.framework */; };
 		84F302651F0CDFB0005D58C8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F302641F0CDFB0005D58C8 /* TodayViewController.swift */; };
 		84F302681F0CDFB0005D58C8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F302661F0CDFB0005D58C8 /* MainInterface.storyboard */; };
@@ -86,6 +83,8 @@
 		84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */; };
 		84F36D5E1EFD05920057B481 /* MyCellInfomationWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */; };
 		84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */; };
+		84F5E5721F1714DC00A81B7F /* currentimgPage0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5701F1714DC00A81B7F /* currentimgPage0.png */; };
+		84F5E5741F1716A900A81B7F /* locationBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5731F1716A900A81B7F /* locationBlack.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		8309BA6C1EFA011A0055A13A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iweather/Info.plist; sourceTree = SOURCE_ROOT; };
 		8309BA6E1EFA01370055A13A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = iweather/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		841039111F15B397002A77D8 /* backgoundetail2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgoundetail2.png; sourceTree = "<group>"; };
-		841039131F15C4AE002A77D8 /* location2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location2.png; sourceTree = "<group>"; };
 		841A2AB21F05E7210052FC4E /* DataTempHours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTempHours.swift; sourceTree = "<group>"; };
 		841B5F861EFB79D800632357 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		841B5F891EFB993500632357 /* MyCellLast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellLast.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		843248DA1EF7E6AD001A2C86 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		84363BE11F0DD02200BF20F4 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		84363BE31F0DD9AA00BF20F4 /* StatusWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusWeather.swift; sourceTree = "<group>"; };
-		84363BE51F0E103700BF20F4 /* rian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rian.jpg; sourceTree = "<group>"; };
 		846619261F04A08E00C2954D /* sunrise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunrise.png; sourceTree = "<group>"; };
 		846619271F04A08E00C2954D /* sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunset.png; sourceTree = "<group>"; };
 		8466192A1F04F97800C2954D /* TempHoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempHoursModel.swift; sourceTree = "<group>"; };
@@ -178,7 +175,6 @@
 		84E9AAC31F13653600FFBCFE /* iweather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iweather-Bridging-Header.h"; sourceTree = "<group>"; };
 		84E9AAC41F13653600FFBCFE /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		84E9AAC51F13653600FFBCFE /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
-		84E9AAC71F136ACE00FFBCFE /* location10x10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location10x10.png; sourceTree = "<group>"; };
 		84F302601F0CDFB0005D58C8 /* myWeather.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = myWeather.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F302611F0CDFB0005D58C8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		84F302641F0CDFB0005D58C8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +186,8 @@
 		84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationLocation.xib; sourceTree = "<group>"; };
 		84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellInfomationWeather.swift; sourceTree = "<group>"; };
 		84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationWeather.xib; sourceTree = "<group>"; };
+		84F5E5701F1714DC00A81B7F /* currentimgPage0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentimgPage0.png; sourceTree = "<group>"; };
+		84F5E5731F1716A900A81B7F /* locationBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationBlack.png; sourceTree = "<group>"; };
 		A65C95A368EA5A3ECE89C25F /* Pods-myWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.release.xcconfig"; sourceTree = "<group>"; };
 		D3B44AA8E147770450AA68F2 /* Pods-myWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		E06CDB53E4E21D4BA5C8F7F9 /* Pods_myWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,14 +337,13 @@
 			children = (
 				841039111F15B397002A77D8 /* backgoundetail2.png */,
 				84B72AF51F14DB2200367B0D /* backgoundetail1.png */,
+				84F5E5701F1714DC00A81B7F /* currentimgPage0.png */,
 				84B72AF31F14D65700367B0D /* backgoundetail.jpeg */,
+				84F5E5731F1716A900A81B7F /* locationBlack.png */,
 				84B72AED1F14B34100367B0D /* location1.png */,
-				84E9AAC71F136ACE00FFBCFE /* location10x10.png */,
-				84363BE51F0E103700BF20F4 /* rian.jpg */,
 				84B72AEF1F14BC3500367B0D /* backGround.jpg */,
 				848E5C091F0B9F220098F4EF /* location.png */,
 				846619271F04A08E00C2954D /* sunset.png */,
-				841039131F15C4AE002A77D8 /* location2.png */,
 				846619261F04A08E00C2954D /* sunrise.png */,
 				84309D811F0390AA002B5CD0 /* 1234.png */,
 				843248DA1EF7E6AD001A2C86 /* menu.png */,
@@ -542,7 +539,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84309D861F03AE63002B5CD0 /* myCellTempHour.xib in Resources */,
-				84E9AAC81F136ACE00FFBCFE /* location10x10.png in Resources */,
 				84309D821F0390AA002B5CD0 /* 1234.png in Resources */,
 				84DD4BFC1F020254005120F2 /* MyCollectionViewCell.xib in Resources */,
 				84F36D571EFCFFBE0057B481 /* MyCellTemp10Day.xib in Resources */,
@@ -552,10 +548,11 @@
 				84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */,
 				84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */,
 				841B5F8E1EFB993500632357 /* MyCellLast.xib in Resources */,
-				84363BE61F0E103700BF20F4 /* rian.jpg in Resources */,
 				84E9AAB41F13650C00FFBCFE /* Default-568h@2x.png in Resources */,
 				84E9AAB51F13650C00FFBCFE /* Default.png in Resources */,
 				843248DB1EF7E6AD001A2C86 /* menu.png in Resources */,
+				84F5E5721F1714DC00A81B7F /* currentimgPage0.png in Resources */,
+				84F5E5741F1716A900A81B7F /* locationBlack.png in Resources */,
 				84E9AAB61F13650C00FFBCFE /* Default@2x.png in Resources */,
 				84E9AABE1F13650C00FFBCFE /* searchMask.png in Resources */,
 				841039121F15B397002A77D8 /* backgoundetail2.png in Resources */,
@@ -568,7 +565,6 @@
 				848E5C0A1F0B9F220098F4EF /* location.png in Resources */,
 				843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */,
 				84E9AAB11F13650C00FFBCFE /* currentAppleDot@2x.png in Resources */,
-				841039141F15C4AE002A77D8 /* location2.png in Resources */,
 				841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* MyHeader.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,

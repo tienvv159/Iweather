@@ -29,12 +29,27 @@ class MyCellTemp10Day: UITableViewCell {
     }
     
     func setupCell(modelForcast:ForecastModel, temp:String, modelWeather:IweatheModel) {
+        if modelForcast.day == "Mon"{
+            self.lblDay.text = "Monday"
+        }else if modelForcast.day == "Tue"{
+            self.lblDay.text = "Tuesday"
+        }else if modelForcast.day == "Wed"{
+            self.lblDay.text = "Wednesday"
+        }else if modelForcast.day == "Thu"{
+            self.lblDay.text = "Thursday"
+        }else if modelForcast.day == "Fri"{
+            self.lblDay.text = "Friday"
+        }else if modelForcast.day == "Sat"{
+            self.lblDay.text = "Saturday"
+        }else if modelForcast.day == "Sun"{
+            self.lblDay.text = "Sunday"
+        }
         if temp == "F"{
-            self.lblDay.text = modelForcast.day
+            //self.lblDay.text = modelForcast.day
             self.lblLow.text = String(modelForcast.lowF)
             self.lblHight.text = String(modelForcast.highF)
         }else if temp == "C"{
-            self.lblDay.text = modelForcast.day
+            //self.lblDay.text = modelForcast.day
             self.lblLow.text = String(modelForcast.lowC)
             self.lblHight.text = String(modelForcast.highC)
         }
