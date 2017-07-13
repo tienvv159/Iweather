@@ -1,5 +1,5 @@
 //
-//  MyCellTemp10Day.swift
+//  TempTenDayCell.swift
 //  iweather
 //
 //  Created by Vu Van Tien on 6/23/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCellTemp10Day: UITableViewCell {
+class TempTenDayCell: UITableViewCell {
 
 
     @IBOutlet weak var lblDay: UILabel!

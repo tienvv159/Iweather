@@ -32,8 +32,8 @@ class MyCollectionViewCell: UICollectionViewCell{
     
     
     func registerCell() {
-        let nib10Day = UINib(nibName: "MyCellTemp10Day", bundle: nil)
-        myTableView.register(nib10Day, forCellReuseIdentifier: "MyCell10Day")
+        let nib10Day = UINib(nibName: "TempTenDayCell", bundle: nil)
+        myTableView.register(nib10Day, forCellReuseIdentifier: "TempTenDayCell")
         
         let nibInfoLocation = UINib(nibName: "MyCellInfomationLocation", bundle: nil)
         myTableView.register(nibInfoLocation, forCellReuseIdentifier: "MyCellInfoLocation")
@@ -132,7 +132,7 @@ extension MyCollectionViewCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row < 10 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell10Day", for: indexPath) as! MyCellTemp10Day
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TempTenDayCell", for: indexPath) as! TempTenDayCell
             cell.setupCell(modelForcast: modelIndexpath.forecast[indexPath.item], temp: checkTemp, modelWeather: modelIndexpath)
             return cell
         }else if indexPath.row == 10{
