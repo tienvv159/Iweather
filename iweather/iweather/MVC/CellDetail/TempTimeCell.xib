@@ -10,14 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="myCellTempHour" customModule="iweather" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TempTimeCell" id="gTV-IL-0wX" customClass="TempTimeCell" customModule="iweather" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="84" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="84" height="152"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86m-8u-CaV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86m-8u-CaV">
                         <rect key="frame" x="0.0" y="5" width="84" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="vqn-gF-MoV"/>
@@ -33,7 +33,7 @@
                             <constraint firstAttribute="height" constant="25" id="xAm-4T-ddn"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNe-tZ-edQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNe-tZ-edQ">
                         <rect key="frame" x="0.0" y="126" width="84" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Si9-os-5zT"/>
@@ -57,9 +57,9 @@
             </constraints>
             <size key="customSize" width="84" height="152"/>
             <connections>
-                <outlet property="img" destination="fru-oL-TS2" id="eWy-PE-GB1"/>
-                <outlet property="lblTemp" destination="BNe-tZ-edQ" id="zYT-D7-5kx"/>
-                <outlet property="lblTimer" destination="86m-8u-CaV" id="i0T-vg-btA"/>
+                <outlet property="imgStatus" destination="fru-oL-TS2" id="qLy-SE-dNA"/>
+                <outlet property="lblTemp" destination="BNe-tZ-edQ" id="9Yb-ks-N1O"/>
+                <outlet property="lblTimer" destination="86m-8u-CaV" id="upq-f4-PiZ"/>
             </connections>
             <point key="canvasLocation" x="-163" y="78"/>
         </collectionViewCell>

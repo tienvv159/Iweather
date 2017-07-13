@@ -8,11 +8,11 @@
 
 import UIKit
 
-class myCellTempHour: UICollectionViewCell {
+class TempTimeCell: UICollectionViewCell {
 
     @IBOutlet weak var lblTemp: UILabel!
     @IBOutlet weak var lblTimer: UILabel!
-    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var imgStatus: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

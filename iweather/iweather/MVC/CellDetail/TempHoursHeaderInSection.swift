@@ -42,8 +42,8 @@ class TempHoursHeaderInSection: UIView , UICollectionViewDelegate, UICollectionV
     private var checkValue = ""
     
     override func awakeFromNib() {
-        let nib = UINib(nibName: "myCellTempHour", bundle: nil)
-        myCollectionTempHour.register(nib, forCellWithReuseIdentifier: "myCellTempHour")
+        let nib = UINib(nibName: "TempTimeCell", bundle: nil)
+        myCollectionTempHour.register(nib, forCellWithReuseIdentifier: "TempTimeCell")
         myCollectionTempHour.delegate = self
         myCollectionTempHour.dataSource = self
         myCollectionTempHour.reloadData()
@@ -67,11 +67,11 @@ class TempHoursHeaderInSection: UIView , UICollectionViewDelegate, UICollectionV
    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCellTempHour", for: indexPath) as! myCellTempHour
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TempTimeCell", for: indexPath) as! TempTimeCell
         cell.lblTimer.text = listData[indexPath.item].hours
         cell.lblTemp.text = String(listData[indexPath.item].temp)
         let code = listData[indexPath.item].code
-        cell.img.image = statusWeather.handlingItem(code: String(code))
+        cell.imgStatus.image = statusWeather.handlingItem(code: String(code))
         return cell
     }
     
