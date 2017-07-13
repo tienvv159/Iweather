@@ -35,11 +35,11 @@ class MyCollectionViewCell: UICollectionViewCell{
         let nib10Day = UINib(nibName: "TempTenDayCell", bundle: nil)
         myTableView.register(nib10Day, forCellReuseIdentifier: "TempTenDayCell")
         
-        let nibInfoLocation = UINib(nibName: "MyCellInfomationLocation", bundle: nil)
-        myTableView.register(nibInfoLocation, forCellReuseIdentifier: "MyCellInfoLocation")
+        let nibInfoLocation = UINib(nibName: "InfoLocationCell", bundle: nil)
+        myTableView.register(nibInfoLocation, forCellReuseIdentifier: "InfoLocationCell")
         
-        let nibInfoWeather = UINib(nibName: "MyCellInfomationWeather", bundle: nil)
-        myTableView.register(nibInfoWeather, forCellReuseIdentifier: "MyCellInforWeather")
+        let nibInfoWeather = UINib(nibName: "InfoWeatherCell", bundle: nil)
+        myTableView.register(nibInfoWeather, forCellReuseIdentifier: "InfoWeatherCell")
         
         let nibMap = UINib(nibName: "CellLocationInMap", bundle: nil)
         myTableView.register(nibMap, forCellReuseIdentifier: "CellLocationInMap")
@@ -136,11 +136,11 @@ extension MyCollectionViewCell: UITableViewDataSource{
             cell.setupCell(modelForcast: modelIndexpath.forecast[indexPath.item], temp: checkTemp, modelWeather: modelIndexpath)
             return cell
         }else if indexPath.row == 10{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellInfoLocation", for: indexPath) as! MyCellInfomationLocation
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoLocationCell", for: indexPath) as! InfoLocationCell
             cell.setupCell(modelIndexpath: modelIndexpath)
             return cell
         }else if indexPath.row == 11{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellInforWeather", for: indexPath) as! MyCellInfomationWeather
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoWeatherCell", for: indexPath) as! InfoWeatherCell
             cell.setupCell(modelIndexpath: modelIndexpath)
             return cell
         }else{

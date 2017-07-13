@@ -79,10 +79,10 @@
 		84F3026C1F0CDFB0005D58C8 /* myWeather.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84F302601F0CDFB0005D58C8 /* myWeather.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84F36D561EFCFFBE0057B481 /* TempTenDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D541EFCFFBE0057B481 /* TempTenDayCell.swift */; };
 		84F36D571EFCFFBE0057B481 /* TempTenDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D551EFCFFBE0057B481 /* TempTenDayCell.xib */; };
-		84F36D5A1EFD054F0057B481 /* MyCellInfomationLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */; };
-		84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */; };
-		84F36D5E1EFD05920057B481 /* MyCellInfomationWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */; };
-		84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */; };
+		84F36D5A1EFD054F0057B481 /* InfoLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D581EFD054F0057B481 /* InfoLocationCell.swift */; };
+		84F36D5B1EFD054F0057B481 /* InfoLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D591EFD054F0057B481 /* InfoLocationCell.xib */; };
+		84F36D5E1EFD05920057B481 /* InfoWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F36D5C1EFD05920057B481 /* InfoWeatherCell.swift */; };
+		84F36D5F1EFD05920057B481 /* InfoWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */; };
 		84F5E5721F1714DC00A81B7F /* currentimgPage0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5701F1714DC00A81B7F /* currentimgPage0.png */; };
 		84F5E5741F1716A900A81B7F /* locationBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5731F1716A900A81B7F /* locationBlack.png */; };
 		84F5E5771F172D3B00A81B7F /* CellLocationInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */; };
@@ -184,10 +184,10 @@
 		84F302691F0CDFB0005D58C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F36D541EFCFFBE0057B481 /* TempTenDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempTenDayCell.swift; sourceTree = "<group>"; };
 		84F36D551EFCFFBE0057B481 /* TempTenDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempTenDayCell.xib; sourceTree = "<group>"; };
-		84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellInfomationLocation.swift; sourceTree = "<group>"; };
-		84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationLocation.xib; sourceTree = "<group>"; };
-		84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCellInfomationWeather.swift; sourceTree = "<group>"; };
-		84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationWeather.xib; sourceTree = "<group>"; };
+		84F36D581EFD054F0057B481 /* InfoLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationCell.swift; sourceTree = "<group>"; };
+		84F36D591EFD054F0057B481 /* InfoLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoLocationCell.xib; sourceTree = "<group>"; };
+		84F36D5C1EFD05920057B481 /* InfoWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWeatherCell.swift; sourceTree = "<group>"; };
+		84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWeatherCell.xib; sourceTree = "<group>"; };
 		84F5E5701F1714DC00A81B7F /* currentimgPage0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentimgPage0.png; sourceTree = "<group>"; };
 		84F5E5731F1716A900A81B7F /* locationBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationBlack.png; sourceTree = "<group>"; };
 		84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLocationInMap.swift; sourceTree = "<group>"; };
@@ -254,10 +254,10 @@
 				84309D841F03AE63002B5CD0 /* TempTimeCell.xib */,
 				84F36D541EFCFFBE0057B481 /* TempTenDayCell.swift */,
 				84F36D551EFCFFBE0057B481 /* TempTenDayCell.xib */,
-				84F36D5C1EFD05920057B481 /* MyCellInfomationWeather.swift */,
-				84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */,
-				84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */,
-				84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */,
+				84F36D5C1EFD05920057B481 /* InfoWeatherCell.swift */,
+				84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */,
+				84F36D581EFD054F0057B481 /* InfoLocationCell.swift */,
+				84F36D591EFD054F0057B481 /* InfoLocationCell.xib */,
 				84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */,
 				84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */,
 				84DD4BF91F020254005120F2 /* MyCollectionViewCell.swift */,
@@ -553,7 +553,7 @@
 				84E9AABC1F13650C00FFBCFE /* retro_intro@2x.png in Resources */,
 				84E9AAB31F13650C00FFBCFE /* currentSearchDot@2x.png in Resources */,
 				84C665741F00DFE3004604D8 /* MyCellSearch.xib in Resources */,
-				84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */,
+				84F36D5F1EFD05920057B481 /* InfoWeatherCell.xib in Resources */,
 				841B5F8E1EFB993500632357 /* MyCellLast.xib in Resources */,
 				84E9AAB41F13650C00FFBCFE /* Default-568h@2x.png in Resources */,
 				84E9AAB51F13650C00FFBCFE /* Default.png in Resources */,
@@ -575,7 +575,7 @@
 				841B5F901EFB993500632357 /* MyCellWeather.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* TempHoursHeaderInSection.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,
-				84F36D5B1EFD054F0057B481 /* MyCellInfomationLocation.xib in Resources */,
+				84F36D5B1EFD054F0057B481 /* InfoLocationCell.xib in Resources */,
 				84B72AEE1F14B34100367B0D /* location1.png in Resources */,
 				846619291F04A08E00C2954D /* sunset.png in Resources */,
 				84E9AAB01F13650C00FFBCFE /* appleMask@2x.png in Resources */,
@@ -680,7 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F36D5E1EFD05920057B481 /* MyCellInfomationWeather.swift in Sources */,
+				84F36D5E1EFD05920057B481 /* InfoWeatherCell.swift in Sources */,
 				841B5F8F1EFB993500632357 /* MyCellWeather.swift in Sources */,
 				84363BE41F0DD9AA00BF20F4 /* StatusWeather.swift in Sources */,
 				84DD4BFB1F020254005120F2 /* MyCollectionViewCell.swift in Sources */,
@@ -691,7 +691,7 @@
 				841B5F871EFB79D800632357 /* EZLoadingActivity.swift in Sources */,
 				84E9AAC61F13653600FFBCFE /* SMPageControl.m in Sources */,
 				841B5F971EFBA12500632357 /* TempHoursHeaderInSection.swift in Sources */,
-				84F36D5A1EFD054F0057B481 /* MyCellInfomationLocation.swift in Sources */,
+				84F36D5A1EFD054F0057B481 /* InfoLocationCell.swift in Sources */,
 				84C665781F00EF6E004604D8 /* ResulfSearchModel.swift in Sources */,
 				84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */,
 				843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */,

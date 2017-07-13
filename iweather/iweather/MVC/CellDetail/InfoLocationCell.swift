@@ -1,5 +1,5 @@
 //
-//  MyCellInfomationLocation.swift
+//  InfoLocationCell.swift
 //  iweather
 //
 //  Created by Vu Van Tien on 6/23/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCellInfomationLocation: UITableViewCell {
+class InfoLocationCell: UITableViewCell {
     @IBOutlet weak var lblCity: UILabel!
     @IBOutlet weak var lblCountry: UILabel!
     @IBOutlet weak var lblRegion: UILabel!

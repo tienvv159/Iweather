@@ -1,5 +1,5 @@
 //
-//  MyCellInfomationWeather.swift
+//  InfoWeatherCell.swift
 //  iweather
 //
 //  Created by Vu Van Tien on 6/23/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCellInfomationWeather: UITableViewCell {
+class InfoWeatherCell: UITableViewCell {
 
     @IBOutlet weak var lblSunrise: UILabel!
     @IBOutlet weak var lblSunset: UILabel!
