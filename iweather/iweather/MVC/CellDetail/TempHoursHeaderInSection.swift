@@ -1,5 +1,5 @@
 //
-//  MyHeaderInSection.swift
+//  TempHoursHeaderInSection.swift
 //  iweather
 //
 //  Created by Vu Van Tien on 6/22/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewDataSource {
+class TempHoursHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var imgBackgroundSection: UIImageView!
     @IBOutlet weak var myCollectionTempHour: UICollectionView!
     let statusWeather:StatusWeather = StatusWeather()
@@ -115,7 +115,7 @@ class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewData
     
 }
 
-extension MyHeaderInSection : UICollectionViewDelegateFlowLayout {
+extension TempHoursHeaderInSection : UICollectionViewDelegateFlowLayout {
     //1
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

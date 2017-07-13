@@ -98,7 +98,7 @@ class MyCollectionViewCell: UICollectionViewCell{
 extension MyCollectionViewCell: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("MyHeader", owner: self, options: nil)?.first as! MyHeaderInSection
+        let header = Bundle.main.loadNibNamed("TempHoursHeaderInSection", owner: self, options: nil)?.first as! TempHoursHeaderInSection
         header.frame = CGRect(x: 0, y: 200, width: self.contentView.frame.width, height: 100)
         header.checkTemp = checkTemp
         header.modelIndexpath = modelIndexpath
@@ -118,7 +118,7 @@ extension MyCollectionViewCell: UITableViewDelegate{
         }else if indexPath.row == 11{
             return 280
         }else{
-            return 150
+            return 120
         }
     }
 }

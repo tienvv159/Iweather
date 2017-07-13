@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyHeaderInSection" customModule="iweather" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TempHoursHeaderInSection" customModule="iweather" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="574" height="141"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -73,8 +73,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="imgBackgroundSection" destination="pA9-6S-zlC" id="LNa-Qt-15b"/>
-                <outlet property="myCollectionTempHour" destination="067-2B-tmU" id="sZ9-vU-7Ff"/>
+                <outlet property="myCollectionTempHour" destination="067-2B-tmU" id="hvK-3q-f3A"/>
             </connections>
             <point key="canvasLocation" x="-83" y="-581.5"/>
         </view>
