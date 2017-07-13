@@ -85,6 +85,8 @@
 		84F36D5F1EFD05920057B481 /* MyCellInfomationWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */; };
 		84F5E5721F1714DC00A81B7F /* currentimgPage0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5701F1714DC00A81B7F /* currentimgPage0.png */; };
 		84F5E5741F1716A900A81B7F /* locationBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5731F1716A900A81B7F /* locationBlack.png */; };
+		84F5E5771F172D3B00A81B7F /* CellLocationInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */; };
+		84F5E5781F172D3B00A81B7F /* CellLocationInMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,8 @@
 		84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCellInfomationWeather.xib; sourceTree = "<group>"; };
 		84F5E5701F1714DC00A81B7F /* currentimgPage0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentimgPage0.png; sourceTree = "<group>"; };
 		84F5E5731F1716A900A81B7F /* locationBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationBlack.png; sourceTree = "<group>"; };
+		84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLocationInMap.swift; sourceTree = "<group>"; };
+		84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellLocationInMap.xib; sourceTree = "<group>"; };
 		A65C95A368EA5A3ECE89C25F /* Pods-myWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.release.xcconfig"; sourceTree = "<group>"; };
 		D3B44AA8E147770450AA68F2 /* Pods-myWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		E06CDB53E4E21D4BA5C8F7F9 /* Pods_myWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +258,8 @@
 				84F36D5D1EFD05920057B481 /* MyCellInfomationWeather.xib */,
 				84F36D581EFD054F0057B481 /* MyCellInfomationLocation.swift */,
 				84F36D591EFD054F0057B481 /* MyCellInfomationLocation.xib */,
+				84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */,
+				84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */,
 				84DD4BF91F020254005120F2 /* MyCollectionViewCell.swift */,
 				84DD4BFA1F020254005120F2 /* MyCollectionViewCell.xib */,
 			);
@@ -542,6 +548,7 @@
 				84309D821F0390AA002B5CD0 /* 1234.png in Resources */,
 				84DD4BFC1F020254005120F2 /* MyCollectionViewCell.xib in Resources */,
 				84F36D571EFCFFBE0057B481 /* MyCellTemp10Day.xib in Resources */,
+				84F5E5781F172D3B00A81B7F /* CellLocationInMap.xib in Resources */,
 				84B72AF01F14BC3500367B0D /* backGround.jpg in Resources */,
 				84E9AABC1F13650C00FFBCFE /* retro_intro@2x.png in Resources */,
 				84E9AAB31F13650C00FFBCFE /* currentSearchDot@2x.png in Resources */,
@@ -689,6 +696,7 @@
 				84C665731F00DFE3004604D8 /* MyCellSearch.swift in Sources */,
 				843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */,
 				843248D01EF76CFD001A2C86 /* SearchVC.swift in Sources */,
+				84F5E5771F172D3B00A81B7F /* CellLocationInMap.swift in Sources */,
 				84F36D561EFCFFBE0057B481 /* MyCellTemp10Day.swift in Sources */,
 				8475A2DD1EF9327A00412025 /* ForecastModel.swift in Sources */,
 				841A2AB31F05E7210052FC4E /* DataTempHours.swift in Sources */,

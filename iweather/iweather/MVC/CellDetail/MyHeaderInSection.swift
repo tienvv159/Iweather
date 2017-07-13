@@ -9,7 +9,7 @@
 import UIKit
 
 class MyHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewDataSource {
-    
+    @IBOutlet weak var imgBackgroundSection: UIImageView!
     @IBOutlet weak var myCollectionTempHour: UICollectionView!
     let statusWeather:StatusWeather = StatusWeather()
     var modelIndexpath: IweatheModel? {

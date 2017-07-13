@@ -15,10 +15,6 @@ class MyCellInfomationLocation: UITableViewCell {
     @IBOutlet weak var lblLat: UILabel!
     @IBOutlet weak var lblLong: UILabel!
 
-    
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

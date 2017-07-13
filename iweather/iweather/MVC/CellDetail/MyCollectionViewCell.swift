@@ -6,11 +6,13 @@
 //  Copyright © 2560 BE MyStudio. All rights reserved.
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MyCollectionViewCell: UICollectionViewCell{
-
+    @IBOutlet weak var imgBackgroundTableView: UIImageView!
     var modelIndexpath:IweatheModel! = nil
-    @IBOutlet weak var imgBackgroundTableVIew: UIImageView!
+    var numberRow = 0
     @IBOutlet weak var myImgDetail: UIImageView!
     @IBOutlet weak var myViewDetail: UIView!
     @IBOutlet weak var myTableView: UITableView!
@@ -38,6 +40,9 @@ class MyCollectionViewCell: UICollectionViewCell{
         
         let nibInfoWeather = UINib(nibName: "MyCellInfomationWeather", bundle: nil)
         myTableView.register(nibInfoWeather, forCellReuseIdentifier: "MyCellInforWeather")
+        
+        let nibMap = UINib(nibName: "CellLocationInMap", bundle: nil)
+        myTableView.register(nibMap, forCellReuseIdentifier: "CellLocationInMap")
     }
     
     func writeDataInView() {
@@ -69,18 +74,20 @@ class MyCollectionViewCell: UICollectionViewCell{
                 self.myViewDetail.frame.size.height = 70
                 self.myTableView.frame.origin.y = 75
                 self.myTableView.frame.size.height = self.contentView.frame.size.height - 75
-                self.imgBackgroundTableVIew.frame.origin.y = 75
-                self.imgBackgroundTableVIew.frame.size.height = self.contentView.frame.size.height - 75
+                self.imgBackgroundTableView.frame.origin.y = 75
+                self.imgBackgroundTableView.frame.size.height = self.contentView.frame.size.height - 75
+                self.lblTemp.alpha = 0;
             })
         }else if scrollView.contentOffset.y < 0 {
             // scroll down
             UIView.animate(withDuration: 0.3, animations: {
+                self.lblTemp.alpha = 1;
                 self.myViewDetail.frame.origin.y = 20
                 self.myViewDetail.frame.size.height = 200
                 self.myTableView.frame.origin.y = 220
-                self.myTableView.frame.size.height = self.contentView.frame.size.height - 220
-                self.imgBackgroundTableVIew.frame.origin.y = 220
-                self.imgBackgroundTableVIew.frame.size.height = self.contentView.frame.size.height - 220
+                self.myTableView.frame.size.height = self.contentView.frame.size.height// - 220
+                self.imgBackgroundTableView.frame.origin.y = 220
+                self.imgBackgroundTableView.frame.size.height = self.contentView.frame.size.height// - 220
             })
             myTableView.contentOffset = CGPoint(x: 0, y: 0)
         }
@@ -108,8 +115,10 @@ extension MyCollectionViewCell: UITableViewDelegate{
             return 40
         }else if indexPath.row == 10{
             return 165
-        }else {
+        }else if indexPath.row == 11{
             return 280
+        }else{
+            return 150
         }
     }
 }
@@ -117,7 +126,7 @@ extension MyCollectionViewCell: UITableViewDelegate{
 
 extension MyCollectionViewCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return 13
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,7 +143,18 @@ extension MyCollectionViewCell: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellInforWeather", for: indexPath) as! MyCellInfomationWeather
             cell.setupCell(modelIndexpath: modelIndexpath)
             return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellLocationInMap", for: indexPath) as! CellLocationInMap
+            let location = CLLocationCoordinate2DMake(Double(modelIndexpath.lat) ?? 0, Double(modelIndexpath.long) ?? 0)
+            let span = MKCoordinateSpanMake(0.2, 0.2)
+            let region = MKCoordinateRegionMake(location, span)
+            cell.map.setRegion(region, animated: true)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = modelIndexpath.city
+            cell.map.addAnnotation(annotation)
+            return cell
         }
-        return UITableViewCell.init()
+        //return UITableViewCell.init()
     }
 }

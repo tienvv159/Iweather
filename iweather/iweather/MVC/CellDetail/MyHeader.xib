@@ -73,6 +73,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imgBackgroundSection" destination="pA9-6S-zlC" id="LNa-Qt-15b"/>
                 <outlet property="myCollectionTempHour" destination="067-2B-tmU" id="sZ9-vU-7Ff"/>
             </connections>
             <point key="canvasLocation" x="-83" y="-581.5"/>

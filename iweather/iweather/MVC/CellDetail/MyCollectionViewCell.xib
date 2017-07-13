@@ -140,7 +140,7 @@
             </constraints>
             <size key="customSize" width="310" height="234"/>
             <connections>
-                <outlet property="imgBackgroundTableVIew" destination="OrA-XA-Kh2" id="JYl-8C-MkS"/>
+                <outlet property="imgBackgroundTableView" destination="OrA-XA-Kh2" id="qs8-yA-RtF"/>
                 <outlet property="lblCity" destination="DNW-1z-iVE" id="aYu-EK-cWR"/>
                 <outlet property="lblDayInWeek" destination="jCS-NJ-Gfh" id="PUx-eR-6D5"/>
                 <outlet property="lblHigh" destination="YVL-S5-7zm" id="jAK-qS-EfL"/>

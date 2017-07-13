@@ -10,6 +10,7 @@ import UIKit
 
 class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPageViewControllerDelegate{
     
+    @IBOutlet weak var imgBackground: UIImageView!
     @IBOutlet weak var pageControl: SMPageControl!
     @IBOutlet weak var myCollectionView: UICollectionView!
     var checkTemp:String = ""
@@ -76,6 +77,7 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         cell.modelIndexpath = listModel[indexPath.item]
         cell.checkTemp = checkTemp
         cell.writeDataInView()
+        cell.numberRow = listModel.count
         return cell
     }
     

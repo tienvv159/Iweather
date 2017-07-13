@@ -142,6 +142,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgBackground" destination="3Vr-65-zWR" id="FkB-qH-Dd0"/>
                         <outlet property="myCollectionView" destination="zNs-rf-j7h" id="9Db-fk-kMl"/>
                         <outlet property="pageControl" destination="loS-TN-G6A" id="Pwy-Az-X1r"/>
                     </connections>
@@ -163,16 +164,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYW-mO-qng">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city, zip code, or airport location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ7-Mg-cEB">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city, ZIP code, or airport location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ7-Mg-cEB">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="TxC-Ax-sXz"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FHG-KB-p1Q">
-                                        <rect key="frame" x="10" y="60.5" width="307" height="44"/>
+                                        <rect key="frame" x="10" y="75" width="307" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -183,7 +187,7 @@
                                         </connections>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukc-z2-O80">
-                                        <rect key="frame" x="317" y="60.5" width="48" height="44"/>
+                                        <rect key="frame" x="317" y="75" width="48" height="44"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -201,13 +205,13 @@
                                     <constraint firstItem="FHG-KB-p1Q" firstAttribute="top" secondItem="AJ7-Mg-cEB" secondAttribute="bottom" constant="20" id="WID-mI-I5R"/>
                                     <constraint firstAttribute="trailing" secondItem="ukc-z2-O80" secondAttribute="trailing" constant="10" id="enp-P1-DJ5"/>
                                     <constraint firstItem="ukc-z2-O80" firstAttribute="leading" secondItem="FHG-KB-p1Q" secondAttribute="trailing" id="fBD-jX-Oc6"/>
-                                    <constraint firstAttribute="height" constant="120" id="gZx-GX-qKP"/>
+                                    <constraint firstAttribute="height" constant="130" id="gZx-GX-qKP"/>
                                     <constraint firstItem="ukc-z2-O80" firstAttribute="top" secondItem="AJ7-Mg-cEB" secondAttribute="bottom" constant="20" id="lSF-sE-3tk"/>
                                     <constraint firstItem="ukc-z2-O80" firstAttribute="height" secondItem="FHG-KB-p1Q" secondAttribute="height" id="s4b-Sw-JHB"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pyI-iC-TM8">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="WpB-ol-3tb" id="Lxg-Fq-mBM"/>
