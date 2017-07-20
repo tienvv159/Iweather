@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+import GoogleMaps
 class CellLocationInMap: UITableViewCell {
-    @IBOutlet weak var map: MKMapView!
+    
+    @IBOutlet weak var mapView: GMSMapView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -14,24 +14,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="223.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zzq-ld-F4p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="223.5"/>
-                    </mapView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMP-jS-EJN" customClass="GMSMapView">
+                        <rect key="frame" x="0.0" y="-1" width="320" height="224"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zzq-ld-F4p" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="38H-me-OhZ"/>
-                    <constraint firstItem="zzq-ld-F4p" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Fy3-dh-Udc"/>
-                    <constraint firstItem="zzq-ld-F4p" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="XtR-CJ-iQ6"/>
-                    <constraint firstItem="zzq-ld-F4p" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YAy-p5-hvr"/>
+                    <constraint firstItem="fMP-jS-EJN" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="2cc-LK-D7y"/>
+                    <constraint firstItem="fMP-jS-EJN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TkB-MZ-WCb"/>
+                    <constraint firstItem="fMP-jS-EJN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="snQ-5y-acU"/>
+                    <constraint firstItem="fMP-jS-EJN" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="zEp-r4-MBn"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="map" destination="zzq-ld-F4p" id="vQi-he-PfS"/>
+                <outlet property="mapView" destination="fMP-jS-EJN" id="rwX-wQ-vCg"/>
             </connections>
-            <point key="canvasLocation" x="-96" y="2"/>
+            <point key="canvasLocation" x="-67" y="-209"/>
         </tableViewCell>
     </objects>
 </document>

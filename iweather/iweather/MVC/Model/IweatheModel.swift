@@ -10,7 +10,7 @@ import Realm
 import RealmSwift
 
 public class IweatheModel: Object, InitDictionaryable{
-    dynamic var keySearch = ""
+    dynamic var index = 0
     dynamic var city = ""
     dynamic var lat = ""
     dynamic var long = ""

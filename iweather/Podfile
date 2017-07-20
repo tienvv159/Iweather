@@ -6,6 +6,8 @@ target 'iweather' do
     pod 'RealmSwift'
     pod 'Alamofire'
     pod 'SwiftGifOrigin', '~> 1.6.1'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 
 end
 

@@ -19,18 +19,22 @@ class SearchVC: UIViewController {
     weak var delegate:SearchVCDelegate! = nil
     var modelSearch:SearchModel? = nil
     let define:Define = Define()
+    
     override func viewDidAppear(_ animated: Bool) {
         getAPI(location: mySearchBar.text ?? "")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mySearchBar.searchBarStyle = .minimal
         mySearchBar.becomeFirstResponder()
-        mySearchBar.backgroundImage = UIImage()
-        let nib = UINib(nibName: "MyCellSearch", bundle: nil)
+        let nib = UINib(nibName: "CellSearch", bundle: nil)
         myTableVIew.register(nib, forCellReuseIdentifier: "CellSearch")
-        
+
+        let textFieldInsideSearchBar = mySearchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
     }
+    
     
     func getAPI(location:String) {
         let stringAPI = define.APISearch(location: location)        
@@ -42,8 +46,12 @@ class SearchVC: UIViewController {
     
     
     @IBAction func didCancel(_ sender: Any) {
-        
+        dissmissKeyboard()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func dissmissKeyboard() {
+        view.endEditing(true)
     }
     
     func showAlert(titleAlert:String, message:String, titleAction:String) {
@@ -53,6 +61,12 @@ class SearchVC: UIViewController {
         }
         alert.addAction(btnOK)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0{
+            dissmissKeyboard()
+        }
     }
 }
 
@@ -64,6 +78,7 @@ extension SearchVC: UISearchBarDelegate{
 
 extension SearchVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dissmissKeyboard()
         if delegate != nil{ // phải set delegate cho SearchVC
             if let textSearch = modelSearch?.datas[indexPath.row].qualifiedName{
                 delegate.textSearch(textSearch)
@@ -81,7 +96,7 @@ extension SearchVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellSearch", for: indexPath) as! MyCellSearch
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellSearch", for: indexPath) as! CellSearch
         if let model = modelSearch?.datas{
             cell.lblResulfSearch.text = "\(model[indexPath.row].qualifiedName) - \(model[indexPath.row].country)"
         }else {

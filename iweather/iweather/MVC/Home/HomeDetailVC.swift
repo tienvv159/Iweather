@@ -23,8 +23,8 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
-        myCollectionView.register(nib, forCellWithReuseIdentifier: "myCollectionCell")
+        let nib = UINib(nibName: "InfoDetailLocation", bundle: nil)
+        myCollectionView.register(nib, forCellWithReuseIdentifier: "InfoDetailLocation")
         myCollectionView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(1)) {
@@ -73,7 +73,7 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionCell", for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoDetailLocation", for: indexPath) as! InfoDetailLocation
         cell.modelIndexpath = listModel[indexPath.item]
         cell.checkTemp = checkTemp
         cell.writeDataInView()
@@ -91,8 +91,8 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.size.width
+        let offSet:CGFloat = scrollView.contentOffset.x
+        let width:CGFloat = scrollView.frame.size.width
         if offSet == width * CGFloat(index){
             pageControl.currentPage = index
         }

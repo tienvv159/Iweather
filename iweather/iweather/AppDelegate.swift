@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import GoogleMaps
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
+        GMSServices.provideAPIKey("AIzaSyA9Jt0oGZLZ_N5mXmGig_sl1y0RaVZ5YcY")
+        GMSPlacesClient.provideAPIKey("AIzaSyA9Jt0oGZLZ_N5mXmGig_sl1y0RaVZ5YcY")
         return true
     }
 
