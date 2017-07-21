@@ -10,7 +10,6 @@ import UIKit
 import NotificationCenter
 import Alamofire
 import CoreLocation
-import iweather
 import RealmSwift
 
 

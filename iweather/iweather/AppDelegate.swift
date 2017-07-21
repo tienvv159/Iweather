@@ -15,12 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let keyMap = "AIzaSyCCs7_Z50b5mUhDj0NL4oJqZTv5qT5VLzE"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
-        GMSServices.provideAPIKey("AIzaSyA9Jt0oGZLZ_N5mXmGig_sl1y0RaVZ5YcY")
-        GMSPlacesClient.provideAPIKey("AIzaSyA9Jt0oGZLZ_N5mXmGig_sl1y0RaVZ5YcY")
+        GMSServices.provideAPIKey(keyMap)
+        GMSPlacesClient.provideAPIKey(keyMap)
         return true
     }
 

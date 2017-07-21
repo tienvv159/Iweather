@@ -256,7 +256,7 @@ extension HomeVC: UITableViewDataSource{
                 cell.lblOF.textColor = UIColor.gray
                 
                 cell.btnViewToMap.isEnabled = false
-                cell.imgViewToMap.image = UIImage(named: "mapGray.png")
+                cell.imgViewToMap.image = UIImage(named: "mapGray1.png")
             }else{
                 cell.btnAddLocation.isEnabled = true
                 cell.imgAddLocation.image = cell.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
@@ -274,7 +274,7 @@ extension HomeVC: UITableViewDataSource{
                     cell.lblOF.textColor = UIColor.gray
                 }
                 cell.btnViewToMap.isEnabled = true
-                cell.imgViewToMap.image = UIImage(named: "map.png")
+                cell.imgViewToMap.image = UIImage(named: "if_map.png")
             }
             return cell
         }else{
@@ -439,7 +439,7 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
         if check == true{
             labelShowLastUpdate.text = "hello map"
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
+            let vc = storyboard.instantiateViewController(withIdentifier: "GooGleMapVC") as! GooGleMapVC
             navigationController?.pushViewController(vc, animated: true)
         }
     }
