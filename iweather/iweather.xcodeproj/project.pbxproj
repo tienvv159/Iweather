@@ -84,6 +84,9 @@
 		848E5C0A1F0B9F220098F4EF /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 848E5C091F0B9F220098F4EF /* location.png */; };
 		8490980B1EFACE6900DA288F /* Pods_iweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8490980A1EFACE6900DA288F /* Pods_iweather.framework */; };
 		8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8490980C1EFAD0BD00DA288F /* Main.storyboard */; };
+		84AA0F1B1F21A36700CDA8D0 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA0F1A1F21A36700CDA8D0 /* MapVC.swift */; };
+		84AA0F1D1F21A43A00CDA8D0 /* if_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA0F1C1F21A43A00CDA8D0 /* if_map.png */; };
+		84AA0F1F1F21A4C400CDA8D0 /* mapGray1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AA0F1E1F21A4C400CDA8D0 /* mapGray1.png */; };
 		84B72AEE1F14B34100367B0D /* location1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72AED1F14B34100367B0D /* location1.png */; };
 		84B72AF01F14BC3500367B0D /* backGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72AEF1F14BC3500367B0D /* backGround.jpg */; };
 		84B72AF41F14D65700367B0D /* backgoundetail.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72AF31F14D65700367B0D /* backgoundetail.jpeg */; };
@@ -122,8 +125,6 @@
 		84F36D5F1EFD05920057B481 /* InfoWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */; };
 		84F5E5721F1714DC00A81B7F /* currentimgPage0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5701F1714DC00A81B7F /* currentimgPage0.png */; };
 		84F5E5741F1716A900A81B7F /* locationBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5731F1716A900A81B7F /* locationBlack.png */; };
-		84F5E5771F172D3B00A81B7F /* CellLocationInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */; };
-		84F5E5781F172D3B00A81B7F /* CellLocationInMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,9 @@
 		848E5C091F0B9F220098F4EF /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		8490980A1EFACE6900DA288F /* Pods_iweather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_iweather.framework; path = "../../../Library/Developer/Xcode/DerivedData/iweather-fewvqkhnshrxwmhiccxtrbvguiio/Build/Products/Debug-iphonesimulator/Pods_iweather.framework"; sourceTree = "<group>"; };
 		8490980C1EFAD0BD00DA288F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../AppDelegate/Main.storyboard; sourceTree = "<group>"; };
+		84AA0F1A1F21A36700CDA8D0 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		84AA0F1C1F21A43A00CDA8D0 /* if_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_map.png; sourceTree = "<group>"; };
+		84AA0F1E1F21A4C400CDA8D0 /* mapGray1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapGray1.png; sourceTree = "<group>"; };
 		84B72AED1F14B34100367B0D /* location1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location1.png; sourceTree = "<group>"; };
 		84B72AEF1F14BC3500367B0D /* backGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backGround.jpg; sourceTree = "<group>"; };
 		84B72AF31F14D65700367B0D /* backgoundetail.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgoundetail.jpeg; sourceTree = "<group>"; };
@@ -264,8 +268,6 @@
 		84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWeatherCell.xib; sourceTree = "<group>"; };
 		84F5E5701F1714DC00A81B7F /* currentimgPage0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentimgPage0.png; sourceTree = "<group>"; };
 		84F5E5731F1716A900A81B7F /* locationBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationBlack.png; sourceTree = "<group>"; };
-		84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLocationInMap.swift; sourceTree = "<group>"; };
-		84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellLocationInMap.xib; sourceTree = "<group>"; };
 		A65C95A368EA5A3ECE89C25F /* Pods-myWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.release.xcconfig"; sourceTree = "<group>"; };
 		D3B44AA8E147770450AA68F2 /* Pods-myWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myWeather/Pods-myWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		E06CDB53E4E21D4BA5C8F7F9 /* Pods_myWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,8 +335,6 @@
 				84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */,
 				84F36D581EFD054F0057B481 /* InfoLocationCell.swift */,
 				84F36D591EFD054F0057B481 /* InfoLocationCell.xib */,
-				84F5E5751F172D3B00A81B7F /* CellLocationInMap.swift */,
-				84F5E5761F172D3B00A81B7F /* CellLocationInMap.xib */,
 				84DD4BF91F020254005120F2 /* InfoDetailLocation.swift */,
 				84DD4BFA1F020254005120F2 /* InfoDetailLocation.xib */,
 			);
@@ -393,6 +393,7 @@
 				843248C41EF75AEE001A2C86 /* HomeVC.swift */,
 				843248CF1EF76CFD001A2C86 /* SearchVC.swift */,
 				843248D81EF7E191001A2C86 /* HomeDetailVC.swift */,
+				84AA0F1A1F21A36700CDA8D0 /* MapVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -416,6 +417,8 @@
 		843248C31EF75AB3001A2C86 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				84AA0F1E1F21A4C400CDA8D0 /* mapGray1.png */,
+				84AA0F1C1F21A43A00CDA8D0 /* if_map.png */,
 				841039111F15B397002A77D8 /* backgoundetail2.png */,
 				84B72AF51F14DB2200367B0D /* backgoundetail1.png */,
 				84F5E5701F1714DC00A81B7F /* currentimgPage0.png */,
@@ -683,7 +686,6 @@
 				84309D821F0390AA002B5CD0 /* 1234.png in Resources */,
 				84DD4BFC1F020254005120F2 /* InfoDetailLocation.xib in Resources */,
 				84F36D571EFCFFBE0057B481 /* TempTenDayCell.xib in Resources */,
-				84F5E5781F172D3B00A81B7F /* CellLocationInMap.xib in Resources */,
 				84B72AF01F14BC3500367B0D /* backGround.jpg in Resources */,
 				84E9AABC1F13650C00FFBCFE /* retro_intro@2x.png in Resources */,
 				84E9AAB31F13650C00FFBCFE /* currentSearchDot@2x.png in Resources */,
@@ -700,6 +702,7 @@
 				841039121F15B397002A77D8 /* backgoundetail2.png in Resources */,
 				84E9AABF1F13650C00FFBCFE /* searchMask@2x.png in Resources */,
 				84E9AAB21F13650C00FFBCFE /* currentPageDot@2x.png in Resources */,
+				84AA0F1D1F21A43A00CDA8D0 /* if_map.png in Resources */,
 				84E9AABB1F13650C00FFBCFE /* pageDot@2x.png in Resources */,
 				84E9AAAE1F13650C00FFBCFE /* appleDot@2x.png in Resources */,
 				846619281F04A08E00C2954D /* sunrise.png in Resources */,
@@ -713,6 +716,7 @@
 				84F36D5B1EFD054F0057B481 /* InfoLocationCell.xib in Resources */,
 				84B72AEE1F14B34100367B0D /* location1.png in Resources */,
 				846619291F04A08E00C2954D /* sunset.png in Resources */,
+				84AA0F1F1F21A4C400CDA8D0 /* mapGray1.png in Resources */,
 				84E9AAB01F13650C00FFBCFE /* appleMask@2x.png in Resources */,
 				8309BA6F1EFA01370055A13A /* Assets.xcassets in Resources */,
 				84E9AABD1F13650C00FFBCFE /* searchDot@2x.png in Resources */,
@@ -840,6 +844,7 @@
 				8432EF121F20972D0003428C /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				841B5F871EFB79D800632357 /* EZLoadingActivity.swift in Sources */,
 				8432EF101F20972D0003428C /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				84AA0F1B1F21A36700CDA8D0 /* MapVC.swift in Sources */,
 				84E9AAC61F13653600FFBCFE /* SMPageControl.m in Sources */,
 				841B5F971EFBA12500632357 /* TempHoursHeaderInSection.swift in Sources */,
 				8432EF0F1F20972D0003428C /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
@@ -855,7 +860,6 @@
 				843248D91EF7E191001A2C86 /* HomeDetailVC.swift in Sources */,
 				843248D01EF76CFD001A2C86 /* SearchVC.swift in Sources */,
 				8432EF041F20972D0003428C /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
-				84F5E5771F172D3B00A81B7F /* CellLocationInMap.swift in Sources */,
 				8432EF211F20972D0003428C /* NVActivityIndicatorView.swift in Sources */,
 				8432EF001F20972D0003428C /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				8432EF0C1F20972D0003428C /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,

@@ -7,28 +7,29 @@
 //
 
 import UIKit
-import GoogleMaps
-class MapVC: UIViewController , GMSMapViewDelegate{
 
-    @IBOutlet weak var mapV: GMSMapView!
+class MapVC: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        handlingMap()
-        mapV.delegate = self
+
+        // Do any additional setup after loading the view.
     }
 
-    func handlingMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: 21.031895 , longitude:105.799338 , zoom: 10.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        mapView.camera = camera
-        self.mapV = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = camera.target
-        //marker.position = CLLocationCoordinate2D(latitude: 21.031895, longitude: 105.799338)
-        //marker.title = "139 cau giay"
-        marker.snippet = "139 cg Ha noi"
-        marker.map = mapView
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

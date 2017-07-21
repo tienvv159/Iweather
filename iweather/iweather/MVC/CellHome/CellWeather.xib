@@ -110,7 +110,7 @@
                 <outlet property="lblTemperature" destination="v7E-g0-A0I" id="kla-hT-PJz"/>
                 <outlet property="lblTime" destination="kfw-vj-8Dm" id="2oj-Zx-L88"/>
             </connections>
-            <point key="canvasLocation" x="-68" y="-315.5"/>
+            <point key="canvasLocation" x="-418" y="-457"/>
         </tableViewCell>
     </objects>
 </document>

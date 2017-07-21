@@ -11,11 +11,14 @@ import UIKit
 protocol MyCellLastDelegate: class {
      func checkTapToAddLocation(_ check:Bool)
      func checkTapToChangerTemperature(_ check:Bool)
+    func checkTapToViewMap(_ check:Bool)
 }
 
 class CellLast: UITableViewCell {
     weak var delegate:MyCellLastDelegate?
 
+    @IBOutlet weak var imgViewToMap: UIImageView!
+    @IBOutlet weak var btnViewToMap: UIButton!
     @IBOutlet weak var btnAddLocation: UIButton!
     @IBOutlet weak var imgAddLocation: UIImageView!
     @IBOutlet weak var lblC: UILabel!
@@ -26,6 +29,9 @@ class CellLast: UITableViewCell {
 
     
     
+    @IBAction func viewToMap(_ sender: Any) {
+        delegate?.checkTapToViewMap(true)
+    }
     
     @IBAction func AddLocation(_ sender: Any) {
         delegate?.checkTapToAddLocation(true)
