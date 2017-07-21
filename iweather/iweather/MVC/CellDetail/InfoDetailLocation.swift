@@ -127,11 +127,10 @@ extension InfoDetailLocation: UITableViewDelegate{
 
 extension InfoDetailLocation: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 13
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.row < 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TempTenDayCell", for: indexPath) as! TempTenDayCell
             cell.setupCell(modelForcast: modelIndexpath.forecast[indexPath.item], temp: checkTemp, modelWeather: modelIndexpath)
@@ -140,23 +139,9 @@ extension InfoDetailLocation: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoLocationCell", for: indexPath) as! InfoLocationCell
             cell.setupCell(modelIndexpath: modelIndexpath)
             return cell
-        }else if indexPath.row == 11{
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoWeatherCell", for: indexPath) as! InfoWeatherCell
             cell.setupCell(modelIndexpath: modelIndexpath)
-            return cell
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellLocationInMap", for: indexPath) as! CellLocationInMap
-            
-            let camera = GMSCameraPosition.camera(withLatitude: Double(modelIndexpath.lat) ?? 0, longitude: Double(modelIndexpath.long) ?? 0, zoom: 10.0)
-            let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-            cell.mapView = mapView
-            
-            // Creates a marker in the center of the map.
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: Double(modelIndexpath.lat) ?? 0, longitude: Double(modelIndexpath.long) ?? 0)
-            marker.title = modelIndexpath.city
-            marker.snippet = modelIndexpath.country
-            marker.map = mapView
             return cell
         }
     }
