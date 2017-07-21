@@ -23,7 +23,6 @@ class HomeVC: UIViewController {
     var isOnLocation:Bool = false
     var arrDelete:[Int] = []
     var index = 1
-    var isTapRight:Bool?
     var acti:NVActivityIndicatorView!
     var labelShowLastUpdate:UILabel!
     
@@ -44,7 +43,7 @@ class HomeVC: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
-        acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 45, height: 45), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
+        acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
         self.view.addSubview(acti)
         
         labelShowLastUpdate = UILabel(frame: CGRect(x: 75, y: 0 , width: self.view.frame.width - 150, height: 40))
@@ -52,9 +51,8 @@ class HomeVC: UIViewController {
     }
     
     func btnEditing() {
-        isTapRight = true
         myTableView.setEditing(true, animated: true)
-        myTableView.isEditing = true
+        //myTableView.isEditing = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(btnCancelRight))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         myTableView.reloadData()
@@ -75,11 +73,11 @@ class HomeVC: UIViewController {
                 for i in arrDelete{
                     realm.delete(listModel[i])
                 }
+                getDataFromRealm()
                 arrDelete.removeAll()
                 myTableView.isEditing = false
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-                getDataFromRealm()
             }
         }catch{
             self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
@@ -256,6 +254,9 @@ extension HomeVC: UITableViewDataSource{
                 cell.lblOC.textColor = UIColor.gray
                 cell.lblF.textColor = UIColor.gray
                 cell.lblOF.textColor = UIColor.gray
+                
+                cell.btnViewToMap.isEnabled = false
+                cell.imgViewToMap.image = UIImage(named: "mapGray.png")
             }else{
                 cell.btnAddLocation.isEnabled = true
                 cell.imgAddLocation.image = cell.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
@@ -271,8 +272,9 @@ extension HomeVC: UITableViewDataSource{
                     cell.lblOC.textColor = UIColor.white
                     cell.lblF.textColor = UIColor.gray
                     cell.lblOF.textColor = UIColor.gray
-
                 }
+                cell.btnViewToMap.isEnabled = true
+                cell.imgViewToMap.image = UIImage(named: "map.png")
             }
             return cell
         }else{
@@ -432,6 +434,16 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
             myTableView.reloadData()
         }
     }
+    
+    func checkTapToViewMap(_ check: Bool) {
+        if check == true{
+            labelShowLastUpdate.text = "hello map"
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MapVC") as! MapVC
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 
 
