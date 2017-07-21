@@ -17,7 +17,6 @@ class CellWeather: UITableViewCell {
     @IBOutlet weak var imgCurrentLocation: UIImageView!
     @IBOutlet weak var lblCountry: UILabel!
     @IBOutlet weak var imgCell: UIImageView!
-    let statusWeather:StatusWeather = StatusWeather()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +29,7 @@ class CellWeather: UITableViewCell {
         let text = model.lastBuildDate.description
         let arr = text.components(separatedBy: " ")
         self.lblTime.text = "\(arr[4]) \(arr[5])"
-        self.imgCell.image = statusWeather.handlingItem(code: model.code)
+        self.imgCell.image = StatusWeather.handlingItem(code: model.code)
         if strings1 == Strings2{
             self.imgCurrentLocation.image = UIImage(named: "location")
             self.imgCurrentLocation.image = self.imgCurrentLocation.image?.withRenderingMode(.alwaysTemplate)

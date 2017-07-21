@@ -26,23 +26,14 @@ class CellLast: UITableViewCell {
     @IBOutlet weak var lblF: UILabel!
     @IBOutlet weak var lblOF: UILabel!
     var temperature = "F"
-
-    
     
     @IBAction func viewToMap(_ sender: Any) {
         delegate?.checkTapToViewMap(true)
     }
-    
     @IBAction func AddLocation(_ sender: Any) {
         delegate?.checkTapToAddLocation(true)
     }
-      
     @IBAction func changerValueCF(_ sender: Any) {
-        
-//        if let homeVC = delegate as? HomeVC {
-//            print(homeVC.temperature)
-//        }
-//        
             delegate?.checkTapToChangerTemperature(true)
             if temperature == "F" {
                 lblF.textColor = UIColor.gray
@@ -56,6 +47,50 @@ class CellLast: UITableViewCell {
                 lblC.textColor = UIColor.gray
                 lblOC.textColor = UIColor.gray
                 temperature = "F"
+        }
+    }
+    
+    func setupCell(listModel:[IweatheModel], tableView:UITableView) {
+        self.imgAddLocation.image = self.imgAddLocation.image!.withRenderingMode(.alwaysTemplate)
+        self.imgAddLocation.tintColor = UIColor.white
+        if listModel.count >= 15{
+            self.btnAddLocation.isEnabled = false
+            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
+            self.imgAddLocation.tintColor = UIColor.gray
+        }else{
+            self.btnAddLocation.isEnabled = true
+        }
+        
+        if tableView.isEditing == true{
+            self.btnAddLocation.isEnabled = false
+            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
+            self.imgAddLocation.tintColor = UIColor.gray
+            
+            self.lblC.textColor = UIColor.gray
+            self.lblOC.textColor = UIColor.gray
+            self.lblF.textColor = UIColor.gray
+            self.lblOF.textColor = UIColor.gray
+            
+            self.btnViewToMap.isEnabled = false
+            self.imgViewToMap.image = UIImage(named: "mapGray1.png")
+        }else{
+            self.btnAddLocation.isEnabled = true
+            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
+            self.imgAddLocation.tintColor = UIColor.white
+            
+            if temperature == "F"{
+                self.lblC.textColor = UIColor.gray
+                self.lblOC.textColor = UIColor.gray
+                self.lblF.textColor = UIColor.white
+                self.lblOF.textColor = UIColor.white
+            }else{
+                self.lblC.textColor = UIColor.white
+                self.lblOC.textColor = UIColor.white
+                self.lblF.textColor = UIColor.gray
+                self.lblOF.textColor = UIColor.gray
+            }
+            self.btnViewToMap.isEnabled = true
+            self.imgViewToMap.image = UIImage(named: "if_map.png")
         }
     }
 }

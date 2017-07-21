@@ -8,7 +8,7 @@ target 'iweather' do
     pod 'SwiftGifOrigin', '~> 1.6.1'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
-
+#    pod 'Reusable'
 end
 
 target 'myWeather' do

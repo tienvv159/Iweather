@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let keyMap = "AIzaSyCCs7_Z50b5mUhDj0NL4oJqZTv5qT5VLzE"
+    let keyMap = "AIzaSyC4PDs1aR22KCzIpi0yhamtXiwvKtJfdok"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")

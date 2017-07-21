@@ -229,53 +229,14 @@ extension HomeVC: UITableViewDataSource{
         let viewHeader:UIView = UIView()
         viewHeader.backgroundColor = UIColor.clear
         return viewHeader
+          
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == listModel.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellLast", for: indexPath) as! CellLast
-            cell.imgAddLocation.image = cell.imgAddLocation.image!.withRenderingMode(.alwaysTemplate)
-            cell.imgAddLocation.tintColor = UIColor.white
             cell.delegate = self
-            if listModel.count >= 15{
-                cell.btnAddLocation.isEnabled = false
-                cell.imgAddLocation.image = cell.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-                cell.imgAddLocation.tintColor = UIColor.gray
-            }else{
-                cell.btnAddLocation.isEnabled = true
-            }
-            
-            if myTableView.isEditing == true{
-                cell.btnAddLocation.isEnabled = false
-                cell.imgAddLocation.image = cell.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-                cell.imgAddLocation.tintColor = UIColor.gray
-                
-                cell.lblC.textColor = UIColor.gray
-                cell.lblOC.textColor = UIColor.gray
-                cell.lblF.textColor = UIColor.gray
-                cell.lblOF.textColor = UIColor.gray
-                
-                cell.btnViewToMap.isEnabled = false
-                cell.imgViewToMap.image = UIImage(named: "mapGray1.png")
-            }else{
-                cell.btnAddLocation.isEnabled = true
-                cell.imgAddLocation.image = cell.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-                cell.imgAddLocation.tintColor = UIColor.white
-                
-                if temperature == "F"{
-                    cell.lblC.textColor = UIColor.gray
-                    cell.lblOC.textColor = UIColor.gray
-                    cell.lblF.textColor = UIColor.white
-                    cell.lblOF.textColor = UIColor.white
-                }else{
-                    cell.lblC.textColor = UIColor.white
-                    cell.lblOC.textColor = UIColor.white
-                    cell.lblF.textColor = UIColor.gray
-                    cell.lblOF.textColor = UIColor.gray
-                }
-                cell.btnViewToMap.isEnabled = true
-                cell.imgViewToMap.image = UIImage(named: "if_map.png")
-            }
+            cell.setupCell(listModel: listModel, tableView: myTableView)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellWeather", for: indexPath) as! CellWeather
@@ -440,6 +401,8 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
             labelShowLastUpdate.text = "hello map"
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GooGleMapVC") as! GooGleMapVC
+            vc.listModel = listModel
+            vc.checkTemp = temperature
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -78,6 +78,9 @@
 		84363BEE1F0E3DCC00BF20F4 /* ResulfSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C665771F00EF6E004604D8 /* ResulfSearchModel.swift */; };
 		84363BEF1F0E3DCF00BF20F4 /* TempHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466192A1F04F97800C2954D /* TempHoursModel.swift */; };
 		845673F51F21AE700000D603 /* GooGleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845673F41F21AE700000D603 /* GooGleMapVC.swift */; };
+		845673F91F21E40D0000D603 /* ViewMarke.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845673F81F21E40D0000D603 /* ViewMarke.xib */; };
+		845673FB1F21E4B00000D603 /* ViewMarke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845673FA1F21E4B00000D603 /* ViewMarke.swift */; };
+		845673FD1F21EFBB0000D603 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845673FC1F21EFBB0000D603 /* NibDesignable.swift */; };
 		846619281F04A08E00C2954D /* sunrise.png in Resources */ = {isa = PBXBuildFile; fileRef = 846619261F04A08E00C2954D /* sunrise.png */; };
 		846619291F04A08E00C2954D /* sunset.png in Resources */ = {isa = PBXBuildFile; fileRef = 846619271F04A08E00C2954D /* sunset.png */; };
 		8466192B1F04F97800C2954D /* TempHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466192A1F04F97800C2954D /* TempHoursModel.swift */; };
@@ -218,6 +221,9 @@
 		84363BE11F0DD02200BF20F4 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		84363BE31F0DD9AA00BF20F4 /* StatusWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusWeather.swift; sourceTree = "<group>"; };
 		845673F41F21AE700000D603 /* GooGleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooGleMapVC.swift; sourceTree = "<group>"; };
+		845673F81F21E40D0000D603 /* ViewMarke.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewMarke.xib; sourceTree = "<group>"; };
+		845673FA1F21E4B00000D603 /* ViewMarke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMarke.swift; sourceTree = "<group>"; };
+		845673FC1F21EFBB0000D603 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		846619261F04A08E00C2954D /* sunrise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunrise.png; sourceTree = "<group>"; };
 		846619271F04A08E00C2954D /* sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunset.png; sourceTree = "<group>"; };
 		8466192A1F04F97800C2954D /* TempHoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempHoursModel.swift; sourceTree = "<group>"; };
@@ -307,6 +313,7 @@
 				84DD4BFD1F021319005120F2 /* StringExtension.swift */,
 				84363BE11F0DD02200BF20F4 /* Define.swift */,
 				84363BE31F0DD9AA00BF20F4 /* StatusWeather.swift */,
+				845673FC1F21EFBB0000D603 /* NibDesignable.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				841B5F881EFB993500632357 /* CellHome */,
 				841B5F911EFB997500632357 /* CellDetail */,
 				84C665701F00DFAC004604D8 /* CellSearch */,
+				845673F71F21E3B80000D603 /* XibGoogleMap */,
 				843248C01EF75A91001A2C86 /* Home */,
 				843248C11EF75A91001A2C86 /* View */,
 			);
@@ -515,6 +523,15 @@
 				8432EEFE1F20972D0003428C /* NVActivityIndicatorViewable.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		845673F71F21E3B80000D603 /* XibGoogleMap */ = {
+			isa = PBXGroup;
+			children = (
+				845673F81F21E40D0000D603 /* ViewMarke.xib */,
+				845673FA1F21E4B00000D603 /* ViewMarke.swift */,
+			);
+			name = XibGoogleMap;
 			sourceTree = "<group>";
 		};
 		84C665701F00DFAC004604D8 /* CellSearch */ = {
@@ -723,6 +740,7 @@
 				84E9AAAF1F13650C00FFBCFE /* appleMask.png in Resources */,
 				84B72AF61F14DB2200367B0D /* backgoundetail1.png in Resources */,
 				84B72AF41F14D65700367B0D /* backgoundetail.jpeg in Resources */,
+				845673F91F21E40D0000D603 /* ViewMarke.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,6 +890,7 @@
 				8432EF221F20972D0003428C /* NVActivityIndicatorPresenter.swift in Sources */,
 				841A2AB31F05E7210052FC4E /* DataTempHours.swift in Sources */,
 				8432EF231F20972D0003428C /* NVActivityIndicatorViewable.swift in Sources */,
+				845673FB1F21E4B00000D603 /* ViewMarke.swift in Sources */,
 				8432EF1D1F20972D0003428C /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				8432EF081F20972D0003428C /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				8466192B1F04F97800C2954D /* TempHoursModel.swift in Sources */,
@@ -881,6 +900,7 @@
 				841B5F8D1EFB993500632357 /* CellLast.swift in Sources */,
 				845673F51F21AE700000D603 /* GooGleMapVC.swift in Sources */,
 				843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */,
+				845673FD1F21EFBB0000D603 /* NibDesignable.swift in Sources */,
 				84309D851F03AE63002B5CD0 /* TempTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

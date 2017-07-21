@@ -11,7 +11,6 @@ import UIKit
 class TempHoursHeaderInSection: UIView , UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var imgBackgroundSection: UIImageView!
     @IBOutlet weak var myCollectionTempHour: UICollectionView!
-    let statusWeather:StatusWeather = StatusWeather()
     var modelIndexpath: IweatheModel? {
         get {
             return tempModel
@@ -71,7 +70,7 @@ class TempHoursHeaderInSection: UIView , UICollectionViewDelegate, UICollectionV
         cell.lblTimer.text = listData[indexPath.item].hours
         cell.lblTemp.text = String(listData[indexPath.item].temp)
         let code = listData[indexPath.item].code
-        cell.imgStatus.image = statusWeather.handlingItem(code: String(code))
+        cell.imgStatus.image = StatusWeather.handlingItem(code: String(code))
         return cell
     }
     

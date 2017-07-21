@@ -11,7 +11,7 @@ import UIKit
 
 class StatusWeather:UIViewController {
     
-    func handlingItem(code:String? = nil) -> UIImage {
+   static func handlingItem(code:String? = nil) -> UIImage {
         switch code ?? "32" {
         case "0":
             return #imageLiteral(resourceName: "ic_storm")
