@@ -17,6 +17,7 @@ protocol MyCellLastDelegate: class {
 class CellLast: UITableViewCell {
     weak var delegate:MyCellLastDelegate?
 
+    @IBOutlet weak var btnChangeTemp: UIButton!
     @IBOutlet weak var imgViewToMap: UIImageView!
     @IBOutlet weak var btnViewToMap: UIButton!
     @IBOutlet weak var btnAddLocation: UIButton!
@@ -51,20 +52,19 @@ class CellLast: UITableViewCell {
     }
     
     func setupCell(listModel:[IweatheModel], tableView:UITableView) {
-        self.imgAddLocation.image = self.imgAddLocation.image!.withRenderingMode(.alwaysTemplate)
-        self.imgAddLocation.tintColor = UIColor.white
-        if listModel.count <= 12{
-            self.btnAddLocation.isEnabled = true
-        }else{
-            self.btnAddLocation.isEnabled = false
-            changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
-        }
+        changeTintColor(img: self.imgAddLocation, color: UIColor.white)
+//        if listModel.count <= 10{
+//            self.btnAddLocation.isEnabled = true
+//        }else{
+//            self.btnAddLocation.isEnabled = false
+//            changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
+//        }
         
         if tableView.isEditing == true{
             self.btnAddLocation.isEnabled = false
-
             changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
             
+            self.btnChangeTemp.isEnabled = false
             self.lblC.textColor = UIColor.gray
             self.lblOC.textColor = UIColor.gray
             self.lblF.textColor = UIColor.gray
@@ -76,6 +76,7 @@ class CellLast: UITableViewCell {
             self.btnAddLocation.isEnabled = true
             changeTintColor(img: self.imgAddLocation, color: UIColor.white)
             
+            self.btnChangeTemp.isEnabled = true
             if temperature == "F"{
                 self.lblC.textColor = UIColor.gray
                 self.lblOC.textColor = UIColor.gray

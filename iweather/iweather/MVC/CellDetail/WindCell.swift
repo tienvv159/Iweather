@@ -17,6 +17,8 @@ class WindCell: UITableViewCell {
     @IBOutlet weak var lblChill: UILabel!
     @IBOutlet weak var imgFanSmall: UIImageView!
     @IBOutlet weak var imgFanBig: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

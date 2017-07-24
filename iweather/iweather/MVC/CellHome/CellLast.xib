@@ -127,9 +127,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="btnAddLocation" destination="EAb-Sa-opI" id="Vkr-6n-lXD"/>
+                <outlet property="btnAddLocation" destination="EAb-Sa-opI" id="PUP-ie-xIR"/>
+                <outlet property="btnChangeTemp" destination="cBf-m9-D59" id="h9T-0h-Ygs"/>
                 <outlet property="btnViewToMap" destination="Edn-SB-8tR" id="B7s-Yg-6Nk"/>
-                <outlet property="imgAddLocation" destination="GJD-cg-guE" id="62Y-fO-Mho"/>
+                <outlet property="imgAddLocation" destination="GJD-cg-guE" id="err-Nq-P9e"/>
                 <outlet property="imgViewToMap" destination="vvF-XB-H5H" id="BtK-4Y-PN8"/>
                 <outlet property="lblC" destination="B7p-ml-gYE" id="Yp9-1b-bUi"/>
                 <outlet property="lblF" destination="aPr-np-8u6" id="3lN-ru-Fih"/>

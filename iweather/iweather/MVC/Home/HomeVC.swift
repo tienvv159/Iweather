@@ -185,10 +185,11 @@ class HomeVC: UIViewController {
             arrDelete.removeAll()
         }
         if currentOffset <= -80 {
-            reloadDataWhenRunApp()
-            updateLast()
+            if myTableView.isEditing == false{
+                reloadDataWhenRunApp()
+                updateLast()
+            }
         }
-        print(currentOffset)
     }
     
     func updateLast() {
@@ -230,12 +231,22 @@ extension HomeVC: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellLast", for: indexPath) as! CellLast
             cell.delegate = self
             cell.setupCell(listModel: listModel, tableView: myTableView)
+            if listModel.count <= 10{
+                cell.btnAddLocation.isEnabled = true
+            }else{
+                cell.btnAddLocation.isEnabled = false
+                changeTintColor(img: cell.imgAddLocation, color: UIColor.gray)
+            }
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellWeather", for: indexPath) as! CellWeather
-            cell.setupCell(model: listModel[indexPath.section], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.section].city).\(listModel[indexPath.section].country)")
-            if indexPath.section == 0{
-                cell.tintColor = UIColor.clear
+            cell.setupCell(model: listModel[indexPath.section], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.section].city).\(listModel[indexPath.section].country)")    
+            if isOnLocation == true{
+                if indexPath.section == 0{
+                    cell.tintColor = UIColor.clear
+                }else{
+                    cell.tintColor = UIColor.blue
+                }
             }else{
                 cell.tintColor = UIColor.blue
             }
@@ -275,14 +286,22 @@ extension HomeVC : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing {
-            if indexPath.section != 0{
+            if isOnLocation == true{
+                if indexPath.section != 0{
+                    arrDelete.append(indexPath.section)
+                    if arrDelete.count >= 1{
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
+                        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                    }
+                }else{
+                    myTableView.allowsSelection = true
+                }
+            }else{
                 arrDelete.append(indexPath.section)
                 if arrDelete.count >= 1{
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
                     self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
                 }
-            }else{
-                myTableView.allowsSelection = true
             }
         }else{
             if indexPath.section != listModel.count {
@@ -310,25 +329,48 @@ extension HomeVC : UITableViewDelegate{
     
     // delete row
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section != listModel.count{
-            return true
+        if isOnLocation == true{
+            if indexPath.section == listModel.count || indexPath.section == 0{
+                return false
+            }else{
+                return true
+            }
         }else{
-            return false
+            if indexPath.section == listModel.count{
+                return false
+            }else{
+                return true
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if indexPath.section != 0 || indexPath.section == listModel.count{
-                do
-                {
-                    let realm = try Realm()
-                    try! realm.write {
-                        realm.delete(listModel[indexPath.section])
-                        getDataFromRealm()
+            if isOnLocation == true{
+                if indexPath.section != 0 || indexPath.section != listModel.count{
+                    do
+                    {
+                        let realm = try Realm()
+                        try! realm.write {
+                            realm.delete(listModel[indexPath.section])
+                            getDataFromRealm()
+                        }
+                    }catch{
+                        self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
                     }
-                }catch{
-                    self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+                }
+            }else{
+                if indexPath.section != listModel.count{
+                    do
+                    {
+                        let realm = try Realm()
+                        try! realm.write {
+                            realm.delete(listModel[indexPath.section])
+                            getDataFromRealm()
+                        }
+                    }catch{
+                        self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+                    }
                 }
             }
         }
@@ -390,7 +432,7 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
     }
     
     func checkTapToAddLocation(_ check: Bool) {
-        if check == true {
+        if check == true && myTableView.isEditing == false{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
             vc.delegate = self // set delegate cho SearchVC
