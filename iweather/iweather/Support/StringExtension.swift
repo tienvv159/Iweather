@@ -43,3 +43,9 @@ func hexStringToUIColor (hex:String) -> UIColor {
         alpha: CGFloat(1.0)
     )
 }
+
+func changeTintColor(img:UIImageView, color:UIColor) {
+    img.image = img.image?.withRenderingMode(.alwaysTemplate)
+    img.tintColor = color
+}
+

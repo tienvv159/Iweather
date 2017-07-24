@@ -125,6 +125,7 @@ class HomeVC: UIViewController {
     
     
     func reloadDataWhenRunApp() {
+        acti.startAnimating()
         let loadGroup = DispatchGroup()
         for item in listModel{
             loadGroup.enter()
@@ -134,6 +135,7 @@ class HomeVC: UIViewController {
         }
         loadGroup.notify(queue: DispatchQueue.main) {
             self.myTableView.reloadData()
+            self.acti.stopAnimating()
         }
     }
     
@@ -145,20 +147,11 @@ class HomeVC: UIViewController {
         myTableView.register(nib2, forCellReuseIdentifier: "CellWeather")
     }
     
-    func checkTapToAddLocation(_ check: Bool) {
-        if check == true {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-            vc.delegate = self // set delegate cho SearchVC
-            navigationController?.present(vc, animated: true, completion: nil)
-        }
-    }
-    
     func getAPI(_ location:String,complete:@escaping ()->()) {
         let apiString = define.APIWithName(location: location)
-        acti.startAnimating()
+        //acti.startAnimating()
         NetworkManager.share.callApi(apiString) { model in
-            self.acti.stopAnimating()
+            //self.acti.stopAnimating()
             if let model = model{
                 self.myTableView.reloadData()
                 do
@@ -396,6 +389,15 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
         }
     }
     
+    func checkTapToAddLocation(_ check: Bool) {
+        if check == true {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+            vc.delegate = self // set delegate cho SearchVC
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     func checkTapToViewMap(_ check: Bool) {
         if check == true{
             labelShowLastUpdate.text = "hello map"
@@ -406,7 +408,6 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
 
 

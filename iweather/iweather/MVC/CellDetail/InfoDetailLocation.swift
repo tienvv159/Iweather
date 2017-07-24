@@ -44,6 +44,9 @@ class InfoDetailLocation: UICollectionViewCell{
         
         let nibMap = UINib(nibName: "CellLocationInMap", bundle: nil)
         myTableView.register(nibMap, forCellReuseIdentifier: "CellLocationInMap")
+        
+        let nibWind = UINib(nibName: "WindCell", bundle: nil)
+        myTableView.register(nibWind, forCellReuseIdentifier: "WindCell")
     }
     
     func writeDataInView() {
@@ -117,9 +120,9 @@ extension InfoDetailLocation: UITableViewDelegate{
         }else if indexPath.row == 10{
             return 165
         }else if indexPath.row == 11{
-            return 280
+            return 170
         }else{
-            return 250
+            return 170
         }
     }
 }
@@ -127,7 +130,7 @@ extension InfoDetailLocation: UITableViewDelegate{
 
 extension InfoDetailLocation: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return 13
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,10 +142,16 @@ extension InfoDetailLocation: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoLocationCell", for: indexPath) as! InfoLocationCell
             cell.setupCell(modelIndexpath: modelIndexpath)
             return cell
-        }else {
+        }else if indexPath.row == 11{
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoWeatherCell", for: indexPath) as! InfoWeatherCell
             cell.setupCell(modelIndexpath: modelIndexpath)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WindCell", for: indexPath) as! WindCell
+            cell.setupCell(model: modelIndexpath)
             return cell
         }
     }
 }
+
+

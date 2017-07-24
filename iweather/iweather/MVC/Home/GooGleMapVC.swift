@@ -25,6 +25,9 @@ class GooGleMapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(btnBack))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -40,7 +43,7 @@ class GooGleMapVC: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         for item in listModel{
-            let markerView = ViewMarke(frame: CGRect(x: 0, y: 0, width: 45, height: 55))
+            let markerView = ViewMarke(frame: CGRect(x: 0, y: 0, width: 45, height: 40 ))
             if checkTemp == "F"{
                 markerView.lblTemp.text = String(item.tempF)
                 markerView.lblValueTemp.text = "F"
@@ -49,9 +52,7 @@ class GooGleMapVC: UIViewController {
                 markerView.lblValueTemp.text = "C"
             }
             markerView.imgStatus.image = StatusWeather.handlingItem(code: item.code)
-            markerView.imgStatus.image = markerView.imgStatus.image!.withRenderingMode(.alwaysTemplate)
-            markerView.imgStatus.tintColor = UIColor.black
-
+            changeTintColor(img: markerView.imgStatus, color: UIColor.black)
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: Double(item.lat) ?? 0, longitude: Double(item.long) ?? 0)
             marker.title = item.city
@@ -61,16 +62,15 @@ class GooGleMapVC: UIViewController {
             marker.iconView = markerView
             view.addSubview(mapView)
         }
-        
-
         mapView.isHidden = true
     }
     
-
+    func btnBack()  {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func listLikelyPlaces() {
-
         likelyPlaces.removeAll()
-        
         placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
             if let error = error {
                 // TODO: Handle the error.

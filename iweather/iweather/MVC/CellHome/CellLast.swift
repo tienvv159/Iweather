@@ -53,18 +53,17 @@ class CellLast: UITableViewCell {
     func setupCell(listModel:[IweatheModel], tableView:UITableView) {
         self.imgAddLocation.image = self.imgAddLocation.image!.withRenderingMode(.alwaysTemplate)
         self.imgAddLocation.tintColor = UIColor.white
-        if listModel.count >= 15{
-            self.btnAddLocation.isEnabled = false
-            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-            self.imgAddLocation.tintColor = UIColor.gray
-        }else{
+        if listModel.count <= 12{
             self.btnAddLocation.isEnabled = true
+        }else{
+            self.btnAddLocation.isEnabled = false
+            changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
         }
         
         if tableView.isEditing == true{
             self.btnAddLocation.isEnabled = false
-            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-            self.imgAddLocation.tintColor = UIColor.gray
+
+            changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
             
             self.lblC.textColor = UIColor.gray
             self.lblOC.textColor = UIColor.gray
@@ -75,8 +74,7 @@ class CellLast: UITableViewCell {
             self.imgViewToMap.image = UIImage(named: "mapGray1.png")
         }else{
             self.btnAddLocation.isEnabled = true
-            self.imgAddLocation.image = self.imgAddLocation.image?.withRenderingMode(.alwaysTemplate)
-            self.imgAddLocation.tintColor = UIColor.white
+            changeTintColor(img: self.imgAddLocation, color: UIColor.white)
             
             if temperature == "F"{
                 self.lblC.textColor = UIColor.gray

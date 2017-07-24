@@ -81,6 +81,11 @@
 		845673F91F21E40D0000D603 /* ViewMarke.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845673F81F21E40D0000D603 /* ViewMarke.xib */; };
 		845673FB1F21E4B00000D603 /* ViewMarke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845673FA1F21E4B00000D603 /* ViewMarke.swift */; };
 		845673FD1F21EFBB0000D603 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845673FC1F21EFBB0000D603 /* NibDesignable.swift */; };
+		845674011F22045C0000D603 /* fan12080.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 845673FF1F22045C0000D603 /* fan12080.jpg */; };
+		845674041F2206ED0000D603 /* WindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845674021F2206ED0000D603 /* WindCell.swift */; };
+		845674051F2206ED0000D603 /* WindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845674031F2206ED0000D603 /* WindCell.xib */; };
+		845674071F2208780000D603 /* fan404040.png in Resources */ = {isa = PBXBuildFile; fileRef = 845674061F2208780000D603 /* fan404040.png */; };
+		845674091F221D190000D603 /* fan120801.png in Resources */ = {isa = PBXBuildFile; fileRef = 845674081F221D190000D603 /* fan120801.png */; };
 		846619281F04A08E00C2954D /* sunrise.png in Resources */ = {isa = PBXBuildFile; fileRef = 846619261F04A08E00C2954D /* sunrise.png */; };
 		846619291F04A08E00C2954D /* sunset.png in Resources */ = {isa = PBXBuildFile; fileRef = 846619271F04A08E00C2954D /* sunset.png */; };
 		8466192B1F04F97800C2954D /* TempHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466192A1F04F97800C2954D /* TempHoursModel.swift */; };
@@ -224,6 +229,11 @@
 		845673F81F21E40D0000D603 /* ViewMarke.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewMarke.xib; sourceTree = "<group>"; };
 		845673FA1F21E4B00000D603 /* ViewMarke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMarke.swift; sourceTree = "<group>"; };
 		845673FC1F21EFBB0000D603 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
+		845673FF1F22045C0000D603 /* fan12080.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fan12080.jpg; sourceTree = "<group>"; };
+		845674021F2206ED0000D603 /* WindCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindCell.swift; sourceTree = "<group>"; };
+		845674031F2206ED0000D603 /* WindCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WindCell.xib; sourceTree = "<group>"; };
+		845674061F2208780000D603 /* fan404040.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fan404040.png; sourceTree = "<group>"; };
+		845674081F221D190000D603 /* fan120801.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fan120801.png; sourceTree = "<group>"; };
 		846619261F04A08E00C2954D /* sunrise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunrise.png; sourceTree = "<group>"; };
 		846619271F04A08E00C2954D /* sunset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunset.png; sourceTree = "<group>"; };
 		8466192A1F04F97800C2954D /* TempHoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempHoursModel.swift; sourceTree = "<group>"; };
@@ -342,6 +352,8 @@
 				84F36D5D1EFD05920057B481 /* InfoWeatherCell.xib */,
 				84F36D581EFD054F0057B481 /* InfoLocationCell.swift */,
 				84F36D591EFD054F0057B481 /* InfoLocationCell.xib */,
+				845674021F2206ED0000D603 /* WindCell.swift */,
+				845674031F2206ED0000D603 /* WindCell.xib */,
 				84DD4BF91F020254005120F2 /* InfoDetailLocation.swift */,
 				84DD4BFA1F020254005120F2 /* InfoDetailLocation.xib */,
 			);
@@ -425,6 +437,9 @@
 		843248C31EF75AB3001A2C86 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				845674081F221D190000D603 /* fan120801.png */,
+				845674061F2208780000D603 /* fan404040.png */,
+				845673FF1F22045C0000D603 /* fan12080.jpg */,
 				84AA0F1E1F21A4C400CDA8D0 /* mapGray1.png */,
 				84AA0F1C1F21A43A00CDA8D0 /* if_map.png */,
 				841039111F15B397002A77D8 /* backgoundetail2.png */,
@@ -528,8 +543,8 @@
 		845673F71F21E3B80000D603 /* XibGoogleMap */ = {
 			isa = PBXGroup;
 			children = (
-				845673F81F21E40D0000D603 /* ViewMarke.xib */,
 				845673FA1F21E4B00000D603 /* ViewMarke.swift */,
+				845673F81F21E40D0000D603 /* ViewMarke.xib */,
 			);
 			name = XibGoogleMap;
 			sourceTree = "<group>";
@@ -718,9 +733,11 @@
 				84E9AABE1F13650C00FFBCFE /* searchMask.png in Resources */,
 				841039121F15B397002A77D8 /* backgoundetail2.png in Resources */,
 				84E9AABF1F13650C00FFBCFE /* searchMask@2x.png in Resources */,
+				845674071F2208780000D603 /* fan404040.png in Resources */,
 				84E9AAB21F13650C00FFBCFE /* currentPageDot@2x.png in Resources */,
 				84AA0F1D1F21A43A00CDA8D0 /* if_map.png in Resources */,
 				84E9AABB1F13650C00FFBCFE /* pageDot@2x.png in Resources */,
+				845674011F22045C0000D603 /* fan12080.jpg in Resources */,
 				84E9AAAE1F13650C00FFBCFE /* appleDot@2x.png in Resources */,
 				846619281F04A08E00C2954D /* sunrise.png in Resources */,
 				8490980D1EFAD0BD00DA288F /* Main.storyboard in Resources */,
@@ -728,6 +745,7 @@
 				843248B71EF759E3001A2C86 /* LaunchScreen.storyboard in Resources */,
 				84E9AAB11F13650C00FFBCFE /* currentAppleDot@2x.png in Resources */,
 				841B5F901EFB993500632357 /* CellWeather.xib in Resources */,
+				845674051F2206ED0000D603 /* WindCell.xib in Resources */,
 				842919BB1EFBAF28001FB6F5 /* TempHoursHeaderInSection.xib in Resources */,
 				843248CE1EF764B2001A2C86 /* plus.png in Resources */,
 				84F36D5B1EFD054F0057B481 /* InfoLocationCell.xib in Resources */,
@@ -741,6 +759,7 @@
 				84B72AF61F14DB2200367B0D /* backgoundetail1.png in Resources */,
 				84B72AF41F14D65700367B0D /* backgoundetail.jpeg in Resources */,
 				845673F91F21E40D0000D603 /* ViewMarke.xib in Resources */,
+				845674091F221D190000D603 /* fan120801.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +917,7 @@
 				8432EF131F20972D0003428C /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				84DD4BFE1F021319005120F2 /* StringExtension.swift in Sources */,
 				841B5F8D1EFB993500632357 /* CellLast.swift in Sources */,
+				845674041F2206ED0000D603 /* WindCell.swift in Sources */,
 				845673F51F21AE700000D603 /* GooGleMapVC.swift in Sources */,
 				843248C51EF75AEE001A2C86 /* HomeVC.swift in Sources */,
 				845673FD1F21EFBB0000D603 /* NibDesignable.swift in Sources */,

@@ -26,13 +26,11 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let nib = UINib(nibName: "InfoDetailLocation", bundle: nil)
         myCollectionView.register(nib, forCellWithReuseIdentifier: "InfoDetailLocation")
         myCollectionView.reloadData()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(1)) {
             DispatchQueue.main.async {
                 self.myCollectionView.selectItem(at: IndexPath(row: self.row, section: 0), animated: false, scrollPosition: .centeredHorizontally)
-            }
-        }
-        
+                    }
+                }
         isOnLocation()
     }
     
