@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3b-tM-UbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="-457"/>
+            <point key="canvasLocation" x="1068" y="-453"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="z7D-KF-ZoA">
@@ -269,7 +269,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qZo-H7-cgj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WqR-EF-j6N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WqR-EF-j6N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

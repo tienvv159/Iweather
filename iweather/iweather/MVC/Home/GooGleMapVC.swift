@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class GooGleMapVC: UIViewController {
+class GooGleMapVC: UIViewController ,GMSMapViewDelegate{
     var checkTemp:String?
     var listModel:[IweatheModel] = [IweatheModel]()
     var locationManager = CLLocationManager()
@@ -41,7 +41,7 @@ class GooGleMapVC: UIViewController {
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
+        mapView.isMyLocationEnabled = true
         for item in listModel{
             let markerView = ViewMarke(frame: CGRect(x: 0, y: 0, width: 45, height: 40 ))
             if checkTemp == "F"{
@@ -62,9 +62,11 @@ class GooGleMapVC: UIViewController {
             marker.iconView = markerView
             view.addSubview(mapView)
         }
+        mapView.delegate = self
         mapView.isHidden = true
     }
     
+   
     func btnBack()  {
         navigationController?.popViewController(animated: true)
     }

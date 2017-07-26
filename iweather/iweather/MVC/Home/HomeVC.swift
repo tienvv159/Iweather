@@ -25,7 +25,7 @@ class HomeVC: UIViewController {
     var index = 1
     var acti:NVActivityIndicatorView!
     var labelShowLastUpdate:UILabel!
-    
+
     override func viewDidAppear(_ animated: Bool) {
         getDataFromRealm()
         getCurrentLocation()
@@ -42,6 +42,8 @@ class HomeVC: UIViewController {
         self.myTableView.allowsMultipleSelection = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(btnCancel))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         
         acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
         self.view.addSubview(acti)
@@ -52,13 +54,11 @@ class HomeVC: UIViewController {
     
     func btnEditing() {
         myTableView.setEditing(true, animated: true)
-        //myTableView.isEditing = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(btnCancelRight))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         myTableView.reloadData()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
-    func btnCancelRight() {
+    func btnCancel() {
         myTableView.isEditing = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
@@ -149,9 +149,7 @@ class HomeVC: UIViewController {
     
     func getAPI(_ location:String,complete:@escaping ()->()) {
         let apiString = define.APIWithName(location: location)
-        //acti.startAnimating()
         NetworkManager.share.callApi(apiString) { model in
-            //self.acti.stopAnimating()
             if let model = model{
                 self.myTableView.reloadData()
                 do
@@ -200,7 +198,6 @@ class HomeVC: UIViewController {
         labelShowLastUpdate.textAlignment = .center
         let currentTime = formatF.string(from: Date())
         labelShowLastUpdate.text = "last update \(currentTime)"
-
     }
 }
 
@@ -223,24 +220,31 @@ extension HomeVC: UITableViewDataSource{
         let viewHeader:UIView = UIView()
         viewHeader.backgroundColor = UIColor.clear
         return viewHeader
-          
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == listModel.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellLast", for: indexPath) as! CellLast
             cell.delegate = self
-            cell.setupCell(listModel: listModel, tableView: myTableView)
+            cell.setupCell(listModel: listModel, tableView: myTableView)            
             if listModel.count <= 10{
                 cell.btnAddLocation.isEnabled = true
             }else{
                 cell.btnAddLocation.isEnabled = false
                 changeTintColor(img: cell.imgAddLocation, color: UIColor.gray)
             }
+            if listModel.count <= 0 || myTableView.isEditing == true{
+                cell.imgViewToMap.image = UIImage(named: "mapGray1.png")
+                cell.btnViewToMap.isEnabled = false
+            }else{
+                cell.imgViewToMap.image = UIImage(named: "if_map.png")
+                cell.btnViewToMap.isEnabled = true
+            }
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellWeather", for: indexPath) as! CellWeather
-            cell.setupCell(model: listModel[indexPath.section], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.section].city).\(listModel[indexPath.section].country)")    
+            cell.setupCell(model: listModel[indexPath.section], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.section].city).\(listModel[indexPath.section].country)")
+            
             if isOnLocation == true{
                 if indexPath.section == 0{
                     cell.tintColor = UIColor.clear
@@ -256,29 +260,13 @@ extension HomeVC: UITableViewDataSource{
 }
 
 extension HomeVC : UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         if self.myTableView.isEditing{
             return UITableViewCellEditingStyle(rawValue: 3)!
+        }else{
+            return UITableViewCellEditingStyle.delete
         }
-        return UITableViewCellEditingStyle.delete
-        
     }
-    
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        if sourceIndexPath.section == destinationIndexPath.section{
-//            myTableView.reloadData()
-//        }else{
-//            if destinationIndexPath.section != listModel.count && sourceIndexPath.section != listModel.count{
-//                myTableView.isEditing = false
-//                swap(&listModel[sourceIndexPath.section], &listModel[destinationIndexPath.section])
-//                reloadDataWhenRunApp()
-//                myTableView.reloadData()
-//                myTableView.isEditing = false
-//            }
-//        }
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -322,32 +310,30 @@ extension HomeVC : UITableViewDelegate{
             }
         }
         if arrDelete.count == 0{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(btnCancelRight))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         }
     }
     
     // delete row
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if isOnLocation == true{
-            if indexPath.section == listModel.count || indexPath.section == 0{
-                return false
-            }else{
-                return true
-            }
+        if indexPath.section == listModel.count{
+            return false
         }else{
-            if indexPath.section == listModel.count{
-                return false
+            if myTableView.isEditing == true{
+                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
             }else{
-                return true
+                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(btnEditing))
+                navigationItem.rightBarButtonItem?.tintColor = UIColor.white
             }
+            return true
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if isOnLocation == true{
-                if indexPath.section != 0 || indexPath.section != listModel.count{
+                if indexPath.section != 0 && indexPath.section != listModel.count{
                     do
                     {
                         let realm = try Realm()
@@ -373,17 +359,10 @@ extension HomeVC : UITableViewDelegate{
                     }
                 }
             }
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         }
     }
-    
-    
-//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-//        if indexPath.section == listModel.count{
-//            return false
-//        }else{
-//            return true
-//        }
-//    }
 }
 
 
@@ -442,7 +421,7 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
     
     func checkTapToViewMap(_ check: Bool) {
         if check == true{
-            labelShowLastUpdate.text = "hello map"
+            labelShowLastUpdate.text = "weather map"
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GooGleMapVC") as! GooGleMapVC
             vc.listModel = listModel

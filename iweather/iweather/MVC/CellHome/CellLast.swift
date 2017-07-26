@@ -53,16 +53,13 @@ class CellLast: UITableViewCell {
     
     func setupCell(listModel:[IweatheModel], tableView:UITableView) {
         changeTintColor(img: self.imgAddLocation, color: UIColor.white)
-//        if listModel.count <= 10{
-//            self.btnAddLocation.isEnabled = true
-//        }else{
-//            self.btnAddLocation.isEnabled = false
-//            changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
-//        }
-        
+
         if tableView.isEditing == true{
             self.btnAddLocation.isEnabled = false
             changeTintColor(img: self.imgAddLocation, color: UIColor.gray)
+            
+//            self.btnViewToMap.isEnabled = false
+//            self.imgViewToMap.image = UIImage(named: "mapGray1.png")
             
             self.btnChangeTemp.isEnabled = false
             self.lblC.textColor = UIColor.gray
@@ -70,12 +67,14 @@ class CellLast: UITableViewCell {
             self.lblF.textColor = UIColor.gray
             self.lblOF.textColor = UIColor.gray
             
-            self.btnViewToMap.isEnabled = false
-            self.imgViewToMap.image = UIImage(named: "mapGray1.png")
+
         }else{
             self.btnAddLocation.isEnabled = true
             changeTintColor(img: self.imgAddLocation, color: UIColor.white)
             
+//            self.btnViewToMap.isEnabled = true
+//            self.imgViewToMap.image = UIImage(named: "if_map.png")
+
             self.btnChangeTemp.isEnabled = true
             if temperature == "F"{
                 self.lblC.textColor = UIColor.gray
@@ -88,8 +87,6 @@ class CellLast: UITableViewCell {
                 self.lblF.textColor = UIColor.gray
                 self.lblOF.textColor = UIColor.gray
             }
-            self.btnViewToMap.isEnabled = true
-            self.imgViewToMap.image = UIImage(named: "if_map.png")
         }
     }
 }
