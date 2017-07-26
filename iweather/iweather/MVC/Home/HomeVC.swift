@@ -40,10 +40,14 @@ class HomeVC: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         self.myTableView.allowsMultipleSelection = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(btnCancel))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+
+        if listModel.count <= 0{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        }else{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        }
+
         
         acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
         self.view.addSubview(acti)
@@ -55,13 +59,19 @@ class HomeVC: UIViewController {
     func btnEditing() {
         myTableView.setEditing(true, animated: true)
         myTableView.reloadData()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(btnCancel))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     func btnCancel() {
         myTableView.isEditing = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        arrDelete.removeAll()
         myTableView.reloadData()
     }
     
@@ -76,11 +86,14 @@ class HomeVC: UIViewController {
                 getDataFromRealm()
                 arrDelete.removeAll()
                 myTableView.isEditing = false
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
             }
         }catch{
             self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+        }
+        if listModel.count <= 0{
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        }else{
         }
     }
     
@@ -262,7 +275,11 @@ extension HomeVC: UITableViewDataSource{
 extension HomeVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         if self.myTableView.isEditing{
-            return UITableViewCellEditingStyle(rawValue: 3)!
+            if isOnLocation == true && indexPath.section == 0{
+                return UITableViewCellEditingStyle.none
+            }else{
+                return UITableViewCellEditingStyle(rawValue: 3)!
+            }
         }else{
             return UITableViewCellEditingStyle.delete
         }
@@ -359,8 +376,12 @@ extension HomeVC : UITableViewDelegate{
                     }
                 }
             }
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+            if listModel.count <= 0{
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            }else{
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
+                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+            }
         }
     }
 }
