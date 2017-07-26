@@ -27,6 +27,12 @@ class HomeVC: UIViewController {
     var labelShowLastUpdate:UILabel!
 
     override func viewDidAppear(_ animated: Bool) {
+//        if !Reachability.isConnectedToNetwork() {
+//            let alert = UIAlertController(title: "Notification", message: "Internet not Connection Available!", preferredStyle: .alert)
+//            let btnOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//            alert.addAction(btnOK)
+//            present(alert, animated: true, completion: nil)
+//        }
         getDataFromRealm()
         getCurrentLocation()
         updateLast()
