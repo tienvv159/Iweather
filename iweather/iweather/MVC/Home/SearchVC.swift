@@ -105,6 +105,9 @@ extension SearchVC: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellSearch", for: indexPath) as! CellSearch
         if let model = modelSearch?.datas{
             cell.lblResulfSearch.text = "\(model[indexPath.row].qualifiedName) - \(model[indexPath.row].country)"
+            if model[indexPath.row].qualifiedName .contains(mySearchBar.text!){
+                
+            }
         }else {
             // no value
         }

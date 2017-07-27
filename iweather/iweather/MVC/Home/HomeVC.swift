@@ -37,20 +37,24 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
         registerCell()
         navigationController?.navigationBar.barTintColor = UIColor.clear
         navigationController?.navigationBar.backgroundColor = UIColor.clear
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         self.myTableView.allowsMultipleSelection = true
-
+        
         if listModel.count <= 0{
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         }else{
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         }
-
+        
         acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
         self.view.addSubview(acti)
         
@@ -94,9 +98,8 @@ class HomeVC: UIViewController {
         }
         if listModel.count <= 0{
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        }else{
         }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     func getDataCurrentLocation(latLong:String, complete: () -> ()) {
@@ -140,7 +143,7 @@ class HomeVC: UIViewController {
     
     
     func reloadDataWhenRunApp() {
-        acti.startAnimating()
+        //acti.startAnimating()
         let loadGroup = DispatchGroup()
         for item in listModel{
             loadGroup.enter()
@@ -150,7 +153,7 @@ class HomeVC: UIViewController {
         }
         loadGroup.notify(queue: DispatchQueue.main) {
             self.myTableView.reloadData()
-            self.acti.stopAnimating()
+            //self.acti.stopAnimating()
         }
     }
     
@@ -163,8 +166,10 @@ class HomeVC: UIViewController {
     }
     
     func getAPI(_ location:String,complete:@escaping ()->()) {
+        acti.startAnimating()
         let apiString = define.APIWithName(location: location)
         NetworkManager.share.callApi(apiString) { model in
+            self.acti.stopAnimating()
             if let model = model{
                 self.myTableView.reloadData()
                 do
@@ -194,6 +199,10 @@ class HomeVC: UIViewController {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
+        if currentOffset <= 0 && myTableView.isEditing && arrDelete.count >= 1{
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        }
         if currentOffset <= -80 && Reachability.isConnectedToNetwork(){
             if myTableView.isEditing == false{
                 reloadDataWhenRunApp()

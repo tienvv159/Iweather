@@ -38,7 +38,7 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let defaults = UserDefaults.standard
         let check = defaults.string(forKey: "isOnLocation")
         
-        if check != nil{
+        if check != nil && Reachability.isConnectedToNetwork(){
             myCollectionView.isPagingEnabled = true
             pageControl.numberOfPages = listModel.count
             pageControl.currentPage = row
@@ -89,9 +89,9 @@ class HomeDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offSet:CGFloat = scrollView.contentOffset.x
-        let width:CGFloat = scrollView.frame.size.width
-        if offSet == width * CGFloat(index){
+        let offSet:Double = Double(scrollView.contentOffset.x)
+        let width:Double = Double(scrollView.frame.size.width)
+        if offSet == width * Double(index){
             pageControl.currentPage = index
         }
     }
