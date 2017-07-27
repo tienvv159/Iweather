@@ -27,12 +27,9 @@ class HomeVC: UIViewController {
     var labelShowLastUpdate:UILabel!
 
     override func viewDidAppear(_ animated: Bool) {
-//        if !Reachability.isConnectedToNetwork() {
-//            let alert = UIAlertController(title: "Notification", message: "Internet not Connection Available!", preferredStyle: .alert)
-//            let btnOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//            alert.addAction(btnOK)
-//            present(alert, animated: true, completion: nil)
-//        }
+        if !Reachability.isConnectedToNetwork() {
+            isOnLocation = false
+        }
         getDataFromRealm()
         getCurrentLocation()
         updateLast()
@@ -54,7 +51,6 @@ class HomeVC: UIViewController {
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         }
 
-        
         acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
         self.view.addSubview(acti)
         
@@ -198,14 +194,16 @@ class HomeVC: UIViewController {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
-        if currentOffset < 0{
-            arrDelete.removeAll()
-        }
-        if currentOffset <= -80 {
+        if currentOffset <= -80 && Reachability.isConnectedToNetwork(){
             if myTableView.isEditing == false{
                 reloadDataWhenRunApp()
                 updateLast()
             }
+        }else if currentOffset <= -80 && !Reachability.isConnectedToNetwork(){
+            let alert = UIAlertController(title: "", message: "Internet Not Connection Available! \n Please Connection Internet \n And Try Again!!", preferredStyle: .alert)
+            let btnOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(btnOK)
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -265,7 +263,7 @@ extension HomeVC: UITableViewDataSource{
             cell.setupCell(model: listModel[indexPath.section], temp: temperature, strings1: checkLocation, Strings2: "\(listModel[indexPath.section].city).\(listModel[indexPath.section].country)")
             
             if isOnLocation == true{
-                if indexPath.section == 0{
+                if indexPath.section == 0 && Reachability.isConnectedToNetwork(){
                     cell.tintColor = UIColor.clear
                 }else{
                     cell.tintColor = UIColor.blue
@@ -281,13 +279,17 @@ extension HomeVC: UITableViewDataSource{
 extension HomeVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         if self.myTableView.isEditing{
-            if isOnLocation == true && indexPath.section == 0{
+            if isOnLocation == true && indexPath.section == 0 && Reachability.isConnectedToNetwork(){
                 return UITableViewCellEditingStyle.none
             }else{
                 return UITableViewCellEditingStyle(rawValue: 3)!
             }
         }else{
-            return UITableViewCellEditingStyle.delete
+            if isOnLocation == true && indexPath.section == 0 && Reachability.isConnectedToNetwork(){
+                return UITableViewCellEditingStyle.none
+            }else{
+                return UITableViewCellEditingStyle.delete
+            }
         }
     }
     
@@ -298,14 +300,20 @@ extension HomeVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing {
             if isOnLocation == true{
-                if indexPath.section != 0{
+                if Reachability.isConnectedToNetwork(){
+                    if indexPath.section != 0 {
+                        arrDelete.append(indexPath.section)
+                        if arrDelete.count >= 1{
+                            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
+                            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                        }
+                    }
+                }else{
                     arrDelete.append(indexPath.section)
                     if arrDelete.count >= 1{
                         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
                         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
                     }
-                }else{
-                    myTableView.allowsSelection = true
                 }
             }else{
                 arrDelete.append(indexPath.section)
@@ -324,6 +332,7 @@ extension HomeVC : UITableViewDelegate{
                 navigationController?.present(vc, animated: true, completion: nil)
             }
         }
+        print(arrDelete)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -332,10 +341,14 @@ extension HomeVC : UITableViewDelegate{
                 arrDelete.remove(at: index)
             }
         }
-        if arrDelete.count == 0{
+        if arrDelete.count <= 0{
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        }else{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+
         }
+        print(arrDelete)
     }
     
     // delete row
@@ -352,20 +365,35 @@ extension HomeVC : UITableViewDelegate{
             return true
         }
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if isOnLocation == true{
-                if indexPath.section != 0 && indexPath.section != listModel.count{
-                    do
-                    {
-                        let realm = try Realm()
-                        try! realm.write {
-                            realm.delete(listModel[indexPath.section])
-                            getDataFromRealm()
+            if Reachability.isConnectedToNetwork(){
+                if isOnLocation == true{
+                    if indexPath.section != 0 && indexPath.section != listModel.count{
+                        do
+                        {
+                            let realm = try Realm()
+                            try! realm.write {
+                                realm.delete(listModel[indexPath.section])
+                                getDataFromRealm()
+                            }
+                        }catch{
+                            self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
                         }
-                    }catch{
-                        self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+                    }
+                }else{
+                    if indexPath.section != listModel.count{
+                        do
+                        {
+                            let realm = try Realm()
+                            try! realm.write {
+                                realm.delete(listModel[indexPath.section])
+                                getDataFromRealm()
+                            }
+                        }catch{
+                            self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+                        }
                     }
                 }
             }else{
@@ -382,6 +410,7 @@ extension HomeVC : UITableViewDelegate{
                     }
                 }
             }
+            
             if listModel.count <= 0{
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
             }else{
