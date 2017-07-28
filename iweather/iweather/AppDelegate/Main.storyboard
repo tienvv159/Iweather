@@ -66,10 +66,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zfa-q6-glb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUr-6B-1WR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="902"/>
+            <point key="canvasLocation" x="1048.8" y="897.30134932533736"/>
         </scene>
         <!--Home DetailVC-->
         <scene sceneID="bEy-pV-Lfp">
@@ -269,7 +270,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qZo-H7-cgj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WqR-EF-j6N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WqR-EF-j6N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

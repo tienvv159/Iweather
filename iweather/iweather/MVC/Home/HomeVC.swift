@@ -25,11 +25,9 @@ class HomeVC: UIViewController {
     var index = 1
     var acti:NVActivityIndicatorView!
     var labelShowLastUpdate:UILabel!
+    var viewContentActi:UIView? = nil
 
     override func viewDidAppear(_ animated: Bool) {
-        if !Reachability.isConnectedToNetwork() {
-            isOnLocation = false
-        }
         getDataFromRealm()
         getCurrentLocation()
         updateLast()
@@ -48,58 +46,15 @@ class HomeVC: UIViewController {
         self.locationManager.requestWhenInUseAuthorization()
         self.myTableView.allowsMultipleSelection = true
         
-        if listModel.count <= 0{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        }else{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        }
-        
         acti = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2 - 25, y: self.view.frame.height/2, width: 50, height: 50), type: NVActivityIndicatorType.pacman, color: UIColor.black, padding: 0)
-        self.view.addSubview(acti)
+        viewContentActi = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        viewContentActi?.isHidden = true
+        viewContentActi?.backgroundColor = UIColor.clear
+        viewContentActi?.addSubview(acti)
+        self.view.addSubview(viewContentActi!)
         
         labelShowLastUpdate = UILabel(frame: CGRect(x: 75, y: 0 , width: self.view.frame.width - 150, height: 40))
         navigationController?.navigationBar.addSubview(labelShowLastUpdate)
-    }
-    
-    func btnEditing() {
-        myTableView.setEditing(true, animated: true)
-        myTableView.reloadData()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(btnCancel))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-    }
-    
-    func btnCancel() {
-        myTableView.isEditing = false
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        arrDelete.removeAll()
-        myTableView.reloadData()
-    }
-    
-    func btnDelete() {
-        do
-        {
-            let realm = try Realm()
-            try! realm.write {
-                for i in arrDelete{
-                    realm.delete(listModel[i])
-                }
-                getDataFromRealm()
-                arrDelete.removeAll()
-                myTableView.isEditing = false
-            }
-        }catch{
-            self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
-        }
-        if listModel.count <= 0{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        }
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     func getDataCurrentLocation(latLong:String, complete: () -> ()) {
@@ -132,6 +87,12 @@ class HomeVC: UIViewController {
             for model in list {
                 listModel.append(model)
             }
+            if listModel.count <= 0{
+                hiddenRightBarbutton()
+            }else{
+                showRightBarButtonEdit()
+            }
+
             listModel = listModel.sorted(by: { o1,o2 in
                 return checkLocation == (o1.city + "." + o1.country)
             })
@@ -141,9 +102,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    
     func reloadDataWhenRunApp() {
-        //acti.startAnimating()
         let loadGroup = DispatchGroup()
         for item in listModel{
             loadGroup.enter()
@@ -153,7 +112,6 @@ class HomeVC: UIViewController {
         }
         loadGroup.notify(queue: DispatchQueue.main) {
             self.myTableView.reloadData()
-            //self.acti.stopAnimating()
         }
     }
     
@@ -167,8 +125,10 @@ class HomeVC: UIViewController {
     
     func getAPI(_ location:String,complete:@escaping ()->()) {
         acti.startAnimating()
+        viewContentActi?.isHidden = false
         let apiString = define.APIWithName(location: location)
         NetworkManager.share.callApi(apiString) { model in
+            self.viewContentActi?.isHidden = true
             self.acti.stopAnimating()
             if let model = model{
                 self.myTableView.reloadData()
@@ -199,10 +159,6 @@ class HomeVC: UIViewController {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
-        if currentOffset <= 0 && myTableView.isEditing && arrDelete.count >= 1{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
-            navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        }
         if currentOffset <= -80 && Reachability.isConnectedToNetwork(){
             if myTableView.isEditing == false{
                 reloadDataWhenRunApp()
@@ -262,9 +218,28 @@ extension HomeVC: UITableViewDataSource{
             if listModel.count <= 0 || myTableView.isEditing == true{
                 cell.imgViewToMap.image = UIImage(named: "mapGray1.png")
                 cell.btnViewToMap.isEnabled = false
+                
+                cell.btnChangeTemp.isEnabled = false
+                cell.lblC.textColor = UIColor.gray
+                cell.lblF.textColor = UIColor.gray
+                cell.lblOC.textColor = UIColor.gray
+                cell.lblOF.textColor = UIColor.gray
             }else{
                 cell.imgViewToMap.image = UIImage(named: "if_map.png")
                 cell.btnViewToMap.isEnabled = true
+                
+                cell.btnChangeTemp.isEnabled = true
+                if temperature == "F"{
+                    cell.lblC.textColor = UIColor.gray
+                    cell.lblF.textColor = UIColor.white
+                    cell.lblOC.textColor = UIColor.gray
+                    cell.lblOF.textColor = UIColor.white
+                }else{
+                    cell.lblC.textColor = UIColor.white
+                    cell.lblF.textColor = UIColor.gray
+                    cell.lblOC.textColor = UIColor.white
+                    cell.lblOF.textColor = UIColor.gray
+                }
             }
             return cell
         }else{
@@ -313,22 +288,19 @@ extension HomeVC : UITableViewDelegate{
                     if indexPath.section != 0 {
                         arrDelete.append(indexPath.section)
                         if arrDelete.count >= 1{
-                            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
-                            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                            showRightBarButtonDelete()
                         }
                     }
                 }else{
                     arrDelete.append(indexPath.section)
                     if arrDelete.count >= 1{
-                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
-                        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                        showRightBarButtonDelete()
                     }
                 }
             }else{
                 arrDelete.append(indexPath.section)
                 if arrDelete.count >= 1{
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
-                    self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                    showRightBarButtonDelete()
                 }
             }
         }else{
@@ -341,7 +313,6 @@ extension HomeVC : UITableViewDelegate{
                 navigationController?.present(vc, animated: true, completion: nil)
             }
         }
-        print(arrDelete)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -351,13 +322,10 @@ extension HomeVC : UITableViewDelegate{
             }
         }
         if arrDelete.count <= 0{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            hiddenRightBarbutton()
         }else{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-
+            showRightBarButtonDelete()
         }
-        print(arrDelete)
     }
     
     // delete row
@@ -365,12 +333,6 @@ extension HomeVC : UITableViewDelegate{
         if indexPath.section == listModel.count{
             return false
         }else{
-            if myTableView.isEditing == true{
-                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            }else{
-                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(btnEditing))
-                navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-            }
             return true
         }
     }
@@ -398,7 +360,9 @@ extension HomeVC : UITableViewDelegate{
                             let realm = try Realm()
                             try! realm.write {
                                 realm.delete(listModel[indexPath.section])
-                                getDataFromRealm()
+                                if listModel.count >= 1{
+                                    getDataFromRealm()
+                                }
                             }
                         }catch{
                             self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
@@ -421,10 +385,9 @@ extension HomeVC : UITableViewDelegate{
             }
             
             if listModel.count <= 0{
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+                hiddenRightBarbutton()
             }else{
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(btnEditing))
-                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+                showRightBarButtonEdit()
             }
         }
     }
@@ -491,8 +454,68 @@ extension HomeVC:  MyCellLastDelegate, SearchVCDelegate{
             let vc = storyboard.instantiateViewController(withIdentifier: "GooGleMapVC") as! GooGleMapVC
             vc.listModel = listModel
             vc.checkTemp = temperature
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.present(vc, animated: true, completion: nil)
         }
+    }
+}
+
+
+extension HomeVC{
+    func showRightBarButtonEdit() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(btnEditing))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
+    func showRightBarButtonDelete() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(btnDelete))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
+    func hiddenRightBarbutton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    }
+    func showleftBarButtonCancel() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(btnCancel))
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    func hiddenLeftBarButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    }
+}
+
+extension HomeVC{
+    func btnEditing() {
+        myTableView.setEditing(true, animated: true)
+        myTableView.reloadData()
+        showleftBarButtonCancel()
+        hiddenRightBarbutton()
+    }
+    
+    func btnCancel() {
+        myTableView.isEditing = false
+        hiddenLeftBarButton()
+        showRightBarButtonEdit()
+        arrDelete.removeAll()
+        myTableView.reloadData()
+    }
+    
+    func btnDelete() {
+        do
+        {
+            let realm = try Realm()
+            try! realm.write {
+                for i in arrDelete{
+                    realm.delete(listModel[i])
+                }
+                getDataFromRealm()
+                arrDelete.removeAll()
+                myTableView.isEditing = false
+            }
+        }catch{
+            self.showAlert(titleAlert: "Notification", message: "Error delete data", titleAction: "OK")
+        }
+        if listModel.count <= 0{
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
 }
 

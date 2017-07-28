@@ -18,16 +18,11 @@ class GooGleMapVC: UIViewController ,GMSMapViewDelegate{
     var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 8.0
-    
     var likelyPlaces: [GMSPlace] = []
-    
     var selectedPlace: GMSPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(btnBack))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -36,7 +31,7 @@ class GooGleMapVC: UIViewController ,GMSMapViewDelegate{
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
         
-        let camera = GMSCameraPosition.camera(withLatitude: 21.032018, longitude: 105.799209,
+        let camera = GMSCameraPosition.camera(withLatitude: Double(listModel[0].lat) ?? 21.031805, longitude: Double(listModel[0].long) ?? 105.799243,
                                               zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
         mapView.settings.myLocationButton = true
@@ -60,15 +55,22 @@ class GooGleMapVC: UIViewController ,GMSMapViewDelegate{
             marker.map = mapView
             marker.icon = GMSMarker.markerImage(with: .black)
             marker.iconView = markerView
-            view.addSubview(mapView)
+            
+            let viewNavi = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
+            viewNavi.backgroundColor = UIColor.gray
+            let btnDismiss = UIButton(frame: CGRect(x: 10, y: 20, width: 80, height: 30))
+            btnDismiss.setTitle("Dismiss", for: .normal)
+            btnDismiss.addTarget(self, action: #selector(btnDis), for: .touchUpInside)
+            
+            viewNavi.addSubview(btnDismiss)
+            mapView.addSubview(viewNavi)
+            self.view.addSubview(mapView)
         }
         mapView.delegate = self
         mapView.isHidden = true
     }
-    
-   
-    func btnBack()  {
-        navigationController?.popViewController(animated: true)
+    func btnDis() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func listLikelyPlaces() {
